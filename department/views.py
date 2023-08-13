@@ -12,12 +12,13 @@ class DepartmentViewSet(viewsets.ModelViewSet):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
+
+    def get_queryset(self):
+        # Only include objects where is_deleted is False
+        return Department.objects.filter(is_deleted=False)
+
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
-
-        if instance.is_deleted:
-            return response.Response({"detail": "This department is already deleted."}, status=status.HTTP_400_BAD_REQUEST)
-        
         instance.is_deleted = True
         instance.save()
         

@@ -12,13 +12,12 @@ class WorkplaceViewSet(viewsets.ModelViewSet):
     queryset = Workplace.objects.filter( is_deleted = False)
     serializer_class = WorkplaceSerializer
     
+    def get_queryset(self):
+        # Only include objects where is_deleted is False
+        return Workplace.objects.filter(is_deleted=False)
 
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
-
-        if instance.is_deleted:
-            return Response({"detail": "This workplace is already deleted."}, status=status.HTTP_400_BAD_REQUEST)
-        
         instance.is_deleted = True
         instance.save()
         
