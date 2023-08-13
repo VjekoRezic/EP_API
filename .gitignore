@@ -1,0 +1,74 @@
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Compiled Python files
+*.pyc
+__pycache__/
+
+# Django development settings
+*.log
+*.pot
+*.pyc
+db.sqlite3
+.env
+
+# Temporary files
+*.swp
+*~
+
+# Project-specific settings
+/media/
+/static/
+
+# Secret key
+*.secret_key
+
+# Debug files
+*.bak
+*.bak.*
+*.swp
+*.~*
+
+# Development environment settings
+.vscode/
+.idea/
+
+# Compiled assets
+/staticfiles/
+
+# Coverage
+.coverage
+htmlcov/
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Dependency management
+/node_modules/
+/yarn-error.log
+
+# IDE-specific files
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.suo
+*.user
+*.sln.docstates
+
+# Mac OS-specific
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows-specific
+Thumbs.db
+ehthumbs.db
+Desktop.ini
