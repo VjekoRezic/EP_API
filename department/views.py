@@ -23,3 +23,4 @@ class DepartmentViewSet(viewsets.ModelViewSet):
         instance.save()
         
         return response.Response(status=status.HTTP_204_NO_CONTENT)
+
