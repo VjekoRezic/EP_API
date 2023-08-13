@@ -1,8 +1,8 @@
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
-from .models import WO_Status, WO_Category
-from .serializers import WO_StatusSerializer, WO_CategorySerializer
+from .models import WO_Status, WO_Category, WorkOrder
+from .serializers import WO_StatusSerializer, WO_CategorySerializer, WorkOrderSerializer
 from user.authentication import CustomUserAuth
 from user.permissions import IsAdminOrReadOnly
 
@@ -44,3 +44,26 @@ class WO_CategoryViewSet(viewsets.ModelViewSet):
         instance.save()
 
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class WorkOrderViewSet(viewsets.ModelViewSet):
+    authentication_classes = (CustomUserAuth,)
+    permission_classes = [IsAdminOrReadOnly]
+    queryset = WorkOrder.objects.all()
+    serializer_class = WorkOrderSerializer
+
+    def create(self, request, *args, **kwargs):
+        print(request.data)
+        return super().create(request, *args, **kwargs)
+
+    def get_queryset(self):
+        # Only include objects where is_deleted is False
+        return WorkOrder.objects.filter(is_deleted=False)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+
+        # Custom delete behavior: Set is_deleted to True
+        instance.is_deleted = True
+        instance.save()
+
+        return Response(status=status.HTTP_204_NO_CONTENT)    

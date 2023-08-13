@@ -143,6 +143,6 @@ USE_TZ = True
 TIME_ZONE = 'Europe/Zagreb'
 
 REST_FRAMEWORK = {
-    'DATETIME_FORMAT':"%d-%m-%Y %H:%M:%S",
-    'DATETIME_INPUT_FORMATS':["%d-%m-%Y %H:%M:%S"],
+    'DATETIME_FORMAT':"%d.%m.%Y %H:%M:%S",
+    'DATETIME_INPUT_FORMATS':["%d.%m.%Y %H:%M:%S"],
 }
