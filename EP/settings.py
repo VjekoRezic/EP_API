@@ -21,6 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-h8$j7n4r$4x7!gxenv)53et5&!_=ct=(gtz%qyy7$ew$e2p3pv'
+JWT_SECRET = 'jwt-insecure-h8$j7n4r$4x7!gxenv)53et5&!_=ct=(gtz%qyy7$ew$e2p3pv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -143,5 +144,5 @@ TIME_ZONE = 'Europe/Zagreb'
 
 REST_FRAMEWORK = {
     'DATETIME_FORMAT':"%d-%m-%Y %H:%M:%S",
-    'DATETIME_INPUT_FORMATS':["%d-%m-%Y %H:%M:%S"]
+    'DATETIME_INPUT_FORMATS':["%d-%m-%Y %H:%M:%S"],
 }

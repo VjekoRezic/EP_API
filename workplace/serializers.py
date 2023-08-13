@@ -4,4 +4,4 @@ from .models import Workplace
 class WorkplaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Workplace
-        fields = ['id', 'name', 'code', 'points', 'is_deleted']
+        exclude = ['is_deleted']

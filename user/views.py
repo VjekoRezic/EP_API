@@ -1,10 +1,13 @@
-from rest_framework.authtoken.models import Token
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
 from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer
+import jwt
+import datetime
+from django.conf import settings
+
 
 class UserRegistrationView(APIView):
     permission_classes = [IsAdminUser]
@@ -27,7 +30,7 @@ class UserLoginView(APIView):
             user = authenticate(email=serializer.validated_data['email'], password=serializer.validated_data['password'])
             if user:
                 login(request, user)
-                token, created = Token.objects.get_or_create(user=user)
+                token = create_token(user.id)
                 resp = Response({"message":"Login successful"}, status=status.HTTP_200_OK)
                 resp.set_cookie(key="jwt", value=token, httponly=True, secure=True, samesite="None")
                 return resp
@@ -36,8 +39,18 @@ class UserLoginView(APIView):
 
 class UserLogoutView(APIView):
     def post(self, request):
-        request.auth.delete()  # Delete the token to log out the user
         logout(request)
-        return Response({'message': 'Logged out'}, status=status.HTTP_200_OK)
+        resp= Response({"message":"Logout successful"}, status=status.HTTP_200_OK)
+        resp.delete_cookie("jwt")
+        return resp
 
 
+def create_token(user_id:int)-> str:
+    payload = dict(
+        id=user_id,
+        exp= datetime.datetime.utcnow() + datetime.timedelta(hours=3) ,
+        iat= datetime.datetime.utcnow()
+    )
+    
+    token = jwt.encode(payload, settings.JWT_SECRET, algorithm="HS256")
+    return token
