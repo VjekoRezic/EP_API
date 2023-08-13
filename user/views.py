@@ -38,6 +38,7 @@ class UserLoginView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class UserLogoutView(APIView):
+    permission_classes = [IsAuthenticated,]
     def post(self, request):
         logout(request)
         resp= Response({"message":"Logout successful"}, status=status.HTTP_200_OK)
