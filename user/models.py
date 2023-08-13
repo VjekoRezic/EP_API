@@ -56,6 +56,7 @@ class User(AbstractUser):
     is_deleted = models.BooleanField(verbose_name="is_deleted", default=False)
     workplace = models.ForeignKey(Workplace, on_delete=models.CASCADE, verbose_name="workplace", null=True, blank=True)
     workcenter = models.ForeignKey(WorkCenter, on_delete=models.CASCADE, verbose_name="work center", null=True, blank=True)
+    username = None
 
     objects = UserManager()
 
