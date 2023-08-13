@@ -1,12 +1,13 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
 from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer
 import jwt
 import datetime
 from django.conf import settings
+from .models import User
 
 
 class UserRegistrationView(APIView):
@@ -45,6 +46,14 @@ class UserLogoutView(APIView):
         resp.delete_cookie("jwt")
         return resp
 
+
+class UserViewSet(viewsets.ModelViewSet):
+    serializer_class = UserSerializer
+    queryset = User.objects.filter(is_deleted=False)
+    permission_classes = [IsAuthenticated]
+
+    def perform_update(self, serializer):
+        serializer.save()
 
 def create_token(user_id:int)-> str:
     payload = dict(
