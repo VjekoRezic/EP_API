@@ -8,6 +8,7 @@ import jwt
 import datetime
 from django.conf import settings
 from .models import User
+from .authentication import CustomUserAuth
 
 
 class UserRegistrationView(APIView):
@@ -48,12 +49,15 @@ class UserLogoutView(APIView):
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    authentication_classes = [CustomUserAuth,]
     serializer_class = UserSerializer
     queryset = User.objects.filter(is_deleted=False)
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAdminUser] #TODO : Make new permission class so only admin/department manager can see all users and users can only see themselves
 
     def perform_update(self, serializer):
         serializer.save()
+
+
 
 def create_token(user_id:int)-> str:
     payload = dict(
