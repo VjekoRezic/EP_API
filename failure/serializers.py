@@ -7,4 +7,4 @@ class FailureSerializer(serializers.ModelSerializer):
     solved_by = UserSimpleSerializer()
     class Meta:
         model = Failure
-        fields = ['id', 'name', 'description', 'reported_by', 'solved_by', 'created_at', 'updated_at', 'is_deleted', 'work_order', 'work_center']
+        fields = ['id', 'name', 'description', 'reported_by', 'created_at', 'updated_at', 'is_deleted', 'work_order', 'work_center']
