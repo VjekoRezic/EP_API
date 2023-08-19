@@ -9,6 +9,9 @@ import datetime
 from django.conf import settings
 from .models import User
 from .authentication import CustomUserAuth
+from department.models import Department
+from workcenter.models import WorkCenter
+from django.db.models import Q
 
 
 class UserRegistrationView(APIView):
@@ -51,13 +54,39 @@ class UserLogoutView(APIView):
 class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = [CustomUserAuth,]
     serializer_class = UserSerializer
-    queryset = User.objects.filter(is_deleted=False)
     permission_classes = [IsAdminUser] #TODO : Make new permission class so only admin/department manager can see all users and users can only see themselves
 
     def perform_update(self, serializer):
         serializer.save()
 
+    def get_queryset(self):
+        queryset = User.objects.filter(is_deleted=False)
 
+        department_id = self.request.query_params.get('department')
+        work_center_id = self.request.query_params.get('work_center')
+        or_condition = self.request.query_params.get('or_condition')  # Set to any value to enable OR logic
+
+        if department_id and work_center_id:
+            if not Department.objects.filter(id=department_id).exists() or not WorkCenter.objects.filter(id=work_center_id).exists():
+                return Response({"error": "Invalid department or work center id"}, status=status.HTTP_400_BAD_REQUEST)
+
+            if or_condition:
+                # OR logic: Retrieve objects matching either department or work_center
+                queryset = queryset.filter(Q(workcenter__department__id=department_id) | Q(work_center__id=work_center_id))
+            else:
+                # AND logic: Retrieve objects matching both department and work_center
+                queryset = queryset.filter(department=department_id, work_center=work_center_id)
+        elif department_id:
+            if not Department.objects.filter(id=department_id).exists():
+                return Response({"error": "Invalid department id"}, status=status.HTTP_400_BAD_REQUEST)
+            queryset = queryset.filter(workcenter__department__id=department_id)
+        elif work_center_id:
+            if not WorkCenter.objects.filter(id=work_center_id).exists():
+                return Response({"error": "Invalid work center id"}, status=status.HTTP_400_BAD_REQUEST)
+            queryset = queryset.filter(work_center__id=work_center_id)
+
+        return queryset
+    
 
 def create_token(user_id:int)-> str:
     payload = dict(
