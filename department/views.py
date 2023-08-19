@@ -2,16 +2,20 @@ from django.shortcuts import render
 
 from rest_framework import viewsets, response, status
 from .models import Department
-from .serializers import DepartmentSerializer
+from .serializers import DepartmentSerializer, DepartmentDetailSerializer
 from user.authentication import CustomUserAuth
 from user.permissions import IsAdminOrReadOnly
 
 class DepartmentViewSet(viewsets.ModelViewSet):
     authentication_classes = (CustomUserAuth,)
     permission_classes = [IsAdminOrReadOnly]
-    queryset = Department.objects.all()
-    serializer_class = DepartmentSerializer
+    queryset = Department.objects.filter(is_deleted=False)
 
+
+    def get_serializer_class(self):
+        if self.action in ['retrieve', 'list']:
+            return DepartmentDetailSerializer
+        return DepartmentSerializer
 
     def get_queryset(self):
         # Only include objects where is_deleted is False
