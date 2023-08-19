@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .models import WorkCenter
-from .serializers import WorkCenterSerializer
+from .serializers import WorkCenterSerializer, WorkCenterDetailSerializer
 from user.authentication import CustomUserAuth
 from user.permissions import IsAdminOrReadOnly
 
@@ -10,8 +10,12 @@ from user.permissions import IsAdminOrReadOnly
 class WorkCenterViewSet(viewsets.ModelViewSet):
     authentication_classes = (CustomUserAuth,)
     permission_classes = [IsAdminOrReadOnly]
-    queryset = WorkCenter.objects.all()
-    serializer_class = WorkCenterSerializer
+    queryset = WorkCenter.objects.filter(is_deleted=False)
+
+    def get_serializer_class(self):
+        if self.action == 'list' or self.action == 'retrieve':
+            return WorkCenterDetailSerializer
+        return WorkCenterSerializer
 
     def get_queryset(self):
         # Only include objects where is_deleted is False
