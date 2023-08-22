@@ -94,9 +94,18 @@ class UserViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         queryset = User.objects.filter(is_deleted=False)
 
+        role = self.request.query_params.get('role')
         department_id = self.request.query_params.get('department')
         work_center_id = self.request.query_params.get('work_center')
         or_condition = self.request.query_params.get('or_condition')  # Set to any value to enable OR logic
+
+        if role:
+            if role == "is_staff":
+                queryset = queryset.filter(is_staff=True)
+            elif role == "is_superuser":
+                queryset = queryset.filter(is_superuser=True)
+            else:
+                return Response({"error": "Invalid role"}, status=status.HTTP_400_BAD_REQUEST)
 
         if department_id and work_center_id:
             if not Department.objects.filter(id=department_id).exists() or not WorkCenter.objects.filter(id=work_center_id).exists():
@@ -107,7 +116,7 @@ class UserViewSet(viewsets.ModelViewSet):
                 queryset = queryset.filter(Q(workcenter__department__id=department_id) | Q(work_center__id=work_center_id))
             else:
                 # AND logic: Retrieve objects matching both department and work_center
-                queryset = queryset.filter(department=department_id, work_center=work_center_id)
+                queryset = queryset.filter(workcenter__department__id=department_id, workcenter__id=work_center_id)
         elif department_id:
             if not Department.objects.filter(id=department_id).exists():
                 return Response({"error": "Invalid department id"}, status=status.HTTP_400_BAD_REQUEST)
@@ -115,7 +124,7 @@ class UserViewSet(viewsets.ModelViewSet):
         elif work_center_id:
             if not WorkCenter.objects.filter(id=work_center_id).exists():
                 return Response({"error": "Invalid work center id"}, status=status.HTTP_400_BAD_REQUEST)
-            queryset = queryset.filter(work_center__id=work_center_id)
+            queryset = queryset.filter(workcenter__id=work_center_id)
 
         return queryset
     
