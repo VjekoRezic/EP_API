@@ -9,7 +9,6 @@ from user.permissions import IsAdminOrReadOnly
 class DepartmentViewSet(viewsets.ModelViewSet):
     authentication_classes = (CustomUserAuth,)
     permission_classes = [IsAdminOrReadOnly]
-    queryset = Department.objects.filter(is_deleted=False)
 
 
     def get_serializer_class(self):

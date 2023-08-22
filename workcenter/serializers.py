@@ -12,3 +12,8 @@ class WorkCenterDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = WorkCenter
         fields = ['id', 'name', 'description', 'department', 'is_deleted']        
+
+class WorkCenterSimpleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WorkCenter
+        fields = ['id', 'name']        
