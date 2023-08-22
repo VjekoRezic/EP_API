@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status, viewsets
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
-from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer
+from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, UserSimpleSerializer
 import jwt
 import datetime
 from django.conf import settings
@@ -36,7 +36,15 @@ class UserLoginView(APIView):
             if user:
                 login(request, user)
                 token = create_token(user.id)
-                resp = Response({"message":"Login successful"}, status=status.HTTP_200_OK)
+
+                user_serializer = UserSimpleSerializer(user)
+
+                resp_data = {
+                    "message":"Login successful",
+                    "user": user_serializer.data
+                }    
+
+                resp = Response(resp_data, status=status.HTTP_200_OK)
                 resp.set_cookie(key="jwt", value=token, httponly=True, secure=True, samesite="None")
                 return resp
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
