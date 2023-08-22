@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status, viewsets
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
-from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, UserSimpleSerializer
+from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, UserSimpleSerializer, UserRfidLoginSerializer
 import jwt
 import datetime
 from django.conf import settings
@@ -49,6 +49,30 @@ class UserLoginView(APIView):
                 return resp
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class UserRfidLoginView(APIView):
+    permission_classes = [AllowAny]
+    serializer_class = UserRfidLoginSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            user = User.objects.filter(rfid_uid=serializer.validated_data['rfid_uid']).first()
+            if user:
+                login(request, user)
+                token = create_token(user.id)
+
+                user_serializer = UserSimpleSerializer(user)
+
+                resp_data = {
+                    "message":"Login successful",
+                    "user": user_serializer.data
+                }    
+
+                resp = Response(resp_data, status=status.HTTP_200_OK)
+                resp.set_cookie(key="jwt", value=token, httponly=True, secure=True, samesite="None")
+                return resp
+            return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
 
 class UserLogoutView(APIView):
     permission_classes = [IsAuthenticated,]
