@@ -2,14 +2,13 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .models import WO_Status, WO_Category, WorkOrder
-from .serializers import WO_StatusSerializer, WO_CategorySerializer, WorkOrderSerializer
+from .serializers import WO_StatusSerializer, WO_CategorySerializer, WorkOrderSerializer, WorkOrderDetailSerializer
 from user.authentication import CustomUserAuth
 from user.permissions import IsAdminOrReadOnly
 
 class WO_StatusViewSet(viewsets.ModelViewSet):
     authentication_classes = (CustomUserAuth,)
     permission_classes = [IsAdminOrReadOnly]
-    queryset = WO_Status.objects.all()
     serializer_class = WO_StatusSerializer
 
     def get_queryset(self):
@@ -48,8 +47,11 @@ class WO_CategoryViewSet(viewsets.ModelViewSet):
 class WorkOrderViewSet(viewsets.ModelViewSet):
     authentication_classes = (CustomUserAuth,)
     permission_classes = [IsAdminOrReadOnly]
-    queryset = WorkOrder.objects.all()
-    serializer_class = WorkOrderSerializer
+
+    def get_serializer_class(self):
+        if self.action in ['retrieve', 'list']:
+            return WorkOrderDetailSerializer
+        return WorkOrderSerializer
 
     def create(self, request, *args, **kwargs):
         print(request.data)

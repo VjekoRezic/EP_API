@@ -7,7 +7,7 @@ from user.permissions import IsAdminOrReadOnly
 
 class FailureViewSet(viewsets.ModelViewSet):
     authentication_classes = (CustomUserAuth,)
-    permission_classes = [IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         if self.action in ['retrieve', 'list']:
