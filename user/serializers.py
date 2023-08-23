@@ -1,5 +1,12 @@
 from rest_framework import serializers
 from .models import User
+from workplace.serializers import WorkplaceSerializer
+from workcenter.models import WorkCenter
+
+class WorkCenterSimpleSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = WorkCenter
+        fields = ['id', 'name']
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,3 +39,10 @@ class UserLoginSerializer(serializers.Serializer):
 
 class UserRfidLoginSerializer(serializers.Serializer):
     rfid_uid = serializers.CharField()
+
+class UserGetSerializer(serializers.ModelSerializer):
+    workplace = WorkplaceSerializer()
+    workcenter = WorkCenterSimpleSerializer()
+    class Meta:
+        model = User
+        fields = ['id', 'first_name', 'last_name', 'father_name', 'date_of_birth', 'email', 'city', 'job_title', 'rfid_uid', 'workplace', 'workcenter', 'is_staff', 'is_superuser']

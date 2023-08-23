@@ -3,7 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status, viewsets
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from django.contrib.auth import authenticate, login, logout
-from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, UserSimpleSerializer, UserRfidLoginSerializer
+from .serializers import UserRegistrationSerializer, UserLoginSerializer, UserSerializer, UserSimpleSerializer, UserRfidLoginSerializer, UserGetSerializer
 import jwt
 import datetime
 from django.conf import settings
@@ -85,8 +85,12 @@ class UserLogoutView(APIView):
 
 class UserViewSet(viewsets.ModelViewSet):
     authentication_classes = [CustomUserAuth,]
-    serializer_class = UserSerializer
     permission_classes = [IsAdminUser] #TODO : Make new permission class so only admin/department manager can see all users and users can only see themselves
+
+    def get_serializer_class(self):
+        if self.action == 'list' or self.action == 'retrieve':
+            return UserGetSerializer
+        return UserSerializer
 
     def perform_update(self, serializer):
         serializer.save()
