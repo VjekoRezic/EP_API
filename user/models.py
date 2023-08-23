@@ -5,7 +5,39 @@ from workcenter.models import WorkCenter
 from datetime import date
 
 class UserManager(BaseUserManager):
+    """
+    Custom user manager for the User model.
+
+    Provides methods for creating regular users and superusers.
+
+    Attributes:
+        None
+
+    Methods:
+        create_user: Creates a regular user instance.
+        create_superuser: Creates a superuser instance.
+    """
+
     def create_user(self, first_name, last_name, father_name, date_of_birth, email, city, password=None, job_title=None, rfid_uid=None, workplace=None, workcenter=None):
+        """
+        Create a regular user.
+
+        Args:
+            first_name (str): The first name of the user.
+            last_name (str): The last name of the user.
+            father_name (str): The father's name of the user.
+            date_of_birth (date): The date of birth of the user.
+            email (str): The email address of the user.
+            city (str): The city of the user.
+            password (str): The password of the user.
+            job_title (str, optional): The job title of the user. Defaults to None.
+            rfid_uid (str, optional): The RFID UID of the user's card. Defaults to None.
+            workplace (Workplace, optional): The workplace of the user. Defaults to None.
+            workcenter (WorkCenter, optional): The work center of the user. Defaults to None.
+
+        Returns:
+            User: The created user instance.
+        """
         if not email:
             raise ValueError("User must have an email")
         
@@ -26,6 +58,25 @@ class UserManager(BaseUserManager):
         return user
 
     def create_superuser(self, first_name, last_name, father_name, date_of_birth, email, city, password, job_title=None, rfid_uid=None, workplace=None, workcenter=None):
+        """
+        Create a superuser.
+
+        Args:
+            first_name (str): The first name of the user.
+            last_name (str): The last name of the user.
+            father_name (str): The father's name of the user.
+            date_of_birth (date): The date of birth of the user.
+            email (str): The email address of the user.
+            city (str): The city of the user.
+            password (str): The password of the user.
+            job_title (str, optional): The job title of the user. Defaults to None.
+            rfid_uid (str, optional): The RFID UID of the user's card. Defaults to None.
+            workplace (Workplace, optional): The workplace of the user. Defaults to None.
+            workcenter (WorkCenter, optional): The work center of the user. Defaults to None.
+
+        Returns:
+            User: The created superuser instance.
+        """
         user = self.create_user(
             first_name=first_name,
             last_name=last_name,
@@ -45,6 +96,28 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractUser):
+    """
+    Custom user model.
+
+    Extends the AbstractUser model and includes additional fields.
+
+    Attributes:
+        first_name (str): The first name of the user.
+        last_name (str): The last name of the user.
+        father_name (str): The father's name of the user.
+        date_of_birth (date): The date of birth of the user.
+        email (str): The email address of the user.
+        city (str): The city of the user.
+        job_title (str, optional): The job title of the user. Defaults to None.
+        rfid_uid (str, optional): The RFID UID of the user's card. Defaults to None.
+        is_deleted (bool): Indicates if the user is marked as deleted.
+        workplace (Workplace, optional): The workplace of the user. Defaults to None.
+        workcenter (WorkCenter, optional): The work center of the user. Defaults to None.
+
+    Methods:
+        None
+    """
+
     first_name = models.CharField(verbose_name='First name', max_length=255)
     last_name = models.CharField(verbose_name='Last name', max_length=255)
     father_name = models.CharField(verbose_name="Fathers name", max_length=255)

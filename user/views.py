@@ -13,8 +13,19 @@ from department.models import Department
 from workcenter.models import WorkCenter
 from django.db.models import Q
 
-
 class UserRegistrationView(APIView):
+    """
+    API view for user registration.
+
+    Allows only admin users to create new users.
+
+    Attributes:
+        None
+
+    Methods:
+        post: Handles user registration.
+    """
+
     permission_classes = [IsAdminUser]
     serializer_class = UserSerializer
 
@@ -26,6 +37,18 @@ class UserRegistrationView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class UserLoginView(APIView):
+    """
+    API view for user login using email and password.
+
+    Allows any user to log in.
+
+    Attributes:
+        None
+
+    Methods:
+        post: Handles user login using email and password.
+    """
+
     permission_classes = [AllowAny]
     serializer_class = UserLoginSerializer
 
@@ -40,7 +63,7 @@ class UserLoginView(APIView):
                 user_serializer = UserSimpleSerializer(user)
 
                 resp_data = {
-                    "message":"Login successful",
+                    "message": "Login successful",
                     "user": user_serializer.data
                 }    
 
@@ -51,6 +74,18 @@ class UserLoginView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class UserRfidLoginView(APIView):
+    """
+    API view for user login using RFID UID.
+
+    Allows any user to log in using their RFID UID.
+
+    Attributes:
+        None
+
+    Methods:
+        post: Handles user login using RFID UID.
+    """
+
     permission_classes = [AllowAny]
     serializer_class = UserRfidLoginSerializer
 
@@ -65,7 +100,7 @@ class UserRfidLoginView(APIView):
                 user_serializer = UserSimpleSerializer(user)
 
                 resp_data = {
-                    "message":"Login successful",
+                    "message": "Login successful",
                     "user": user_serializer.data
                 }    
 
@@ -75,17 +110,44 @@ class UserRfidLoginView(APIView):
             return Response({'error': 'Invalid credentials'}, status=status.HTTP_400_BAD_REQUEST)
 
 class UserLogoutView(APIView):
-    permission_classes = [IsAuthenticated,]
+    """
+    API view for user logout.
+
+    Allows only authenticated users to log out.
+
+    Attributes:
+        None
+
+    Methods:
+        post: Handles user logout.
+    """
+
+    permission_classes = [IsAuthenticated]
+
     def post(self, request):
         logout(request)
-        resp= Response({"message":"Logout successful"}, status=status.HTTP_200_OK)
+        resp = Response({"message": "Logout successful"}, status=status.HTTP_200_OK)
         resp.delete_cookie("jwt")
         return resp
 
-
 class UserViewSet(viewsets.ModelViewSet):
+    """
+    ViewSet for managing User objects.
+
+    This ViewSet provides CRUD operations for User objects and custom filtering based on roles, departments, and work centers.
+
+    Attributes:
+        authentication_classes (list): A list of authentication classes used for view authentication.
+        permission_classes (list): A list of permission classes for controlling access to the viewset.
+
+    Methods:
+        get_serializer_class: Returns the appropriate serializer class based on the action.
+        perform_update: Performs the update action for a user instance.
+        get_queryset: Returns a queryset of User objects based on filters.
+    """
+
     authentication_classes = [CustomUserAuth,]
-    permission_classes = [IsAdminUser] #TODO : Make new permission class so only admin/department manager can see all users and users can only see themselves
+    permission_classes = [IsAdminUser]  # TODO: Make new permission class for more specific access control
 
     def get_serializer_class(self):
         if self.action == 'list' or self.action == 'retrieve':
@@ -96,6 +158,12 @@ class UserViewSet(viewsets.ModelViewSet):
         serializer.save()
 
     def get_queryset(self):
+        """
+        Return a queryset of User objects based on filters.
+
+        Returns:
+            QuerySet: A queryset of User objects.
+        """
         queryset = User.objects.filter(is_deleted=False)
 
         role = self.request.query_params.get('role')
@@ -117,7 +185,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
             if or_condition:
                 # OR logic: Retrieve objects matching either department or work_center
-                queryset = queryset.filter(Q(workcenter__department__id=department_id) | Q(work_center__id=work_center_id))
+                queryset = queryset.filter(Q(workcenter__department__id=department_id) | Q(workcenter__id=work_center_id))
             else:
                 # AND logic: Retrieve objects matching both department and work_center
                 queryset = queryset.filter(workcenter__department__id=department_id, workcenter__id=work_center_id)
@@ -131,14 +199,22 @@ class UserViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(workcenter__id=work_center_id)
 
         return queryset
-    
 
-def create_token(user_id:int)-> str:
+def create_token(user_id: int) -> str:
+    """
+    Create a JWT token for user authentication.
+
+    Args:
+        user_id (int): The ID of the user.
+
+    Returns:
+        str: The JWT token.
+    """
     payload = dict(
         id=user_id,
-        exp= datetime.datetime.utcnow() + datetime.timedelta(hours=3) ,
-        iat= datetime.datetime.utcnow()
+        exp=datetime.datetime.utcnow() + datetime.timedelta(hours=3),
+        iat=datetime.datetime.utcnow()
     )
-    
+
     token = jwt.encode(payload, settings.JWT_SECRET, algorithm="HS256")
     return token

@@ -8,48 +8,103 @@ from user.permissions import IsAdminOrReadOnly
 from django.utils import timezone
 
 class WO_StatusViewSet(viewsets.ModelViewSet):
+    """
+    Viewset for WO_Status model.
+
+    Attributes:
+        authentication_classes (tuple): The authentication classes.
+        permission_classes (list): The permission classes.
+        serializer_class (WO_StatusSerializer): The serializer class.
+    """
     authentication_classes = (CustomUserAuth,)
     permission_classes = [IsAdminOrReadOnly]
     serializer_class = WO_StatusSerializer
 
     def get_queryset(self):
-        # Only include objects where is_deleted is False
+        """
+        Get queryset of WO_Status instances.
+
+        Returns:
+            queryset: Filtered queryset of WO_Status instances.
+        """
         return WO_Status.objects.filter(is_deleted=False)
 
     def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
+        """
+        Custom destroy behavior for WO_Status instances.
 
-        # Custom delete behavior: Set is_deleted to True
+        Args:
+            request: The request object.
+            *args: Additional arguments.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            Response: Response with status.
+        """
+        instance = self.get_object()
         instance.is_deleted = True
         instance.save()
-
         return Response(status=status.HTTP_204_NO_CONTENT)
 
-
 class WO_CategoryViewSet(viewsets.ModelViewSet):
+    """
+    Viewset for WO_Category model.
+
+    Attributes:
+        authentication_classes (tuple): The authentication classes.
+        permission_classes (list): The permission classes.
+        queryset (QuerySet): The queryset of all WO_Category instances.
+        serializer_class (WO_CategorySerializer): The serializer class.
+    """
     authentication_classes = (CustomUserAuth,)
     permission_classes = [IsAdminOrReadOnly]
     queryset = WO_Category.objects.all()
     serializer_class = WO_CategorySerializer
 
     def get_queryset(self):
-        # Only include objects where is_deleted is False
+        """
+        Get queryset of WO_Category instances.
+
+        Returns:
+            queryset: Filtered queryset of WO_Category instances.
+        """
         return WO_Category.objects.filter(is_deleted=False)
 
     def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
+        """
+        Custom destroy behavior for WO_Category instances.
 
-        # Custom delete behavior: Set is_deleted to True
+        Args:
+            request: The request object.
+            *args: Additional arguments.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            Response: Response with status.
+        """
+        instance = self.get_object()
         instance.is_deleted = True
         instance.save()
-
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 class WorkOrderViewSet(viewsets.ModelViewSet):
+    """
+    Viewset for WorkOrder model.
+
+    Attributes:
+        authentication_classes (tuple): The authentication classes.
+        permission_classes (list): The permission classes.
+    """
     authentication_classes = (CustomUserAuth,)
     permission_classes = [IsAdminOrReadOnly]
 
     def get_serializer_class(self):
+        """
+        Get appropriate serializer class based on action.
+
+        Returns:
+            serializer_class: The selected serializer class.
+        """
         if self.action == 'create':
             return WorkOrderPostSerializer
         elif self.action == 'update':
@@ -57,40 +112,65 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
         return WorkOrderDetailSerializer
 
     def create(self, request, *args, **kwargs):
+        """
+        Create a new WorkOrder instance.
 
+        Args:
+            request: The request object.
+            *args: Additional arguments.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            Response: Response with serialized data.
+        """
         request_data = request.data
         request_data['created_by'] = request.user.id
         request_data['status'] = WO_Status.objects.get(name="Novi").id
-
         serializer = self.get_serializer(data=request_data)
         serializer.is_valid(raise_exception=True)
         self.perform_create(serializer)
-
         headers = self.get_success_headers(serializer.data)
-
         respSerializer = WorkOrderDetailSerializer(serializer.instance)
-
         return Response(respSerializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def get_queryset(self):
-        # Only include objects where is_deleted is False
+        """
+        Get queryset of WorkOrder instances.
+
+        Returns:
+            queryset: Filtered queryset of WorkOrder instances.
+        """
         return WorkOrder.objects.filter(is_deleted=False)
 
     def destroy(self, request, *args, **kwargs):
-        instance = self.get_object()
+        """
+        Custom destroy behavior for WorkOrder instances.
 
-        # Custom delete behavior: Set is_deleted to True
+        Args:
+            request: The request object.
+            *args: Additional arguments.
+            **kwargs: Additional keyword arguments.
+
+        Returns:
+            Response: Response with status.
+        """
+        instance = self.get_object()
         instance.is_deleted = True
         instance.save()
-
         return Response(status=status.HTTP_204_NO_CONTENT)    
     
     def perform_update(self, serializer):
-        instance = serializer.instance
+        """
+        Perform custom update behavior for WorkOrder instances.
 
+        Args:
+            serializer: The serializer instance.
+
+        Returns:
+            None
+        """
+        instance = serializer.instance
         if "status" in self.request.data and instance.status.name == "Završeni":
             self.request.data["complete_time"] = timezone.now()
-
         self.request.data["updated_at"] = timezone.now()
-
         serializer.save()
