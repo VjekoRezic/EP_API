@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user package &mdash; E poslovanje 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="user.migrations package" href="user.migrations.html" />
+    <link rel="prev" title="failure.migrations package" href="failure.migrations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            E poslovanje
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="department.html">department package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">user package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user.migrations.html">user.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-admin-module">user.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-apps-module">user.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user.apps.UserConfig"><code class="docutils literal notranslate"><span class="pre">UserConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.apps.UserConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">UserConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.apps.UserConfig.name"><code class="docutils literal notranslate"><span class="pre">UserConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-authentication-module">user.authentication module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user.authentication.CustomUserAuth"><code class="docutils literal notranslate"><span class="pre">CustomUserAuth</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.authentication.CustomUserAuth.authenticate"><code class="docutils literal notranslate"><span class="pre">CustomUserAuth.authenticate()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-models-module">user.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user.models.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">User.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">User.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.REQUIRED_FIELDS"><code class="docutils literal notranslate"><span class="pre">User.REQUIRED_FIELDS</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.USERNAME_FIELD"><code class="docutils literal notranslate"><span class="pre">User.USERNAME_FIELD</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.assignee"><code class="docutils literal notranslate"><span class="pre">User.assignee</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.auth_token"><code class="docutils literal notranslate"><span class="pre">User.auth_token</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.city"><code class="docutils literal notranslate"><span class="pre">User.city</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.creator"><code class="docutils literal notranslate"><span class="pre">User.creator</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.date_joined"><code class="docutils literal notranslate"><span class="pre">User.date_joined</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.date_of_birth"><code class="docutils literal notranslate"><span class="pre">User.date_of_birth</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.department_set"><code class="docutils literal notranslate"><span class="pre">User.department_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.email"><code class="docutils literal notranslate"><span class="pre">User.email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.father_name"><code class="docutils literal notranslate"><span class="pre">User.father_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.first_name"><code class="docutils literal notranslate"><span class="pre">User.first_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.get_next_by_date_joined"><code class="docutils literal notranslate"><span class="pre">User.get_next_by_date_joined()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.get_next_by_date_of_birth"><code class="docutils literal notranslate"><span class="pre">User.get_next_by_date_of_birth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.get_previous_by_date_joined"><code class="docutils literal notranslate"><span class="pre">User.get_previous_by_date_joined()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.get_previous_by_date_of_birth"><code class="docutils literal notranslate"><span class="pre">User.get_previous_by_date_of_birth()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.groups"><code class="docutils literal notranslate"><span class="pre">User.groups</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.id"><code class="docutils literal notranslate"><span class="pre">User.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.is_active"><code class="docutils literal notranslate"><span class="pre">User.is_active</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.is_deleted"><code class="docutils literal notranslate"><span class="pre">User.is_deleted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.is_staff"><code class="docutils literal notranslate"><span class="pre">User.is_staff</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.is_superuser"><code class="docutils literal notranslate"><span class="pre">User.is_superuser</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.job_title"><code class="docutils literal notranslate"><span class="pre">User.job_title</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.last_login"><code class="docutils literal notranslate"><span class="pre">User.last_login</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.last_name"><code class="docutils literal notranslate"><span class="pre">User.last_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.logentry_set"><code class="docutils literal notranslate"><span class="pre">User.logentry_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.objects"><code class="docutils literal notranslate"><span class="pre">User.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.password"><code class="docutils literal notranslate"><span class="pre">User.password</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.reporter"><code class="docutils literal notranslate"><span class="pre">User.reporter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.rfid_uid"><code class="docutils literal notranslate"><span class="pre">User.rfid_uid</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.user_permissions"><code class="docutils literal notranslate"><span class="pre">User.user_permissions</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.username"><code class="docutils literal notranslate"><span class="pre">User.username</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.workcenter"><code class="docutils literal notranslate"><span class="pre">User.workcenter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.workcenter_id"><code class="docutils literal notranslate"><span class="pre">User.workcenter_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.workplace"><code class="docutils literal notranslate"><span class="pre">User.workplace</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.User.workplace_id"><code class="docutils literal notranslate"><span class="pre">User.workplace_id</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.models.UserManager"><code class="docutils literal notranslate"><span class="pre">UserManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.UserManager.create_superuser"><code class="docutils literal notranslate"><span class="pre">UserManager.create_superuser()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.models.UserManager.create_user"><code class="docutils literal notranslate"><span class="pre">UserManager.create_user()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-permissions-module">user.permissions module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user.permissions.IsAdminOrReadOnly"><code class="docutils literal notranslate"><span class="pre">IsAdminOrReadOnly</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.permissions.IsAdminOrReadOnly.has_permission"><code class="docutils literal notranslate"><span class="pre">IsAdminOrReadOnly.has_permission()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-serializers-module">user.serializers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserGetSerializer"><code class="docutils literal notranslate"><span class="pre">UserGetSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserGetSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserGetSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserLoginSerializer"><code class="docutils literal notranslate"><span class="pre">UserLoginSerializer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserRegistrationSerializer"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserRegistrationSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserRegistrationSerializer.create"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer.create()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserRfidLoginSerializer"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginSerializer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserSerializer"><code class="docutils literal notranslate"><span class="pre">UserSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserSimpleSerializer"><code class="docutils literal notranslate"><span class="pre">UserSimpleSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserSimpleSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserSimpleSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.serializers.WorkCenterSimpleSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.serializers.WorkCenterSimpleSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#user-tests-module">user.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-urls-module">user.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#user-views-module">user.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user.views.UserLoginView"><code class="docutils literal notranslate"><span class="pre">UserLoginView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLoginView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserLoginView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLoginView.post"><code class="docutils literal notranslate"><span class="pre">UserLoginView.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLoginView.serializer_class"><code class="docutils literal notranslate"><span class="pre">UserLoginView.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.views.UserLogoutView"><code class="docutils literal notranslate"><span class="pre">UserLogoutView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLogoutView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserLogoutView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLogoutView.post"><code class="docutils literal notranslate"><span class="pre">UserLogoutView.post()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.views.UserRegistrationView"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRegistrationView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRegistrationView.post"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRegistrationView.serializer_class"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.views.UserRfidLoginView"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRfidLoginView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRfidLoginView.post"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView.post()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRfidLoginView.serializer_class"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.views.UserViewSet"><code class="docutils literal notranslate"><span class="pre">UserViewSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">UserViewSet.authentication_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.basename"><code class="docutils literal notranslate"><span class="pre">UserViewSet.basename</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.description"><code class="docutils literal notranslate"><span class="pre">UserViewSet.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.detail"><code class="docutils literal notranslate"><span class="pre">UserViewSet.detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">UserViewSet.get_queryset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">UserViewSet.get_serializer_class()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.name"><code class="docutils literal notranslate"><span class="pre">UserViewSet.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.perform_update"><code class="docutils literal notranslate"><span class="pre">UserViewSet.perform_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserViewSet.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">UserViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user.views.create_token"><code class="docutils literal notranslate"><span class="pre">create_token()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workcenter.html">workcenter package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workorder.html">workorder package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">E poslovanje</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">user package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/user.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="user-package">
+<h1>user package<a class="headerlink" href="#user-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="user.migrations.html">user.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#user-migrations-0001-initial-module">user.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user.migrations.html#user.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user.migrations.html#user.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user.migrations.html#user.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user.migrations.html#user.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#user-migrations-0002-remove-user-username-module">user.migrations.0002_remove_user_username module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="user.migrations.html#user.migrations.0002_remove_user_username.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="user.migrations.html#user.migrations.0002_remove_user_username.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="user.migrations.html#user.migrations.0002_remove_user_username.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="user.migrations.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="user-admin-module">
+<h2>user.admin module<a class="headerlink" href="#user-admin-module" title="Link to this heading"></a></h2>
+</section>
+<section id="user-apps-module">
+<span id="module-user.admin"></span><h2>user.apps module<a class="headerlink" href="#user-apps-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-user.apps">
+<dt class="sig sig-object py" id="user.apps.UserConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.apps.</span></span><span class="sig-name descname"><span class="pre">UserConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/apps.html#UserConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.apps.UserConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.apps.UserConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#user.apps.UserConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.apps.UserConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'user'</span></em><a class="headerlink" href="#user.apps.UserConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="user-authentication-module">
+<h2>user.authentication module<a class="headerlink" href="#user-authentication-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-user.authentication">
+<dt class="sig sig-object py" id="user.authentication.CustomUserAuth">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.authentication.</span></span><span class="sig-name descname"><span class="pre">CustomUserAuth</span></span><a class="reference internal" href="_modules/user/authentication.html#CustomUserAuth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.authentication.CustomUserAuth" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseAuthentication</span></code></p>
+<p>Custom authentication class using JSON Web Tokens (JWT).</p>
+<p>This class performs user authentication by decoding JWT tokens.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>authenticate: Decodes the JWT token and returns a user if authenticated.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="user.authentication.CustomUserAuth.authenticate">
+<span class="sig-name descname"><span class="pre">authenticate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/authentication.html#CustomUserAuth.authenticate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.authentication.CustomUserAuth.authenticate" title="Link to this definition"></a></dt>
+<dd><p>Authenticate the user using JWT token.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The request object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>tuple: A tuple containing the user and None, or None if authentication fails.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="user-models-module">
+<h2>user.models module<a class="headerlink" href="#user-models-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-user.models">
+<dt class="sig sig-object py" id="user.models.User">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.models.</span></span><span class="sig-name descname"><span class="pre">User</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/models.html#User"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.models.User" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AbstractUser</span></code></p>
+<p>Custom user model.</p>
+<p>Extends the AbstractUser model and includes additional fields.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>first_name (str): The first name of the user.
+last_name (str): The last name of the user.
+father_name (str): The father’s name of the user.
+date_of_birth (date): The date of birth of the user.
+email (str): The email address of the user.
+city (str): The city of the user.
+job_title (str, optional): The job title of the user. Defaults to None.
+rfid_uid (str, optional): The RFID UID of the user’s card. Defaults to None.
+is_deleted (bool): Indicates if the user is marked as deleted.
+workplace (Workplace, optional): The workplace of the user. Defaults to None.
+workcenter (WorkCenter, optional): The work center of the user. Defaults to None.</p>
+</dd>
+<dt>Methods:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="user.models.User.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#user.models.User.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="user.models.User.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#user.models.User.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.REQUIRED_FIELDS">
+<span class="sig-name descname"><span class="pre">REQUIRED_FIELDS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'father_name',</span> <span class="pre">'date_of_birth',</span> <span class="pre">'city']</span></em><a class="headerlink" href="#user.models.User.REQUIRED_FIELDS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.USERNAME_FIELD">
+<span class="sig-name descname"><span class="pre">USERNAME_FIELD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'email'</span></em><a class="headerlink" href="#user.models.User.USERNAME_FIELD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.assignee">
+<span class="sig-name descname"><span class="pre">assignee</span></span><a class="headerlink" href="#user.models.User.assignee" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.auth_token">
+<span class="sig-name descname"><span class="pre">auth_token</span></span><a class="headerlink" href="#user.models.User.auth_token" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the reverse side of a one-to-one
+relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Restaurant</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">place</span> <span class="o">=</span> <span class="n">OneToOneField</span><span class="p">(</span><span class="n">Place</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;restaurant&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Place.restaurant</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseOneToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.city">
+<span class="sig-name descname"><span class="pre">city</span></span><a class="headerlink" href="#user.models.User.city" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.creator">
+<span class="sig-name descname"><span class="pre">creator</span></span><a class="headerlink" href="#user.models.User.creator" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.date_joined">
+<span class="sig-name descname"><span class="pre">date_joined</span></span><a class="headerlink" href="#user.models.User.date_joined" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.date_of_birth">
+<span class="sig-name descname"><span class="pre">date_of_birth</span></span><a class="headerlink" href="#user.models.User.date_of_birth" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.department_set">
+<span class="sig-name descname"><span class="pre">department_set</span></span><a class="headerlink" href="#user.models.User.department_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.email">
+<span class="sig-name descname"><span class="pre">email</span></span><a class="headerlink" href="#user.models.User.email" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.father_name">
+<span class="sig-name descname"><span class="pre">father_name</span></span><a class="headerlink" href="#user.models.User.father_name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.first_name">
+<span class="sig-name descname"><span class="pre">first_name</span></span><a class="headerlink" href="#user.models.User.first_name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.models.User.get_next_by_date_joined">
+<span class="sig-name descname"><span class="pre">get_next_by_date_joined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date_joined&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User.get_next_by_date_joined" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.models.User.get_next_by_date_of_birth">
+<span class="sig-name descname"><span class="pre">get_next_by_date_of_birth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date_of_birth&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User.get_next_by_date_of_birth" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.models.User.get_previous_by_date_joined">
+<span class="sig-name descname"><span class="pre">get_previous_by_date_joined</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">date_joined&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User.get_previous_by_date_joined" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.models.User.get_previous_by_date_of_birth">
+<span class="sig-name descname"><span class="pre">get_previous_by_date_of_birth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateField:</span> <span class="pre">date_of_birth&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#user.models.User.get_previous_by_date_of_birth" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.groups">
+<span class="sig-name descname"><span class="pre">groups</span></span><a class="headerlink" href="#user.models.User.groups" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#user.models.User.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.is_active">
+<span class="sig-name descname"><span class="pre">is_active</span></span><a class="headerlink" href="#user.models.User.is_active" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.is_deleted">
+<span class="sig-name descname"><span class="pre">is_deleted</span></span><a class="headerlink" href="#user.models.User.is_deleted" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.is_staff">
+<span class="sig-name descname"><span class="pre">is_staff</span></span><a class="headerlink" href="#user.models.User.is_staff" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.is_superuser">
+<span class="sig-name descname"><span class="pre">is_superuser</span></span><a class="headerlink" href="#user.models.User.is_superuser" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.job_title">
+<span class="sig-name descname"><span class="pre">job_title</span></span><a class="headerlink" href="#user.models.User.job_title" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.last_login">
+<span class="sig-name descname"><span class="pre">last_login</span></span><a class="headerlink" href="#user.models.User.last_login" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.last_name">
+<span class="sig-name descname"><span class="pre">last_name</span></span><a class="headerlink" href="#user.models.User.last_name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.logentry_set">
+<span class="sig-name descname"><span class="pre">logentry_set</span></span><a class="headerlink" href="#user.models.User.logentry_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;user.models.UserManager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#user.models.User.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.password">
+<span class="sig-name descname"><span class="pre">password</span></span><a class="headerlink" href="#user.models.User.password" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.reporter">
+<span class="sig-name descname"><span class="pre">reporter</span></span><a class="headerlink" href="#user.models.User.reporter" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.rfid_uid">
+<span class="sig-name descname"><span class="pre">rfid_uid</span></span><a class="headerlink" href="#user.models.User.rfid_uid" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.user_permissions">
+<span class="sig-name descname"><span class="pre">user_permissions</span></span><a class="headerlink" href="#user.models.User.user_permissions" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the forward and reverse sides of
+a many-to-many relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Pizza</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">toppings</span> <span class="o">=</span> <span class="n">ManyToManyField</span><span class="p">(</span><span class="n">Topping</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;pizzas&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Pizza.toppings</span></code> and <code class="docutils literal notranslate"><span class="pre">Topping.pizzas</span></code> are <code class="docutils literal notranslate"><span class="pre">ManyToManyDescriptor</span></code>
+instances.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.username">
+<span class="sig-name descname"><span class="pre">username</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#user.models.User.username" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.workcenter">
+<span class="sig-name descname"><span class="pre">workcenter</span></span><a class="headerlink" href="#user.models.User.workcenter" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.workcenter_id">
+<span class="sig-name descname"><span class="pre">workcenter_id</span></span><a class="headerlink" href="#user.models.User.workcenter_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.workplace">
+<span class="sig-name descname"><span class="pre">workplace</span></span><a class="headerlink" href="#user.models.User.workplace" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.models.User.workplace_id">
+<span class="sig-name descname"><span class="pre">workplace_id</span></span><a class="headerlink" href="#user.models.User.workplace_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.models.UserManager">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.models.</span></span><span class="sig-name descname"><span class="pre">UserManager</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/models.html#UserManager"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.models.UserManager" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseUserManager</span></code></p>
+<p>Custom user manager for the User model.</p>
+<p>Provides methods for creating regular users and superusers.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>create_user: Creates a regular user instance.
+create_superuser: Creates a superuser instance.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="user.models.UserManager.create_superuser">
+<span class="sig-name descname"><span class="pre">create_superuser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">father_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_of_birth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rfid_uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workcenter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/models.html#UserManager.create_superuser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.models.UserManager.create_superuser" title="Link to this definition"></a></dt>
+<dd><p>Create a superuser.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>first_name (str): The first name of the user.
+last_name (str): The last name of the user.
+father_name (str): The father’s name of the user.
+date_of_birth (date): The date of birth of the user.
+email (str): The email address of the user.
+city (str): The city of the user.
+password (str): The password of the user.
+job_title (str, optional): The job title of the user. Defaults to None.
+rfid_uid (str, optional): The RFID UID of the user’s card. Defaults to None.
+workplace (Workplace, optional): The workplace of the user. Defaults to None.
+workcenter (WorkCenter, optional): The work center of the user. Defaults to None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>User: The created superuser instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.models.UserManager.create_user">
+<span class="sig-name descname"><span class="pre">create_user</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">first_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">last_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">father_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_of_birth</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">city</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rfid_uid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">workcenter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/models.html#UserManager.create_user"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.models.UserManager.create_user" title="Link to this definition"></a></dt>
+<dd><p>Create a regular user.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>first_name (str): The first name of the user.
+last_name (str): The last name of the user.
+father_name (str): The father’s name of the user.
+date_of_birth (date): The date of birth of the user.
+email (str): The email address of the user.
+city (str): The city of the user.
+password (str): The password of the user.
+job_title (str, optional): The job title of the user. Defaults to None.
+rfid_uid (str, optional): The RFID UID of the user’s card. Defaults to None.
+workplace (Workplace, optional): The workplace of the user. Defaults to None.
+workcenter (WorkCenter, optional): The work center of the user. Defaults to None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>User: The created user instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="user-permissions-module">
+<h2>user.permissions module<a class="headerlink" href="#user-permissions-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-user.permissions">
+<dt class="sig sig-object py" id="user.permissions.IsAdminOrReadOnly">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.permissions.</span></span><span class="sig-name descname"><span class="pre">IsAdminOrReadOnly</span></span><a class="reference internal" href="_modules/user/permissions.html#IsAdminOrReadOnly"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.permissions.IsAdminOrReadOnly" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BasePermission</span></code></p>
+<p>Custom permission class for admin access or read-only access.</p>
+<p>Allows full access to superusers and read-only access to authenticated users for non-safe methods.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>has_permission: Determine if the user has the required permission.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="user.permissions.IsAdminOrReadOnly.has_permission">
+<span class="sig-name descname"><span class="pre">has_permission</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">view</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/permissions.html#IsAdminOrReadOnly.has_permission"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.permissions.IsAdminOrReadOnly.has_permission" title="Link to this definition"></a></dt>
+<dd><p>Check if the user has permission to perform the action.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request (HttpRequest): The request object.
+view (APIView): The view associated with the action.</p>
+</dd>
+<dt>Returns:</dt><dd><p>bool: True if the user has permission, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="user-serializers-module">
+<h2>user.serializers module<a class="headerlink" href="#user-serializers-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-user.serializers">
+<dt class="sig sig-object py" id="user.serializers.UserGetSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.serializers.</span></span><span class="sig-name descname"><span class="pre">UserGetSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/serializers.html#UserGetSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserGetSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Detailed serializer for User model.</p>
+<p>Extends UserSerializer to include related workplace and work center details.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.UserGetSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/user/serializers.html#UserGetSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserGetSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserGetSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'father_name',</span> <span class="pre">'date_of_birth',</span> <span class="pre">'email',</span> <span class="pre">'city',</span> <span class="pre">'job_title',</span> <span class="pre">'rfid_uid',</span> <span class="pre">'workplace',</span> <span class="pre">'workcenter',</span> <span class="pre">'is_staff',</span> <span class="pre">'is_superuser']</span></em><a class="headerlink" href="#user.serializers.UserGetSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserGetSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#user.serializers.UserGetSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.models.User" title="user.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.UserLoginSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.serializers.</span></span><span class="sig-name descname"><span class="pre">UserLoginSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/serializers.html#UserLoginSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserLoginSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Serializer</span></code></p>
+<p>Serializer for user login.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>email (EmailField): The email address of the user.
+password (CharField): The user’s password.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.UserRegistrationSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.serializers.</span></span><span class="sig-name descname"><span class="pre">UserRegistrationSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/serializers.html#UserRegistrationSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserRegistrationSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for user registration.</p>
+<p>Handles user registration and creates a user instance.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>create: Creates a user instance.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.UserRegistrationSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/user/serializers.html#UserRegistrationSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserRegistrationSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserRegistrationSerializer.Meta.extra_kwargs">
+<span class="sig-name descname"><span class="pre">extra_kwargs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password':</span> <span class="pre">{'write_only':</span> <span class="pre">True}}</span></em><a class="headerlink" href="#user.serializers.UserRegistrationSerializer.Meta.extra_kwargs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserRegistrationSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'father_name',</span> <span class="pre">'date_of_birth',</span> <span class="pre">'email',</span> <span class="pre">'city',</span> <span class="pre">'job_title',</span> <span class="pre">'rfid_uid',</span> <span class="pre">'password']</span></em><a class="headerlink" href="#user.serializers.UserRegistrationSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserRegistrationSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#user.serializers.UserRegistrationSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.models.User" title="user.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.serializers.UserRegistrationSerializer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/serializers.html#UserRegistrationSerializer.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserRegistrationSerializer.create" title="Link to this definition"></a></dt>
+<dd><p>We have a bit of extra checking around this in order to provide
+descriptive messages when something goes wrong, but this method is
+essentially just:</p>
+<blockquote>
+<div><p>return ExampleModel.objects.create(<a href="#id1"><span class="problematic" id="id2">**</span></a>validated_data)</p>
+</div></blockquote>
+<p>If there are many to many fields present on the instance then they
+cannot be set until the model is instantiated, in which case the
+implementation is like so:</p>
+<blockquote>
+<div><p>example_relationship = validated_data.pop(‘example_relationship’)
+instance = ExampleModel.objects.create(<a href="#id3"><span class="problematic" id="id4">**</span></a>validated_data)
+instance.example_relationship = example_relationship
+return instance</p>
+</div></blockquote>
+<p>The default implementation also does not handle nested relationships.
+If you want to support writable nested relationships you’ll need
+to write an explicit <cite>.create()</cite> method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.UserRfidLoginSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.serializers.</span></span><span class="sig-name descname"><span class="pre">UserRfidLoginSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/serializers.html#UserRfidLoginSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserRfidLoginSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Serializer</span></code></p>
+<p>Serializer for user login using RFID UID.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>rfid_uid (CharField): The RFID UID of the user’s card.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.UserSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.serializers.</span></span><span class="sig-name descname"><span class="pre">UserSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/serializers.html#UserSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for User model.</p>
+<p>Serializes the User model to JSON and validates incoming data.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.UserSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/user/serializers.html#UserSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserSerializer.Meta.extra_kwargs">
+<span class="sig-name descname"><span class="pre">extra_kwargs</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'password':</span> <span class="pre">{'write_only':</span> <span class="pre">True}}</span></em><a class="headerlink" href="#user.serializers.UserSerializer.Meta.extra_kwargs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'father_name',</span> <span class="pre">'date_of_birth',</span> <span class="pre">'email',</span> <span class="pre">'city',</span> <span class="pre">'job_title',</span> <span class="pre">'rfid_uid',</span> <span class="pre">'is_deleted',</span> <span class="pre">'workplace',</span> <span class="pre">'workcenter',</span> <span class="pre">'is_staff',</span> <span class="pre">'is_superuser',</span> <span class="pre">'is_active',</span> <span class="pre">'last_login',</span> <span class="pre">'date_joined',</span> <span class="pre">'password']</span></em><a class="headerlink" href="#user.serializers.UserSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#user.serializers.UserSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.models.User" title="user.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.UserSimpleSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.serializers.</span></span><span class="sig-name descname"><span class="pre">UserSimpleSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/serializers.html#UserSimpleSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserSimpleSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for User model, providing minimal information.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.UserSimpleSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/user/serializers.html#UserSimpleSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.UserSimpleSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserSimpleSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'first_name',</span> <span class="pre">'last_name',</span> <span class="pre">'email',</span> <span class="pre">'is_staff',</span> <span class="pre">'is_superuser']</span></em><a class="headerlink" href="#user.serializers.UserSimpleSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.UserSimpleSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#user.serializers.UserSimpleSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.models.User" title="user.models.User"><code class="xref py py-class docutils literal notranslate"><span class="pre">User</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.WorkCenterSimpleSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.serializers.</span></span><span class="sig-name descname"><span class="pre">WorkCenterSimpleSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/serializers.html#WorkCenterSimpleSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.WorkCenterSimpleSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for WorkCenter model, providing minimal information.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="user.serializers.WorkCenterSimpleSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/user/serializers.html#WorkCenterSimpleSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.serializers.WorkCenterSimpleSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.WorkCenterSimpleSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'name']</span></em><a class="headerlink" href="#user.serializers.WorkCenterSimpleSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.serializers.WorkCenterSimpleSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#user.serializers.WorkCenterSimpleSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="workcenter.html#workcenter.models.WorkCenter" title="workcenter.models.WorkCenter"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkCenter</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="user-tests-module">
+<h2>user.tests module<a class="headerlink" href="#user-tests-module" title="Link to this heading"></a></h2>
+</section>
+<section id="user-urls-module">
+<span id="module-user.tests"></span><h2>user.urls module<a class="headerlink" href="#user-urls-module" title="Link to this heading"></a></h2>
+</section>
+<section id="user-views-module">
+<span id="module-user.urls"></span><h2>user.views module<a class="headerlink" href="#user-views-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-user.views">
+<dt class="sig sig-object py" id="user.views.UserLoginView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.views.</span></span><span class="sig-name descname"><span class="pre">UserLoginView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserLoginView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserLoginView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<p>API view for user login using email and password.</p>
+<p>Allows any user to log in.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>post: Handles user login using email and password.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserLoginView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.AllowAny'&gt;]</span></em><a class="headerlink" href="#user.views.UserLoginView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.views.UserLoginView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserLoginView.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserLoginView.post" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserLoginView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#user.views.UserLoginView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.serializers.UserLoginSerializer" title="user.serializers.UserLoginSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserLoginSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.views.UserLogoutView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.views.</span></span><span class="sig-name descname"><span class="pre">UserLogoutView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserLogoutView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserLogoutView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<p>API view for user logout.</p>
+<p>Allows only authenticated users to log out.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>post: Handles user logout.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserLogoutView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.IsAuthenticated'&gt;]</span></em><a class="headerlink" href="#user.views.UserLogoutView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.views.UserLogoutView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserLogoutView.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserLogoutView.post" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.views.UserRegistrationView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.views.</span></span><span class="sig-name descname"><span class="pre">UserRegistrationView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserRegistrationView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserRegistrationView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<p>API view for user registration.</p>
+<p>Allows only admin users to create new users.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>post: Handles user registration.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserRegistrationView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.IsAdminUser'&gt;]</span></em><a class="headerlink" href="#user.views.UserRegistrationView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.views.UserRegistrationView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserRegistrationView.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserRegistrationView.post" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserRegistrationView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#user.views.UserRegistrationView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.serializers.UserSerializer" title="user.serializers.UserSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.views.UserRfidLoginView">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.views.</span></span><span class="sig-name descname"><span class="pre">UserRfidLoginView</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserRfidLoginView"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserRfidLoginView" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">APIView</span></code></p>
+<p>API view for user login using RFID UID.</p>
+<p>Allows any user to log in using their RFID UID.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>post: Handles user login using RFID UID.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserRfidLoginView.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.AllowAny'&gt;]</span></em><a class="headerlink" href="#user.views.UserRfidLoginView.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.views.UserRfidLoginView.post">
+<span class="sig-name descname"><span class="pre">post</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserRfidLoginView.post"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserRfidLoginView.post" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserRfidLoginView.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#user.views.UserRfidLoginView.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#user.serializers.UserRfidLoginSerializer" title="user.serializers.UserRfidLoginSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">UserRfidLoginSerializer</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="user.views.UserViewSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">user.views.</span></span><span class="sig-name descname"><span class="pre">UserViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserViewSet" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
+<p>ViewSet for managing User objects.</p>
+<p>This ViewSet provides CRUD operations for User objects and custom filtering based on roles, departments, and work centers.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>authentication_classes (list): A list of authentication classes used for view authentication.
+permission_classes (list): A list of permission classes for controlling access to the viewset.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_serializer_class: Returns the appropriate serializer class based on the action.
+perform_update: Performs the update action for a user instance.
+get_queryset: Returns a queryset of User objects based on filters.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserViewSet.authentication_classes">
+<span class="sig-name descname"><span class="pre">authentication_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user.authentication.CustomUserAuth'&gt;]</span></em><a class="headerlink" href="#user.views.UserViewSet.authentication_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserViewSet.basename">
+<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#user.views.UserViewSet.basename" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserViewSet.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#user.views.UserViewSet.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserViewSet.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#user.views.UserViewSet.detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.views.UserViewSet.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserViewSet.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserViewSet.get_queryset" title="Link to this definition"></a></dt>
+<dd><p>Return a queryset of User objects based on filters.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>QuerySet: A queryset of User objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.views.UserViewSet.get_serializer_class">
+<span class="sig-name descname"><span class="pre">get_serializer_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserViewSet.get_serializer_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserViewSet.get_serializer_class" title="Link to this definition"></a></dt>
+<dd><p>Return the class to use for the serializer.
+Defaults to using <cite>self.serializer_class</cite>.</p>
+<p>You may want to override this if you need to provide different
+serializations depending on the incoming request.</p>
+<p>(Eg. admins get full serialization, others get basic serialization)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserViewSet.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#user.views.UserViewSet.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="user.views.UserViewSet.perform_update">
+<span class="sig-name descname"><span class="pre">perform_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serializer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/user/views.html#UserViewSet.perform_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.UserViewSet.perform_update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserViewSet.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.IsAdminUser'&gt;]</span></em><a class="headerlink" href="#user.views.UserViewSet.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserViewSet.suffix">
+<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#user.views.UserViewSet.suffix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="user.views.create_token">
+<span class="sig-prename descclassname"><span class="pre">user.views.</span></span><span class="sig-name descname"><span class="pre">create_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/user/views.html#create_token"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#user.views.create_token" title="Link to this definition"></a></dt>
+<dd><p>Create a JWT token for user authentication.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>user_id (int): The ID of the user.</p>
+</dd>
+<dt>Returns:</dt><dd><p>str: The JWT token.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<span class="target" id="module-user"></span></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="failure.migrations.html" class="btn btn-neutral float-left" title="failure.migrations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="user.migrations.html" class="btn btn-neutral float-right" title="user.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

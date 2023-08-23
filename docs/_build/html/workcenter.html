@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>workcenter package &mdash; E poslovanje 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="workcenter.migrations package" href="workcenter.migrations.html" />
+    <link rel="prev" title="user.migrations package" href="user.migrations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            E poslovanje
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="department.html">department package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">user package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">workcenter package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workcenter.migrations.html">workcenter.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workcenter-admin-module">workcenter.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workcenter-apps-module">workcenter.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workcenter.apps.WorkcenterConfig"><code class="docutils literal notranslate"><span class="pre">WorkcenterConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.apps.WorkcenterConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">WorkcenterConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.apps.WorkcenterConfig.name"><code class="docutils literal notranslate"><span class="pre">WorkcenterConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workcenter-models-module">workcenter.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workcenter.models.WorkCenter"><code class="docutils literal notranslate"><span class="pre">WorkCenter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WorkCenter.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WorkCenter.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.department"><code class="docutils literal notranslate"><span class="pre">WorkCenter.department</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.department_id"><code class="docutils literal notranslate"><span class="pre">WorkCenter.department_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.description"><code class="docutils literal notranslate"><span class="pre">WorkCenter.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.failure_set"><code class="docutils literal notranslate"><span class="pre">WorkCenter.failure_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.id"><code class="docutils literal notranslate"><span class="pre">WorkCenter.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.is_deleted"><code class="docutils literal notranslate"><span class="pre">WorkCenter.is_deleted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.name"><code class="docutils literal notranslate"><span class="pre">WorkCenter.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.objects"><code class="docutils literal notranslate"><span class="pre">WorkCenter.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.user_set"><code class="docutils literal notranslate"><span class="pre">WorkCenter.user_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.workorder_set"><code class="docutils literal notranslate"><span class="pre">WorkCenter.workorder_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workcenter-serializers-module">workcenter.serializers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workcenter.serializers.WorkCenterDetailSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterDetailSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.serializers.WorkCenterDetailSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterDetailSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workcenter.serializers.WorkCenterSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.serializers.WorkCenterSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workcenter.serializers.WorkCenterSimpleSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.serializers.WorkCenterSimpleSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workcenter-tests-module">workcenter.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workcenter-urls-module">workcenter.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workcenter-views-module">workcenter.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.authentication_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.basename</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.description"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.get_queryset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.get_serializer_class()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.name"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="workorder.html">workorder package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">E poslovanje</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">workcenter package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/workcenter.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="workcenter-package">
+<h1>workcenter package<a class="headerlink" href="#workcenter-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workcenter.migrations.html">workcenter.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workcenter.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workcenter.migrations.html#workcenter-migrations-0001-initial-module">workcenter.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workcenter.migrations.html#workcenter.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="workcenter.migrations.html#workcenter.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="workcenter.migrations.html#workcenter.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="workcenter.migrations.html#workcenter.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workcenter.migrations.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="workcenter-admin-module">
+<h2>workcenter.admin module<a class="headerlink" href="#workcenter-admin-module" title="Link to this heading"></a></h2>
+</section>
+<section id="workcenter-apps-module">
+<span id="module-workcenter.admin"></span><h2>workcenter.apps module<a class="headerlink" href="#workcenter-apps-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-workcenter.apps">
+<dt class="sig sig-object py" id="workcenter.apps.WorkcenterConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workcenter.apps.</span></span><span class="sig-name descname"><span class="pre">WorkcenterConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workcenter/apps.html#WorkcenterConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.apps.WorkcenterConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.apps.WorkcenterConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#workcenter.apps.WorkcenterConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.apps.WorkcenterConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'workcenter'</span></em><a class="headerlink" href="#workcenter.apps.WorkcenterConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="workcenter-models-module">
+<h2>workcenter.models module<a class="headerlink" href="#workcenter-models-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-workcenter.models">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workcenter.models.</span></span><span class="sig-name descname"><span class="pre">WorkCenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workcenter/models.html#WorkCenter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.models.WorkCenter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Model representing a work center.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (CharField): The name of the work center.
+description (TextField): A description of the work center.
+department (ForeignKey): The department to which the work center belongs.
+is_deleted (BooleanField): Indicates whether the work center is deleted.</p>
+</dd>
+<dt>Methods:</dt><dd><p>__str__: Returns the string representation of the work center.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.department">
+<span class="sig-name descname"><span class="pre">department</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.department" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.department_id">
+<span class="sig-name descname"><span class="pre">department_id</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.department_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.description" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.failure_set">
+<span class="sig-name descname"><span class="pre">failure_set</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.failure_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.is_deleted">
+<span class="sig-name descname"><span class="pre">is_deleted</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.is_deleted" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#workcenter.models.WorkCenter.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.user_set">
+<span class="sig-name descname"><span class="pre">user_set</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.user_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.models.WorkCenter.workorder_set">
+<span class="sig-name descname"><span class="pre">workorder_set</span></span><a class="headerlink" href="#workcenter.models.WorkCenter.workorder_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="workcenter-serializers-module">
+<h2>workcenter.serializers module<a class="headerlink" href="#workcenter-serializers-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-workcenter.serializers">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterDetailSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workcenter.serializers.</span></span><span class="sig-name descname"><span class="pre">WorkCenterDetailSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workcenter/serializers.html#WorkCenterDetailSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.serializers.WorkCenterDetailSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for the WorkCenter model, including department details.</p>
+<p>Serializes all fields of the WorkCenter model and includes department details using DepartmentDetailSerializer.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterDetailSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/workcenter/serializers.html#WorkCenterDetailSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.serializers.WorkCenterDetailSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterDetailSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'name',</span> <span class="pre">'description',</span> <span class="pre">'department',</span> <span class="pre">'is_deleted']</span></em><a class="headerlink" href="#workcenter.serializers.WorkCenterDetailSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterDetailSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#workcenter.serializers.WorkCenterDetailSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workcenter.models.WorkCenter" title="workcenter.models.WorkCenter"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkCenter</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workcenter.serializers.</span></span><span class="sig-name descname"><span class="pre">WorkCenterSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workcenter/serializers.html#WorkCenterSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.serializers.WorkCenterSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for the WorkCenter model.</p>
+<p>Serializes all fields of the WorkCenter model.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/workcenter/serializers.html#WorkCenterSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.serializers.WorkCenterSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'name',</span> <span class="pre">'description',</span> <span class="pre">'department',</span> <span class="pre">'is_deleted']</span></em><a class="headerlink" href="#workcenter.serializers.WorkCenterSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#workcenter.serializers.WorkCenterSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workcenter.models.WorkCenter" title="workcenter.models.WorkCenter"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkCenter</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterSimpleSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workcenter.serializers.</span></span><span class="sig-name descname"><span class="pre">WorkCenterSimpleSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workcenter/serializers.html#WorkCenterSimpleSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.serializers.WorkCenterSimpleSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for a simplified representation of the WorkCenter model.</p>
+<p>Serializes a simplified version of the WorkCenter model with fewer fields.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterSimpleSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/workcenter/serializers.html#WorkCenterSimpleSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.serializers.WorkCenterSimpleSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterSimpleSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'name']</span></em><a class="headerlink" href="#workcenter.serializers.WorkCenterSimpleSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.serializers.WorkCenterSimpleSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#workcenter.serializers.WorkCenterSimpleSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workcenter.models.WorkCenter" title="workcenter.models.WorkCenter"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkCenter</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="workcenter-tests-module">
+<h2>workcenter.tests module<a class="headerlink" href="#workcenter-tests-module" title="Link to this heading"></a></h2>
+</section>
+<section id="workcenter-urls-module">
+<span id="module-workcenter.tests"></span><h2>workcenter.urls module<a class="headerlink" href="#workcenter-urls-module" title="Link to this heading"></a></h2>
+</section>
+<section id="workcenter-views-module">
+<span id="module-workcenter.urls"></span><h2>workcenter.views module<a class="headerlink" href="#workcenter-views-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-workcenter.views">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workcenter.views.</span></span><span class="sig-name descname"><span class="pre">WorkCenterViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workcenter/views.html#WorkCenterViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.views.WorkCenterViewSet" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
+<p>ViewSet for managing WorkCenter objects.</p>
+<p>This ViewSet provides CRUD operations for WorkCenter objects and custom logic for deleting.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>authentication_classes (tuple): A tuple containing authentication classes used for view authentication.
+permission_classes (list): A list of permission classes for controlling access to the viewset.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_serializer_class: Returns the appropriate serializer class based on the action.
+get_queryset: Returns a queryset of WorkCenter objects excluding those marked as deleted.
+destroy: Custom logic to mark a WorkCenter object as deleted.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.authentication_classes">
+<span class="sig-name descname"><span class="pre">authentication_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'user.authentication.CustomUserAuth'&gt;,)</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.authentication_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.basename">
+<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.basename" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workcenter/views.html#WorkCenterViewSet.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.destroy" title="Link to this definition"></a></dt>
+<dd><p>Mark a WorkCenter object as deleted.</p>
+<p>Overrides the default destroy method to mark the WorkCenter object as deleted instead of hard deletion.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Response: A response indicating successful deletion.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workcenter/views.html#WorkCenterViewSet.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.get_queryset" title="Link to this definition"></a></dt>
+<dd><p>Return a queryset of WorkCenter objects excluding deleted ones.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>QuerySet: A queryset of WorkCenter objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.get_serializer_class">
+<span class="sig-name descname"><span class="pre">get_serializer_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workcenter/views.html#WorkCenterViewSet.get_serializer_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.get_serializer_class" title="Link to this definition"></a></dt>
+<dd><p>Return the serializer class based on the action.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Serializer: The appropriate serializer class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user.permissions.IsAdminOrReadOnly'&gt;]</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.suffix">
+<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.suffix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<span class="target" id="module-workcenter"></span></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="user.migrations.html" class="btn btn-neutral float-left" title="user.migrations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="workcenter.migrations.html" class="btn btn-neutral float-right" title="workcenter.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

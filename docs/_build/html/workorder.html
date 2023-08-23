@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>workorder package &mdash; E poslovanje 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="workorder.migrations package" href="workorder.migrations.html" />
+    <link rel="prev" title="workcenter.migrations package" href="workcenter.migrations.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            E poslovanje
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="department.html">department package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">user package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workcenter.html">workcenter package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">workorder package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workorder.migrations.html">workorder.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workorder-admin-module">workorder.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workorder-apps-module">workorder.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.apps.WorkorderConfig"><code class="docutils literal notranslate"><span class="pre">WorkorderConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.apps.WorkorderConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">WorkorderConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.apps.WorkorderConfig.name"><code class="docutils literal notranslate"><span class="pre">WorkorderConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workorder-models-module">workorder.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.models.WO_Category"><code class="docutils literal notranslate"><span class="pre">WO_Category</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WO_Category.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WO_Category.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.id"><code class="docutils literal notranslate"><span class="pre">WO_Category.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.is_deleted"><code class="docutils literal notranslate"><span class="pre">WO_Category.is_deleted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.name"><code class="docutils literal notranslate"><span class="pre">WO_Category.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.objects"><code class="docutils literal notranslate"><span class="pre">WO_Category.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.workorder_set"><code class="docutils literal notranslate"><span class="pre">WO_Category.workorder_set</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.models.WO_Status"><code class="docutils literal notranslate"><span class="pre">WO_Status</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WO_Status.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WO_Status.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.id"><code class="docutils literal notranslate"><span class="pre">WO_Status.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.is_deleted"><code class="docutils literal notranslate"><span class="pre">WO_Status.is_deleted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.name"><code class="docutils literal notranslate"><span class="pre">WO_Status.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.objects"><code class="docutils literal notranslate"><span class="pre">WO_Status.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.workorder_set"><code class="docutils literal notranslate"><span class="pre">WO_Status.workorder_set</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.models.WorkOrder"><code class="docutils literal notranslate"><span class="pre">WorkOrder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WorkOrder.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WorkOrder.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.assigned_to"><code class="docutils literal notranslate"><span class="pre">WorkOrder.assigned_to</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.assigned_to_get_full_name"><code class="docutils literal notranslate"><span class="pre">WorkOrder.assigned_to_get_full_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.assigned_to_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.assigned_to_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.category"><code class="docutils literal notranslate"><span class="pre">WorkOrder.category</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.category_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.category_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.complete_time"><code class="docutils literal notranslate"><span class="pre">WorkOrder.complete_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.created_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.created_by"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_by</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.created_by_get_full_name"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_by_get_full_name()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.created_by_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_by_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.description"><code class="docutils literal notranslate"><span class="pre">WorkOrder.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.due_time"><code class="docutils literal notranslate"><span class="pre">WorkOrder.due_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.failure_set"><code class="docutils literal notranslate"><span class="pre">WorkOrder.failure_set</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.get_status_display"><code class="docutils literal notranslate"><span class="pre">WorkOrder.get_status_display()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.is_deleted"><code class="docutils literal notranslate"><span class="pre">WorkOrder.is_deleted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.objects"><code class="docutils literal notranslate"><span class="pre">WorkOrder.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.start_time"><code class="docutils literal notranslate"><span class="pre">WorkOrder.start_time</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.status"><code class="docutils literal notranslate"><span class="pre">WorkOrder.status</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.status_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.status_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.title"><code class="docutils literal notranslate"><span class="pre">WorkOrder.title</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.updated_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.updated_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.work_center"><code class="docutils literal notranslate"><span class="pre">WorkOrder.work_center</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.work_center_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.work_center_id</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workorder-serializers-module">workorder.serializers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer.update"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WO_CategorySerializer"><code class="docutils literal notranslate"><span class="pre">WO_CategorySerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WO_CategorySerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WO_CategorySerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WO_StatusSerializer"><code class="docutils literal notranslate"><span class="pre">WO_StatusSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WO_StatusSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WO_StatusSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WorkOrderDetailSerializer"><code class="docutils literal notranslate"><span class="pre">WorkOrderDetailSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WorkOrderDetailSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkOrderDetailSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer.Meta</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer.create"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer.create()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WorkOrderSerializer"><code class="docutils literal notranslate"><span class="pre">WorkOrderSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WorkOrderSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkOrderSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#workorder-tests-module">workorder.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workorder-urls-module">workorder.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workorder-views-module">workorder.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.authentication_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.basename</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.description"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.get_queryset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.name"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.queryset</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.serializer_class</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.views.WO_StatusViewSet"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.authentication_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.basename</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.description"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.get_queryset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.name"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.serializer_class</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#workorder.views.WorkOrderViewSet"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.authentication_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.basename</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.create"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.create()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.description"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.get_queryset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.get_serializer_class()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.name"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.perform_update"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.perform_update()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">E poslovanje</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">workorder package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/workorder.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="workorder-package">
+<h1>workorder package<a class="headerlink" href="#workorder-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="workorder.migrations.html">workorder.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="workorder.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workorder.migrations.html#workorder-migrations-0001-initial-module">workorder.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workorder.migrations.html#workorder.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="workorder.migrations.html#workorder.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="workorder.migrations.html#workorder.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="workorder.migrations.html#workorder.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workorder.migrations.html#workorder-migrations-0002-alter-workorder-start-time-module">workorder.migrations.0002_alter_workorder_start_time module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workorder.migrations.html#workorder.migrations.0002_alter_workorder_start_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="workorder.migrations.html#workorder.migrations.0002_alter_workorder_start_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="workorder.migrations.html#workorder.migrations.0002_alter_workorder_start_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workorder.migrations.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="workorder-admin-module">
+<h2>workorder.admin module<a class="headerlink" href="#workorder-admin-module" title="Link to this heading"></a></h2>
+</section>
+<section id="workorder-apps-module">
+<span id="module-workorder.admin"></span><h2>workorder.apps module<a class="headerlink" href="#workorder-apps-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-workorder.apps">
+<dt class="sig sig-object py" id="workorder.apps.WorkorderConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.apps.</span></span><span class="sig-name descname"><span class="pre">WorkorderConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/apps.html#WorkorderConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.apps.WorkorderConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.apps.WorkorderConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#workorder.apps.WorkorderConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.apps.WorkorderConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'workorder'</span></em><a class="headerlink" href="#workorder.apps.WorkorderConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="workorder-models-module">
+<h2>workorder.models module<a class="headerlink" href="#workorder-models-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-workorder.models">
+<dt class="sig sig-object py" id="workorder.models.WO_Category">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.models.</span></span><span class="sig-name descname"><span class="pre">WO_Category</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/models.html#WO_Category"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.models.WO_Category" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Model representing a category for work orders.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (CharField): The name of the category.
+is_deleted (BooleanField): Indicates whether the category is deleted.</p>
+</dd>
+<dt>Methods:</dt><dd><p>__str__: Returns the string representation of the category.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="workorder.models.WO_Category.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#workorder.models.WO_Category.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="workorder.models.WO_Category.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#workorder.models.WO_Category.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Category.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#workorder.models.WO_Category.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Category.is_deleted">
+<span class="sig-name descname"><span class="pre">is_deleted</span></span><a class="headerlink" href="#workorder.models.WO_Category.is_deleted" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Category.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#workorder.models.WO_Category.name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Category.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#workorder.models.WO_Category.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Category.workorder_set">
+<span class="sig-name descname"><span class="pre">workorder_set</span></span><a class="headerlink" href="#workorder.models.WO_Category.workorder_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.models.WO_Status">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.models.</span></span><span class="sig-name descname"><span class="pre">WO_Status</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/models.html#WO_Status"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.models.WO_Status" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Model representing a status for work orders.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (CharField): The name of the status.
+is_deleted (BooleanField): Indicates whether the status is deleted.</p>
+</dd>
+<dt>Methods:</dt><dd><p>__str__: Returns the string representation of the status.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="workorder.models.WO_Status.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#workorder.models.WO_Status.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="workorder.models.WO_Status.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#workorder.models.WO_Status.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Status.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#workorder.models.WO_Status.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Status.is_deleted">
+<span class="sig-name descname"><span class="pre">is_deleted</span></span><a class="headerlink" href="#workorder.models.WO_Status.is_deleted" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Status.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#workorder.models.WO_Status.name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Status.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#workorder.models.WO_Status.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WO_Status.workorder_set">
+<span class="sig-name descname"><span class="pre">workorder_set</span></span><a class="headerlink" href="#workorder.models.WO_Status.workorder_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.models.</span></span><span class="sig-name descname"><span class="pre">WorkOrder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/models.html#WorkOrder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.models.WorkOrder" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Model representing a work order.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>title (CharField): The title of the work order.
+description (TextField): A description of the work order.
+start_time (DateTimeField): The start time of the work order (auto-generated on creation).
+due_time (DateTimeField): The due time of the work order.
+complete_time (DateTimeField): The completion time of the work order.
+work_center (ForeignKey): The work center associated with the work order.
+category (ForeignKey): The category of the work order.
+created_by (ForeignKey): The user who created the work order.
+assigned_to (ForeignKey): The user to whom the work order is assigned.
+status (ForeignKey): The status of the work order.
+created_at (DateTimeField): The creation time of the work order (auto-generated).
+updated_at (DateTimeField): The last update time of the work order.
+is_deleted (BooleanField): Indicates whether the work order is deleted.</p>
+</dd>
+<dt>Methods:</dt><dd><p>__str__: Returns the string representation of the work order.
+get_status_display: Returns the display name of the status.
+created_by_get_full_name: Returns the full name of the user who created the work order.
+assigned_to_get_full_name: Returns the full name of the user to whom the work order is assigned.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#workorder.models.WorkOrder.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#workorder.models.WorkOrder.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.assigned_to">
+<span class="sig-name descname"><span class="pre">assigned_to</span></span><a class="headerlink" href="#workorder.models.WorkOrder.assigned_to" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.assigned_to_get_full_name">
+<span class="sig-name descname"><span class="pre">assigned_to_get_full_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/models.html#WorkOrder.assigned_to_get_full_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.models.WorkOrder.assigned_to_get_full_name" title="Link to this definition"></a></dt>
+<dd><p>Return the full name of the user to whom the work order is assigned.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: The full name of the user to whom the work order is assigned.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.assigned_to_id">
+<span class="sig-name descname"><span class="pre">assigned_to_id</span></span><a class="headerlink" href="#workorder.models.WorkOrder.assigned_to_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.category">
+<span class="sig-name descname"><span class="pre">category</span></span><a class="headerlink" href="#workorder.models.WorkOrder.category" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.category_id">
+<span class="sig-name descname"><span class="pre">category_id</span></span><a class="headerlink" href="#workorder.models.WorkOrder.category_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.complete_time">
+<span class="sig-name descname"><span class="pre">complete_time</span></span><a class="headerlink" href="#workorder.models.WorkOrder.complete_time" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#workorder.models.WorkOrder.created_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.created_by">
+<span class="sig-name descname"><span class="pre">created_by</span></span><a class="headerlink" href="#workorder.models.WorkOrder.created_by" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.created_by_get_full_name">
+<span class="sig-name descname"><span class="pre">created_by_get_full_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/models.html#WorkOrder.created_by_get_full_name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.models.WorkOrder.created_by_get_full_name" title="Link to this definition"></a></dt>
+<dd><p>Return the full name of the user who created the work order.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: The full name of the user who created the work order.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.created_by_id">
+<span class="sig-name descname"><span class="pre">created_by_id</span></span><a class="headerlink" href="#workorder.models.WorkOrder.created_by_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#workorder.models.WorkOrder.description" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.due_time">
+<span class="sig-name descname"><span class="pre">due_time</span></span><a class="headerlink" href="#workorder.models.WorkOrder.due_time" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.failure_set">
+<span class="sig-name descname"><span class="pre">failure_set</span></span><a class="headerlink" href="#workorder.models.WorkOrder.failure_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#workorder.models.WorkOrder.get_next_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#workorder.models.WorkOrder.get_previous_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.get_status_display">
+<span class="sig-name descname"><span class="pre">get_status_display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/models.html#WorkOrder.get_status_display"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.models.WorkOrder.get_status_display" title="Link to this definition"></a></dt>
+<dd><p>Return the display name of the status.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>str: The display name of the status.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#workorder.models.WorkOrder.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.is_deleted">
+<span class="sig-name descname"><span class="pre">is_deleted</span></span><a class="headerlink" href="#workorder.models.WorkOrder.is_deleted" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#workorder.models.WorkOrder.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.start_time">
+<span class="sig-name descname"><span class="pre">start_time</span></span><a class="headerlink" href="#workorder.models.WorkOrder.start_time" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.status">
+<span class="sig-name descname"><span class="pre">status</span></span><a class="headerlink" href="#workorder.models.WorkOrder.status" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.status_id">
+<span class="sig-name descname"><span class="pre">status_id</span></span><a class="headerlink" href="#workorder.models.WorkOrder.status_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="headerlink" href="#workorder.models.WorkOrder.title" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#workorder.models.WorkOrder.updated_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.work_center">
+<span class="sig-name descname"><span class="pre">work_center</span></span><a class="headerlink" href="#workorder.models.WorkOrder.work_center" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.models.WorkOrder.work_center_id">
+<span class="sig-name descname"><span class="pre">work_center_id</span></span><a class="headerlink" href="#workorder.models.WorkOrder.work_center_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="workorder-serializers-module">
+<h2>workorder.serializers module<a class="headerlink" href="#workorder-serializers-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-workorder.serializers">
+<dt class="sig sig-object py" id="workorder.serializers.WOUpdateSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.serializers.</span></span><span class="sig-name descname"><span class="pre">WOUpdateSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/serializers.html#WOUpdateSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WOUpdateSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for updating a WorkOrder.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>model (WorkOrder): The WorkOrder model class.
+fields (list): The fields to include in the serialized representation.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WOUpdateSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/workorder/serializers.html#WOUpdateSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WOUpdateSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WOUpdateSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['title',</span> <span class="pre">'description',</span> <span class="pre">'due_time',</span> <span class="pre">'category',</span> <span class="pre">'assigned_to',</span> <span class="pre">'status']</span></em><a class="headerlink" href="#workorder.serializers.WOUpdateSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WOUpdateSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#workorder.serializers.WOUpdateSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workorder.models.WorkOrder" title="workorder.models.WorkOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkOrder</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.serializers.WOUpdateSerializer.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/serializers.html#WOUpdateSerializer.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WOUpdateSerializer.update" title="Link to this definition"></a></dt>
+<dd><p>Update a WorkOrder instance.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>instance (WorkOrder): The instance to be updated.
+validated_data (dict): The validated data for updating.</p>
+</dd>
+<dt>Returns:</dt><dd><p>WorkOrder: The updated WorkOrder instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WO_CategorySerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.serializers.</span></span><span class="sig-name descname"><span class="pre">WO_CategorySerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/serializers.html#WO_CategorySerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WO_CategorySerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for the WO_Category model.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>model (WO_Category): The WO_Category model class.
+fields (list): The fields to include in the serialized representation.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WO_CategorySerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/workorder/serializers.html#WO_CategorySerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WO_CategorySerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WO_CategorySerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'name',</span> <span class="pre">'is_deleted']</span></em><a class="headerlink" href="#workorder.serializers.WO_CategorySerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WO_CategorySerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#workorder.serializers.WO_CategorySerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workorder.models.WO_Category" title="workorder.models.WO_Category"><code class="xref py py-class docutils literal notranslate"><span class="pre">WO_Category</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WO_StatusSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.serializers.</span></span><span class="sig-name descname"><span class="pre">WO_StatusSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/serializers.html#WO_StatusSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WO_StatusSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for the WO_Status model.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>model (WO_Status): The WO_Status model class.
+fields (list): The fields to include in the serialized representation.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WO_StatusSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/workorder/serializers.html#WO_StatusSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WO_StatusSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WO_StatusSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'name',</span> <span class="pre">'is_deleted']</span></em><a class="headerlink" href="#workorder.serializers.WO_StatusSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WO_StatusSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#workorder.serializers.WO_StatusSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workorder.models.WO_Status" title="workorder.models.WO_Status"><code class="xref py py-class docutils literal notranslate"><span class="pre">WO_Status</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderDetailSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.serializers.</span></span><span class="sig-name descname"><span class="pre">WorkOrderDetailSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/serializers.html#WorkOrderDetailSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WorkOrderDetailSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Detail serializer for the WorkOrder model.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>work_center (CharField): The serialized work center name.
+category (CharField): The serialized category name.
+created_by (CharField): The serialized full name of the creator.
+assigned_to (CharField): The serialized full name of the assignee.
+status (CharField): The serialized display name of the status.
+model (WorkOrder): The WorkOrder model class.
+fields (list): The fields to include in the serialized representation.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderDetailSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/workorder/serializers.html#WorkOrderDetailSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WorkOrderDetailSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderDetailSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'title',</span> <span class="pre">'description',</span> <span class="pre">'start_time',</span> <span class="pre">'due_time',</span> <span class="pre">'complete_time',</span> <span class="pre">'work_center',</span> <span class="pre">'category',</span> <span class="pre">'created_by',</span> <span class="pre">'assigned_to',</span> <span class="pre">'status',</span> <span class="pre">'created_at',</span> <span class="pre">'updated_at',</span> <span class="pre">'is_deleted']</span></em><a class="headerlink" href="#workorder.serializers.WorkOrderDetailSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderDetailSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#workorder.serializers.WorkOrderDetailSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workorder.models.WorkOrder" title="workorder.models.WorkOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkOrder</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderPostSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.serializers.</span></span><span class="sig-name descname"><span class="pre">WorkOrderPostSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/serializers.html#WorkOrderPostSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WorkOrderPostSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for creating a new WorkOrder.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>model (WorkOrder): The WorkOrder model class.
+fields (list): The fields to include in the serialized representation.
+read_only_fields (list): The fields that are read-only.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderPostSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/workorder/serializers.html#WorkOrderPostSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WorkOrderPostSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderPostSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['title',</span> <span class="pre">'description',</span> <span class="pre">'due_time',</span> <span class="pre">'work_center',</span> <span class="pre">'category',</span> <span class="pre">'assigned_to',</span> <span class="pre">'status',</span> <span class="pre">'created_by']</span></em><a class="headerlink" href="#workorder.serializers.WorkOrderPostSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderPostSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#workorder.serializers.WorkOrderPostSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workorder.models.WorkOrder" title="workorder.models.WorkOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkOrder</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderPostSerializer.Meta.read_only_fields">
+<span class="sig-name descname"><span class="pre">read_only_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['status',</span> <span class="pre">'created_by']</span></em><a class="headerlink" href="#workorder.serializers.WorkOrderPostSerializer.Meta.read_only_fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderPostSerializer.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">validated_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/serializers.html#WorkOrderPostSerializer.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WorkOrderPostSerializer.create" title="Link to this definition"></a></dt>
+<dd><p>Create a new WorkOrder instance.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>validated_data (dict): The validated data to create the instance.</p>
+</dd>
+<dt>Returns:</dt><dd><p>WorkOrder: The created WorkOrder instance.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.serializers.</span></span><span class="sig-name descname"><span class="pre">WorkOrderSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/serializers.html#WorkOrderSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WorkOrderSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for the WorkOrder model.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>model (WorkOrder): The WorkOrder model class.
+fields (list): The fields to include in the serialized representation.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/workorder/serializers.html#WorkOrderSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.serializers.WorkOrderSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'title',</span> <span class="pre">'description',</span> <span class="pre">'start_time',</span> <span class="pre">'due_time',</span> <span class="pre">'complete_time',</span> <span class="pre">'work_center',</span> <span class="pre">'category',</span> <span class="pre">'created_by',</span> <span class="pre">'assigned_to',</span> <span class="pre">'status',</span> <span class="pre">'created_at',</span> <span class="pre">'updated_at',</span> <span class="pre">'is_deleted']</span></em><a class="headerlink" href="#workorder.serializers.WorkOrderSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.serializers.WorkOrderSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#workorder.serializers.WorkOrderSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workorder.models.WorkOrder" title="workorder.models.WorkOrder"><code class="xref py py-class docutils literal notranslate"><span class="pre">WorkOrder</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="workorder-tests-module">
+<h2>workorder.tests module<a class="headerlink" href="#workorder-tests-module" title="Link to this heading"></a></h2>
+</section>
+<section id="workorder-urls-module">
+<span id="module-workorder.tests"></span><h2>workorder.urls module<a class="headerlink" href="#workorder-urls-module" title="Link to this heading"></a></h2>
+</section>
+<section id="workorder-views-module">
+<span id="module-workorder.urls"></span><h2>workorder.views module<a class="headerlink" href="#workorder-views-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-workorder.views">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.views.</span></span><span class="sig-name descname"><span class="pre">WO_CategoryViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WO_CategoryViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WO_CategoryViewSet" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
+<p>Viewset for WO_Category model.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>authentication_classes (tuple): The authentication classes.
+permission_classes (list): The permission classes.
+queryset (QuerySet): The queryset of all WO_Category instances.
+serializer_class (WO_CategorySerializer): The serializer class.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.authentication_classes">
+<span class="sig-name descname"><span class="pre">authentication_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'user.authentication.CustomUserAuth'&gt;,)</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.authentication_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.basename">
+<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.basename" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WO_CategoryViewSet.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.destroy" title="Link to this definition"></a></dt>
+<dd><p>Custom destroy behavior for WO_Category instances.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request: The request object.
+<a href="#id1"><span class="problematic" id="id2">*</span></a>args: Additional arguments.
+<a href="#id3"><span class="problematic" id="id4">**</span></a>kwargs: Additional keyword arguments.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Response: Response with status.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WO_CategoryViewSet.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.get_queryset" title="Link to this definition"></a></dt>
+<dd><p>Get queryset of WO_Category instances.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>queryset: Filtered queryset of WO_Category instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user.permissions.IsAdminOrReadOnly'&gt;]</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.queryset">
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.queryset" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workorder.serializers.WO_CategorySerializer" title="workorder.serializers.WO_CategorySerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">WO_CategorySerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.suffix">
+<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.suffix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.views.</span></span><span class="sig-name descname"><span class="pre">WO_StatusViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WO_StatusViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WO_StatusViewSet" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
+<p>Viewset for WO_Status model.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>authentication_classes (tuple): The authentication classes.
+permission_classes (list): The permission classes.
+serializer_class (WO_StatusSerializer): The serializer class.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.authentication_classes">
+<span class="sig-name descname"><span class="pre">authentication_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'user.authentication.CustomUserAuth'&gt;,)</span></em><a class="headerlink" href="#workorder.views.WO_StatusViewSet.authentication_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.basename">
+<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_StatusViewSet.basename" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_StatusViewSet.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WO_StatusViewSet.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WO_StatusViewSet.destroy" title="Link to this definition"></a></dt>
+<dd><p>Custom destroy behavior for WO_Status instances.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request: The request object.
+<a href="#id5"><span class="problematic" id="id6">*</span></a>args: Additional arguments.
+<a href="#id7"><span class="problematic" id="id8">**</span></a>kwargs: Additional keyword arguments.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Response: Response with status.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_StatusViewSet.detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WO_StatusViewSet.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WO_StatusViewSet.get_queryset" title="Link to this definition"></a></dt>
+<dd><p>Get queryset of WO_Status instances.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>queryset: Filtered queryset of WO_Status instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_StatusViewSet.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user.permissions.IsAdminOrReadOnly'&gt;]</span></em><a class="headerlink" href="#workorder.views.WO_StatusViewSet.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.serializer_class">
+<span class="sig-name descname"><span class="pre">serializer_class</span></span><a class="headerlink" href="#workorder.views.WO_StatusViewSet.serializer_class" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#workorder.serializers.WO_StatusSerializer" title="workorder.serializers.WO_StatusSerializer"><code class="xref py py-class docutils literal notranslate"><span class="pre">WO_StatusSerializer</span></code></a></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WO_StatusViewSet.suffix">
+<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WO_StatusViewSet.suffix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.views.</span></span><span class="sig-name descname"><span class="pre">WorkOrderViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WorkOrderViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WorkOrderViewSet" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
+<p>Viewset for WorkOrder model.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>authentication_classes (tuple): The authentication classes.
+permission_classes (list): The permission classes.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.authentication_classes">
+<span class="sig-name descname"><span class="pre">authentication_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'user.authentication.CustomUserAuth'&gt;,)</span></em><a class="headerlink" href="#workorder.views.WorkOrderViewSet.authentication_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.basename">
+<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WorkOrderViewSet.basename" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WorkOrderViewSet.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WorkOrderViewSet.create" title="Link to this definition"></a></dt>
+<dd><p>Create a new WorkOrder instance.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request: The request object.
+<a href="#id9"><span class="problematic" id="id10">*</span></a>args: Additional arguments.
+<a href="#id11"><span class="problematic" id="id12">**</span></a>kwargs: Additional keyword arguments.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Response: Response with serialized data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WorkOrderViewSet.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WorkOrderViewSet.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WorkOrderViewSet.destroy" title="Link to this definition"></a></dt>
+<dd><p>Custom destroy behavior for WorkOrder instances.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>request: The request object.
+<a href="#id13"><span class="problematic" id="id14">*</span></a>args: Additional arguments.
+<a href="#id15"><span class="problematic" id="id16">**</span></a>kwargs: Additional keyword arguments.</p>
+</dd>
+<dt>Returns:</dt><dd><p>Response: Response with status.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WorkOrderViewSet.detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WorkOrderViewSet.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WorkOrderViewSet.get_queryset" title="Link to this definition"></a></dt>
+<dd><p>Get queryset of WorkOrder instances.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>queryset: Filtered queryset of WorkOrder instances.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.get_serializer_class">
+<span class="sig-name descname"><span class="pre">get_serializer_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WorkOrderViewSet.get_serializer_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WorkOrderViewSet.get_serializer_class" title="Link to this definition"></a></dt>
+<dd><p>Get appropriate serializer class based on action.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>serializer_class: The selected serializer class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WorkOrderViewSet.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.perform_update">
+<span class="sig-name descname"><span class="pre">perform_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serializer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WorkOrderViewSet.perform_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WorkOrderViewSet.perform_update" title="Link to this definition"></a></dt>
+<dd><p>Perform custom update behavior for WorkOrder instances.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>serializer: The serializer instance.</p>
+</dd>
+<dt>Returns:</dt><dd><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user.permissions.IsAdminOrReadOnly'&gt;]</span></em><a class="headerlink" href="#workorder.views.WorkOrderViewSet.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.suffix">
+<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#workorder.views.WorkOrderViewSet.suffix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<span class="target" id="module-workorder"></span></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="workcenter.migrations.html" class="btn btn-neutral float-left" title="workcenter.migrations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="workorder.migrations.html" class="btn btn-neutral float-right" title="workorder.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

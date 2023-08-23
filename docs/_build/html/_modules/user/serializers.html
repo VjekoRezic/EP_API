@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>user.serializers &mdash; E poslovanje 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            E poslovanje
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../department.html">department package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../failure.html">failure package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user.html">user package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workcenter.html">workcenter package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workorder.html">workorder package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">E poslovanje</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">user.serializers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for user.serializers</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">User</span>
+<span class="kn">from</span> <span class="nn">workplace.serializers</span> <span class="kn">import</span> <span class="n">WorkplaceSerializer</span>
+<span class="kn">from</span> <span class="nn">workcenter.models</span> <span class="kn">import</span> <span class="n">WorkCenter</span>
+
+<div class="viewcode-block" id="WorkCenterSimpleSerializer">
+<a class="viewcode-back" href="../../user.html#user.serializers.WorkCenterSimpleSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">WorkCenterSimpleSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for WorkCenter model, providing minimal information.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="WorkCenterSimpleSerializer.Meta">
+<a class="viewcode-back" href="../../user.html#user.serializers.WorkCenterSimpleSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WorkCenter</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]</span></div>
+</div>
+
+
+<div class="viewcode-block" id="UserSerializer">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">UserSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for User model.</span>
+
+<span class="sd">    Serializes the User model to JSON and validates incoming data.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="UserSerializer.Meta">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;father_name&#39;</span><span class="p">,</span> <span class="s1">&#39;date_of_birth&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;job_title&#39;</span><span class="p">,</span> <span class="s1">&#39;rfid_uid&#39;</span><span class="p">,</span> <span class="s1">&#39;is_deleted&#39;</span><span class="p">,</span> <span class="s1">&#39;workplace&#39;</span><span class="p">,</span> <span class="s1">&#39;workcenter&#39;</span><span class="p">,</span> <span class="s1">&#39;is_staff&#39;</span><span class="p">,</span> <span class="s1">&#39;is_superuser&#39;</span><span class="p">,</span> <span class="s1">&#39;is_active&#39;</span><span class="p">,</span> <span class="s1">&#39;last_login&#39;</span><span class="p">,</span> <span class="s1">&#39;date_joined&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">]</span>
+        <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;write_only&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>  <span class="c1"># Password field is write-only</span>
+        <span class="p">}</span></div>
+</div>
+
+
+<div class="viewcode-block" id="UserSimpleSerializer">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserSimpleSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">UserSimpleSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for User model, providing minimal information.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="UserSimpleSerializer.Meta">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserSimpleSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;is_staff&#39;</span><span class="p">,</span> <span class="s1">&#39;is_superuser&#39;</span><span class="p">]</span></div>
+</div>
+
+
+<div class="viewcode-block" id="UserRegistrationSerializer">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserRegistrationSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">UserRegistrationSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for user registration.</span>
+
+<span class="sd">    Handles user registration and creates a user instance.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        create: Creates a user instance.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="UserRegistrationSerializer.Meta">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserRegistrationSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;father_name&#39;</span><span class="p">,</span> <span class="s1">&#39;date_of_birth&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;job_title&#39;</span><span class="p">,</span> <span class="s1">&#39;rfid_uid&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">]</span>
+        <span class="n">extra_kwargs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;write_only&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}}</span></div>
+
+
+<div class="viewcode-block" id="UserRegistrationSerializer.create">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserRegistrationSerializer.create">[docs]</a>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="o">**</span><span class="n">validated_data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">user</span>        </div>
+</div>
+
+    
+<div class="viewcode-block" id="UserLoginSerializer">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserLoginSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">UserLoginSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for user login.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        email (EmailField): The email address of the user.</span>
+<span class="sd">        password (CharField): The user&#39;s password.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">email</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">EmailField</span><span class="p">()</span>
+    <span class="n">password</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">()</span>    </div>
+
+
+<div class="viewcode-block" id="UserRfidLoginSerializer">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserRfidLoginSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">UserRfidLoginSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">Serializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for user login using RFID UID.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        rfid_uid (CharField): The RFID UID of the user&#39;s card.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">rfid_uid</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="UserGetSerializer">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserGetSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">UserGetSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detailed serializer for User model.</span>
+
+<span class="sd">    Extends UserSerializer to include related workplace and work center details.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        None</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">workplace</span> <span class="o">=</span> <span class="n">WorkplaceSerializer</span><span class="p">()</span>
+    <span class="n">workcenter</span> <span class="o">=</span> <span class="n">WorkCenterSimpleSerializer</span><span class="p">()</span>
+
+<div class="viewcode-block" id="UserGetSerializer.Meta">
+<a class="viewcode-back" href="../../user.html#user.serializers.UserGetSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">User</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;father_name&#39;</span><span class="p">,</span> <span class="s1">&#39;date_of_birth&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;job_title&#39;</span><span class="p">,</span> <span class="s1">&#39;rfid_uid&#39;</span><span class="p">,</span> <span class="s1">&#39;workplace&#39;</span><span class="p">,</span> <span class="s1">&#39;workcenter&#39;</span><span class="p">,</span> <span class="s1">&#39;is_staff&#39;</span><span class="p">,</span> <span class="s1">&#39;is_superuser&#39;</span><span class="p">]</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

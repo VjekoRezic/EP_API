@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>workorder.views &mdash; E poslovanje 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            E poslovanje
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../department.html">department package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../failure.html">failure package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user.html">user package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workcenter.html">workcenter package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workorder.html">workorder package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">E poslovanje</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">workorder.views</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for workorder.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+<span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">WO_Status</span><span class="p">,</span> <span class="n">WO_Category</span><span class="p">,</span> <span class="n">WorkOrder</span>
+<span class="kn">from</span> <span class="nn">.serializers</span> <span class="kn">import</span> <span class="n">WO_StatusSerializer</span><span class="p">,</span> <span class="n">WO_CategorySerializer</span><span class="p">,</span> <span class="n">WorkOrderSerializer</span><span class="p">,</span> <span class="n">WorkOrderDetailSerializer</span><span class="p">,</span> <span class="n">WorkOrderPostSerializer</span><span class="p">,</span> <span class="n">WOUpdateSerializer</span>
+<span class="kn">from</span> <span class="nn">user.authentication</span> <span class="kn">import</span> <span class="n">CustomUserAuth</span>
+<span class="kn">from</span> <span class="nn">user.permissions</span> <span class="kn">import</span> <span class="n">IsAdminOrReadOnly</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+
+<div class="viewcode-block" id="WO_StatusViewSet">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WO_StatusViewSet">[docs]</a>
+<span class="k">class</span> <span class="nc">WO_StatusViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Viewset for WO_Status model.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        authentication_classes (tuple): The authentication classes.</span>
+<span class="sd">        permission_classes (list): The permission classes.</span>
+<span class="sd">        serializer_class (WO_StatusSerializer): The serializer class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">authentication_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">CustomUserAuth</span><span class="p">,)</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsAdminOrReadOnly</span><span class="p">]</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">WO_StatusSerializer</span>
+
+<div class="viewcode-block" id="WO_StatusViewSet.get_queryset">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WO_StatusViewSet.get_queryset">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get queryset of WO_Status instances.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            queryset: Filtered queryset of WO_Status instances.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">WO_Status</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_deleted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WO_StatusViewSet.destroy">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WO_StatusViewSet.destroy">[docs]</a>
+    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom destroy behavior for WO_Status instances.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The request object.</span>
+<span class="sd">            *args: Additional arguments.</span>
+<span class="sd">            **kwargs: Additional keyword arguments.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Response: Response with status.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">()</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">is_deleted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_204_NO_CONTENT</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="WO_CategoryViewSet">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WO_CategoryViewSet">[docs]</a>
+<span class="k">class</span> <span class="nc">WO_CategoryViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Viewset for WO_Category model.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        authentication_classes (tuple): The authentication classes.</span>
+<span class="sd">        permission_classes (list): The permission classes.</span>
+<span class="sd">        queryset (QuerySet): The queryset of all WO_Category instances.</span>
+<span class="sd">        serializer_class (WO_CategorySerializer): The serializer class.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">authentication_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">CustomUserAuth</span><span class="p">,)</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsAdminOrReadOnly</span><span class="p">]</span>
+    <span class="n">queryset</span> <span class="o">=</span> <span class="n">WO_Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span>
+    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">WO_CategorySerializer</span>
+
+<div class="viewcode-block" id="WO_CategoryViewSet.get_queryset">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WO_CategoryViewSet.get_queryset">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get queryset of WO_Category instances.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            queryset: Filtered queryset of WO_Category instances.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">WO_Category</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_deleted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WO_CategoryViewSet.destroy">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WO_CategoryViewSet.destroy">[docs]</a>
+    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom destroy behavior for WO_Category instances.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The request object.</span>
+<span class="sd">            *args: Additional arguments.</span>
+<span class="sd">            **kwargs: Additional keyword arguments.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Response: Response with status.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">()</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">is_deleted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_204_NO_CONTENT</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="WorkOrderViewSet">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet">[docs]</a>
+<span class="k">class</span> <span class="nc">WorkOrderViewSet</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Viewset for WorkOrder model.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        authentication_classes (tuple): The authentication classes.</span>
+<span class="sd">        permission_classes (list): The permission classes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">authentication_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">CustomUserAuth</span><span class="p">,)</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsAdminOrReadOnly</span><span class="p">]</span>
+
+<div class="viewcode-block" id="WorkOrderViewSet.get_serializer_class">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet.get_serializer_class">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_serializer_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get appropriate serializer class based on action.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            serializer_class: The selected serializer class.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;create&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">WorkOrderPostSerializer</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;update&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">WOUpdateSerializer</span>
+        <span class="k">return</span> <span class="n">WorkOrderDetailSerializer</span></div>
+
+
+<div class="viewcode-block" id="WorkOrderViewSet.create">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet.create">[docs]</a>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new WorkOrder instance.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The request object.</span>
+<span class="sd">            *args: Additional arguments.</span>
+<span class="sd">            **kwargs: Additional keyword arguments.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Response: Response with serialized data.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">request_data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span>
+        <span class="n">request_data</span><span class="p">[</span><span class="s1">&#39;created_by&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">user</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">request_data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">WO_Status</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Novi&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">id</span>
+        <span class="n">serializer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_serializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">request_data</span><span class="p">)</span>
+        <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">perform_create</span><span class="p">(</span><span class="n">serializer</span><span class="p">)</span>
+        <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_success_headers</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">respSerializer</span> <span class="o">=</span> <span class="n">WorkOrderDetailSerializer</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">instance</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">respSerializer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WorkOrderViewSet.get_queryset">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet.get_queryset">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_queryset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get queryset of WorkOrder instances.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            queryset: Filtered queryset of WorkOrder instances.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">WorkOrder</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">is_deleted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WorkOrderViewSet.destroy">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet.destroy">[docs]</a>
+    <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Custom destroy behavior for WorkOrder instances.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            request: The request object.</span>
+<span class="sd">            *args: Additional arguments.</span>
+<span class="sd">            **kwargs: Additional keyword arguments.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Response: Response with status.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">()</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">is_deleted</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="n">instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_204_NO_CONTENT</span><span class="p">)</span>    </div>
+
+    
+<div class="viewcode-block" id="WorkOrderViewSet.perform_update">
+<a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet.perform_update">[docs]</a>
+    <span class="k">def</span> <span class="nf">perform_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serializer</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Perform custom update behavior for WorkOrder instances.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            serializer: The serializer instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">instance</span> <span class="o">=</span> <span class="n">serializer</span><span class="o">.</span><span class="n">instance</span>
+        <span class="k">if</span> <span class="s2">&quot;status&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">data</span> <span class="ow">and</span> <span class="n">instance</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Završeni&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;complete_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;updated_at&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

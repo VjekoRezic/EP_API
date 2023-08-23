@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>department package &mdash; E poslovanje 1.0 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="department.migrations package" href="department.migrations.html" />
+    <link rel="prev" title="Welcome to E poslovanje’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            E poslovanje
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">department package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="department.migrations.html">department.migrations package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#department-admin-module">department.admin module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#department-apps-module">department.apps module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#department.apps.DepartmentConfig"><code class="docutils literal notranslate"><span class="pre">DepartmentConfig</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#department.apps.DepartmentConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">DepartmentConfig.default_auto_field</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.apps.DepartmentConfig.name"><code class="docutils literal notranslate"><span class="pre">DepartmentConfig.name</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#department-models-module">department.models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#department.models.Department"><code class="docutils literal notranslate"><span class="pre">Department</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Department.DoesNotExist</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Department.MultipleObjectsReturned</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.created_at"><code class="docutils literal notranslate"><span class="pre">Department.created_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.description"><code class="docutils literal notranslate"><span class="pre">Department.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Department.get_next_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Department.get_previous_by_created_at()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.id"><code class="docutils literal notranslate"><span class="pre">Department.id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.is_deleted"><code class="docutils literal notranslate"><span class="pre">Department.is_deleted</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.manager"><code class="docutils literal notranslate"><span class="pre">Department.manager</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.manager_id"><code class="docutils literal notranslate"><span class="pre">Department.manager_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.name"><code class="docutils literal notranslate"><span class="pre">Department.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.objects"><code class="docutils literal notranslate"><span class="pre">Department.objects</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.updated_at"><code class="docutils literal notranslate"><span class="pre">Department.updated_at</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.workcenter_set"><code class="docutils literal notranslate"><span class="pre">Department.workcenter_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#department-serializers-module">department.serializers module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#department.serializers.DepartmentDetailSerializer"><code class="docutils literal notranslate"><span class="pre">DepartmentDetailSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#department.serializers.DepartmentDetailSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">DepartmentDetailSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#department.serializers.DepartmentSerializer"><code class="docutils literal notranslate"><span class="pre">DepartmentSerializer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#department.serializers.DepartmentSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">DepartmentSerializer.Meta</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#department-tests-module">department.tests module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#department-urls-module">department.urls module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#department-views-module">department.views module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#department.views.DepartmentViewSet"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.authentication_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.basename"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.basename</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.description"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.description</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.destroy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.detail"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.detail</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.get_queryset()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.get_serializer_class()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.name"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.permission_classes</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">user package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workcenter.html">workcenter package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workorder.html">workorder package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">E poslovanje</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">department package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/department.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="department-package">
+<h1>department package<a class="headerlink" href="#department-package" title="Link to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="department.migrations.html">department.migrations package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="department.migrations.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="department.migrations.html#department-migrations-0001-initial-module">department.migrations.0001_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="department.migrations.html#department.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="department.migrations.html#department.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="department.migrations.html#department.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="department.migrations.html#department.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="department.migrations.html#department-migrations-0002-initial-module">department.migrations.0002_initial module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="department.migrations.html#department.migrations.0002_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="department.migrations.html#department.migrations.0002_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="department.migrations.html#department.migrations.0002_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="department.migrations.html#department.migrations.0002_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="department.migrations.html#department-migrations-0003-alter-department-created-at-and-more-module">department.migrations.0003_alter_department_created_at_and_more module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="department.migrations.html#department.migrations.0003_alter_department_created_at_and_more.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="department.migrations.html#department.migrations.0003_alter_department_created_at_and_more.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="department.migrations.html#department.migrations.0003_alter_department_created_at_and_more.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="department.migrations.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="department-admin-module">
+<h2>department.admin module<a class="headerlink" href="#department-admin-module" title="Link to this heading"></a></h2>
+</section>
+<section id="department-apps-module">
+<span id="module-department.admin"></span><h2>department.apps module<a class="headerlink" href="#department-apps-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-department.apps">
+<dt class="sig sig-object py" id="department.apps.DepartmentConfig">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">department.apps.</span></span><span class="sig-name descname"><span class="pre">DepartmentConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">app_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">app_module</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/department/apps.html#DepartmentConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.apps.DepartmentConfig" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AppConfig</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.apps.DepartmentConfig.default_auto_field">
+<span class="sig-name descname"><span class="pre">default_auto_field</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'django.db.models.BigAutoField'</span></em><a class="headerlink" href="#department.apps.DepartmentConfig.default_auto_field" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.apps.DepartmentConfig.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'department'</span></em><a class="headerlink" href="#department.apps.DepartmentConfig.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="department-models-module">
+<h2>department.models module<a class="headerlink" href="#department-models-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-department.models">
+<dt class="sig sig-object py" id="department.models.Department">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">department.models.</span></span><span class="sig-name descname"><span class="pre">Department</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/department/models.html#Department"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.models.Department" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>Represents a department within the organization.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>name (str): The name of the department.
+description (str): A detailed description of the department.
+created_at (datetime): The timestamp when the department was created.
+updated_at (datetime): The timestamp when the department was last updated.
+is_deleted (bool): Indicates if the department is marked as deleted.
+manager (User): The manager of the department (Foreign Key to User model).</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="department.models.Department.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#department.models.Department.DoesNotExist" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ObjectDoesNotExist</span></code></p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="department.models.Department.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#department.models.Department.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MultipleObjectsReturned</span></code></p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.created_at">
+<span class="sig-name descname"><span class="pre">created_at</span></span><a class="headerlink" href="#department.models.Department.created_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.description">
+<span class="sig-name descname"><span class="pre">description</span></span><a class="headerlink" href="#department.models.Department.description" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department.models.Department.get_next_by_created_at">
+<span class="sig-name descname"><span class="pre">get_next_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department.models.Department.get_next_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department.models.Department.get_previous_by_created_at">
+<span class="sig-name descname"><span class="pre">get_previous_by_created_at</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field=&lt;django.db.models.fields.DateTimeField:</span> <span class="pre">created_at&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_next=False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">**kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#department.models.Department.get_previous_by_created_at" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.id">
+<span class="sig-name descname"><span class="pre">id</span></span><a class="headerlink" href="#department.models.Department.id" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.is_deleted">
+<span class="sig-name descname"><span class="pre">is_deleted</span></span><a class="headerlink" href="#department.models.Department.is_deleted" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.manager">
+<span class="sig-name descname"><span class="pre">manager</span></span><a class="headerlink" href="#department.models.Department.manager" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related object on the forward side of a many-to-one or
+one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Child.parent</span></code> is a <code class="docutils literal notranslate"><span class="pre">ForwardManyToOneDescriptor</span></code> instance.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.manager_id">
+<span class="sig-name descname"><span class="pre">manager_id</span></span><a class="headerlink" href="#department.models.Department.manager_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#department.models.Department.name" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.objects">
+<span class="sig-name descname"><span class="pre">objects</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;django.db.models.manager.Manager</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#department.models.Department.objects" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.updated_at">
+<span class="sig-name descname"><span class="pre">updated_at</span></span><a class="headerlink" href="#department.models.Department.updated_at" title="Link to this definition"></a></dt>
+<dd><p>A wrapper for a deferred-loading field. When the value is read from this
+object the first time, the query is executed.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.models.Department.workcenter_set">
+<span class="sig-name descname"><span class="pre">workcenter_set</span></span><a class="headerlink" href="#department.models.Department.workcenter_set" title="Link to this definition"></a></dt>
+<dd><p>Accessor to the related objects manager on the reverse side of a
+many-to-one relation.</p>
+<p>In the example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Child</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">ForeignKey</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span> <span class="n">related_name</span><span class="o">=</span><span class="s1">&#39;children&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Parent.children</span></code> is a <code class="docutils literal notranslate"><span class="pre">ReverseManyToOneDescriptor</span></code> instance.</p>
+<p>Most of the implementation is delegated to a dynamically defined manager
+class built by <code class="docutils literal notranslate"><span class="pre">create_forward_many_to_many_manager()</span></code> defined below.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="department-serializers-module">
+<h2>department.serializers module<a class="headerlink" href="#department-serializers-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-department.serializers">
+<dt class="sig sig-object py" id="department.serializers.DepartmentDetailSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">department.serializers.</span></span><span class="sig-name descname"><span class="pre">DepartmentDetailSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/department/serializers.html#DepartmentDetailSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.serializers.DepartmentDetailSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Detailed serializer for Department model.</p>
+<p>Extends DepartmentSerializer to include manager details.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="department.serializers.DepartmentDetailSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/department/serializers.html#DepartmentDetailSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.serializers.DepartmentDetailSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.serializers.DepartmentDetailSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'__all__'</span></em><a class="headerlink" href="#department.serializers.DepartmentDetailSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.serializers.DepartmentDetailSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#department.serializers.DepartmentDetailSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#department.models.Department" title="department.models.Department"><code class="xref py py-class docutils literal notranslate"><span class="pre">Department</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="department.serializers.DepartmentSerializer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">department.serializers.</span></span><span class="sig-name descname"><span class="pre">DepartmentSerializer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/department/serializers.html#DepartmentSerializer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.serializers.DepartmentSerializer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelSerializer</span></code></p>
+<p>Serializer for Department model.</p>
+<p>Serializes the Department model to JSON and validates incoming data.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>None</p>
+</dd>
+<dt>Methods:</dt><dd><p>None</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="department.serializers.DepartmentSerializer.Meta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Meta</span></span><a class="reference internal" href="_modules/department/serializers.html#DepartmentSerializer.Meta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.serializers.DepartmentSerializer.Meta" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.serializers.DepartmentSerializer.Meta.fields">
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'name',</span> <span class="pre">'description',</span> <span class="pre">'created_at',</span> <span class="pre">'updated_at',</span> <span class="pre">'is_deleted',</span> <span class="pre">'manager']</span></em><a class="headerlink" href="#department.serializers.DepartmentSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.serializers.DepartmentSerializer.Meta.model">
+<span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#department.serializers.DepartmentSerializer.Meta.model" title="Link to this definition"></a></dt>
+<dd><p>alias of <a class="reference internal" href="#department.models.Department" title="department.models.Department"><code class="xref py py-class docutils literal notranslate"><span class="pre">Department</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="department-tests-module">
+<h2>department.tests module<a class="headerlink" href="#department-tests-module" title="Link to this heading"></a></h2>
+</section>
+<section id="department-urls-module">
+<span id="module-department.tests"></span><h2>department.urls module<a class="headerlink" href="#department-urls-module" title="Link to this heading"></a></h2>
+</section>
+<section id="department-views-module">
+<span id="module-department.urls"></span><h2>department.views module<a class="headerlink" href="#department-views-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-department.views">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">department.views.</span></span><span class="sig-name descname"><span class="pre">DepartmentViewSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/department/views.html#DepartmentViewSet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.views.DepartmentViewSet" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ModelViewSet</span></code></p>
+<p>ViewSet for managing Department objects.</p>
+<p>This ViewSet provides CRUD operations for Department objects and custom logic for deleting.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>authentication_classes (tuple): A tuple containing authentication classes used for view authentication.
+permission_classes (list): A list of permission classes for controlling access to the viewset.</p>
+</dd>
+<dt>Methods:</dt><dd><p>get_serializer_class: Returns the appropriate serializer class based on the action.
+get_queryset: Returns a queryset of Department objects excluding those marked as deleted.
+destroy: Custom logic to mark a Department object as deleted.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.authentication_classes">
+<span class="sig-name descname"><span class="pre">authentication_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(&lt;class</span> <span class="pre">'user.authentication.CustomUserAuth'&gt;,)</span></em><a class="headerlink" href="#department.views.DepartmentViewSet.authentication_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.basename">
+<span class="sig-name descname"><span class="pre">basename</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#department.views.DepartmentViewSet.basename" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#department.views.DepartmentViewSet.description" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.destroy">
+<span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/department/views.html#DepartmentViewSet.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.views.DepartmentViewSet.destroy" title="Link to this definition"></a></dt>
+<dd><p>Mark a Department object as deleted.</p>
+<p>Overrides the default destroy method to mark the Department object as deleted instead of hard deletion.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Response: A response indicating successful deletion.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.detail">
+<span class="sig-name descname"><span class="pre">detail</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#department.views.DepartmentViewSet.detail" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.get_queryset">
+<span class="sig-name descname"><span class="pre">get_queryset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/department/views.html#DepartmentViewSet.get_queryset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.views.DepartmentViewSet.get_queryset" title="Link to this definition"></a></dt>
+<dd><p>Return a queryset of Department objects excluding deleted ones.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>QuerySet: A queryset of Department objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.get_serializer_class">
+<span class="sig-name descname"><span class="pre">get_serializer_class</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/department/views.html#DepartmentViewSet.get_serializer_class"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#department.views.DepartmentViewSet.get_serializer_class" title="Link to this definition"></a></dt>
+<dd><p>Return the serializer class based on the action.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>Serializer: The appropriate serializer class.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#department.views.DepartmentViewSet.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.permission_classes">
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user.permissions.IsAdminOrReadOnly'&gt;]</span></em><a class="headerlink" href="#department.views.DepartmentViewSet.permission_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="department.views.DepartmentViewSet.suffix">
+<span class="sig-name descname"><span class="pre">suffix</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#department.views.DepartmentViewSet.suffix" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<span class="target" id="module-department"></span></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to E poslovanje’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="department.migrations.html" class="btn btn-neutral float-right" title="department.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

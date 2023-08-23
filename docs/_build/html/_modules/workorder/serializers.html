@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>workorder.serializers &mdash; E poslovanje 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            E poslovanje
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../department.html">department package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../failure.html">failure package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../user.html">user package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workcenter.html">workcenter package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../workorder.html">workorder package</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">E poslovanje</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">workorder.serializers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for workorder.serializers</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">serializers</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">WO_Category</span><span class="p">,</span> <span class="n">WO_Status</span><span class="p">,</span> <span class="n">WorkOrder</span>
+<span class="kn">from</span> <span class="nn">workcenter.serializers</span> <span class="kn">import</span> <span class="n">WorkCenterSimpleSerializer</span>
+<span class="kn">from</span> <span class="nn">user.serializers</span> <span class="kn">import</span> <span class="n">UserSimpleSerializer</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+
+<div class="viewcode-block" id="WO_CategorySerializer">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WO_CategorySerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">WO_CategorySerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for the WO_Category model.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        model (WO_Category): The WO_Category model class.</span>
+<span class="sd">        fields (list): The fields to include in the serialized representation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="WO_CategorySerializer.Meta">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WO_CategorySerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WO_Category</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;is_deleted&#39;</span><span class="p">]</span></div>
+</div>
+
+
+<div class="viewcode-block" id="WO_StatusSerializer">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WO_StatusSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">WO_StatusSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for the WO_Status model.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        model (WO_Status): The WO_Status model class.</span>
+<span class="sd">        fields (list): The fields to include in the serialized representation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="WO_StatusSerializer.Meta">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WO_StatusSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WO_Status</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;is_deleted&#39;</span><span class="p">]</span></div>
+</div>
+
+
+<div class="viewcode-block" id="WorkOrderSerializer">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WorkOrderSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">WorkOrderSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for the WorkOrder model.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        model (WorkOrder): The WorkOrder model class.</span>
+<span class="sd">        fields (list): The fields to include in the serialized representation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="WorkOrderSerializer.Meta">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WorkOrderSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WorkOrder</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;start_time&#39;</span><span class="p">,</span> <span class="s1">&#39;due_time&#39;</span><span class="p">,</span> <span class="s1">&#39;complete_time&#39;</span><span class="p">,</span> <span class="s1">&#39;work_center&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;created_by&#39;</span><span class="p">,</span> <span class="s1">&#39;assigned_to&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s1">&#39;is_deleted&#39;</span><span class="p">]</span></div>
+</div>
+
+
+<div class="viewcode-block" id="WorkOrderDetailSerializer">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WorkOrderDetailSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">WorkOrderDetailSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detail serializer for the WorkOrder model.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        work_center (CharField): The serialized work center name.</span>
+<span class="sd">        category (CharField): The serialized category name.</span>
+<span class="sd">        created_by (CharField): The serialized full name of the creator.</span>
+<span class="sd">        assigned_to (CharField): The serialized full name of the assignee.</span>
+<span class="sd">        status (CharField): The serialized display name of the status.</span>
+<span class="sd">        model (WorkOrder): The WorkOrder model class.</span>
+<span class="sd">        fields (list): The fields to include in the serialized representation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">work_center</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;work_center.name&#39;</span><span class="p">)</span>
+    <span class="n">category</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;category.name&#39;</span><span class="p">)</span>
+    <span class="n">created_by</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;created_by_get_full_name&#39;</span><span class="p">)</span>
+    <span class="n">assigned_to</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;assigned_to_get_full_name&#39;</span><span class="p">)</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;get_status_display&#39;</span><span class="p">)</span>
+
+<div class="viewcode-block" id="WorkOrderDetailSerializer.Meta">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WorkOrderDetailSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WorkOrder</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;start_time&#39;</span><span class="p">,</span> <span class="s1">&#39;due_time&#39;</span><span class="p">,</span> <span class="s1">&#39;complete_time&#39;</span><span class="p">,</span> <span class="s1">&#39;work_center&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;created_by&#39;</span><span class="p">,</span> <span class="s1">&#39;assigned_to&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s1">&#39;is_deleted&#39;</span><span class="p">]</span></div>
+</div>
+
+
+<div class="viewcode-block" id="WorkOrderPostSerializer">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WorkOrderPostSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">WorkOrderPostSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for creating a new WorkOrder.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        model (WorkOrder): The WorkOrder model class.</span>
+<span class="sd">        fields (list): The fields to include in the serialized representation.</span>
+<span class="sd">        read_only_fields (list): The fields that are read-only.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="WorkOrderPostSerializer.Meta">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WorkOrderPostSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WorkOrder</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;due_time&#39;</span><span class="p">,</span> <span class="s1">&#39;work_center&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;assigned_to&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;created_by&#39;</span><span class="p">]</span>
+        <span class="n">read_only_fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;created_by&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="WorkOrderPostSerializer.create">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WorkOrderPostSerializer.create">[docs]</a>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new WorkOrder instance.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            validated_data (dict): The validated data to create the instance.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            WorkOrder: The created WorkOrder instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">validated_data</span><span class="p">[</span><span class="s2">&quot;start_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+        <span class="n">validated_data</span><span class="p">[</span><span class="s2">&quot;created_by&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="p">[</span><span class="s1">&#39;request&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">user</span>
+        <span class="n">validated_data</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">WO_Status</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Novi&quot;</span><span class="p">)</span>  <span class="c1"># Replace with the actual status model</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">validated_data</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="WOUpdateSerializer">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WOUpdateSerializer">[docs]</a>
+<span class="k">class</span> <span class="nc">WOUpdateSerializer</span><span class="p">(</span><span class="n">serializers</span><span class="o">.</span><span class="n">ModelSerializer</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Serializer for updating a WorkOrder.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        model (WorkOrder): The WorkOrder model class.</span>
+<span class="sd">        fields (list): The fields to include in the serialized representation.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="WOUpdateSerializer.Meta">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WOUpdateSerializer.Meta">[docs]</a>
+    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">WorkOrder</span>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;due_time&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;assigned_to&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">]</span></div>
+
+
+<div class="viewcode-block" id="WOUpdateSerializer.update">
+<a class="viewcode-back" href="../../workorder.html#workorder.serializers.WOUpdateSerializer.update">[docs]</a>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">instance</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update a WorkOrder instance.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            instance (WorkOrder): The instance to be updated.</span>
+<span class="sd">            validated_data (dict): The validated data for updating.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            WorkOrder: The updated WorkOrder instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Check and set complete_time if status is &quot;Završeni&quot; (Completed)</span>
+        <span class="k">if</span> <span class="s1">&#39;status&#39;</span> <span class="ow">in</span> <span class="n">validated_data</span> <span class="ow">and</span> <span class="n">instance</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;Završeni&#39;</span> <span class="ow">and</span> <span class="n">validated_data</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;Završeni&#39;</span><span class="p">:</span>
+            <span class="n">validated_data</span><span class="p">[</span><span class="s1">&#39;complete_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="c1"># Update the updated_at timestamp</span>
+        <span class="n">validated_data</span><span class="p">[</span><span class="s1">&#39;updated_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="c1"># Remove unsent field from validated_data</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fields</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">initial_data</span><span class="p">:</span>
+                <span class="n">validated_data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">validated_data</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
