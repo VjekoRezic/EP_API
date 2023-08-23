@@ -19,4 +19,7 @@ class Failure(models.Model):
     def __str__(self) -> str:
        return self.name
     
+    def get_name(self):
+        return self.reported_by.get_full_name()
+    
     

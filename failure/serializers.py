@@ -16,7 +16,7 @@ class FailureDetailSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'reported_by', 'created_at', 'updated_at', 'is_deleted', 'work_order', 'work_center']
 
 class FailurePostSerializer(serializers.ModelSerializer):
-    reported_by = serializers.CharField(read_only=True, source='reported_by.username')
+    reported_by = serializers.CharField(read_only=True, source='get_name')
     work_center = serializers.CharField(read_only=True, source='work_center.name') 
     class Meta:
         model = Failure
