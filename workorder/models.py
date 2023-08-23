@@ -21,7 +21,7 @@ class WO_Status(models.Model):
 class WorkOrder(models.Model):
     title = models.CharField(max_length=150, verbose_name="title")
     description = models.TextField(verbose_name="description")
-    start_time = models.DateTimeField(verbose_name="start", null=True)
+    start_time = models.DateTimeField(verbose_name="start", auto_now_add=True, null=True)
     due_time = models.DateTimeField(verbose_name="due time", null=True)
     complete_time = models.DateTimeField(verbose_name="complete time", null=True)
     work_center = models.ForeignKey(WorkCenter, on_delete=models.CASCADE, verbose_name="work center")

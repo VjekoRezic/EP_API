@@ -2,9 +2,10 @@ from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from .models import WO_Status, WO_Category, WorkOrder
-from .serializers import WO_StatusSerializer, WO_CategorySerializer, WorkOrderSerializer, WorkOrderDetailSerializer
+from .serializers import WO_StatusSerializer, WO_CategorySerializer, WorkOrderSerializer, WorkOrderDetailSerializer, WorkOrderPostSerializer, WOUpdateSerializer
 from user.authentication import CustomUserAuth
 from user.permissions import IsAdminOrReadOnly
+from django.utils import timezone
 
 class WO_StatusViewSet(viewsets.ModelViewSet):
     authentication_classes = (CustomUserAuth,)
@@ -49,13 +50,27 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAdminOrReadOnly]
 
     def get_serializer_class(self):
-        if self.action in ['retrieve', 'list']:
-            return WorkOrderDetailSerializer
-        return WorkOrderSerializer
+        if self.action == 'create':
+            return WorkOrderPostSerializer
+        elif self.action == 'update':
+            return WOUpdateSerializer
+        return WorkOrderDetailSerializer
 
     def create(self, request, *args, **kwargs):
-        print(request.data)
-        return super().create(request, *args, **kwargs)
+
+        request_data = request.data
+        request_data['created_by'] = request.user.id
+        request_data['status'] = WO_Status.objects.get(name="Novi").id
+
+        serializer = self.get_serializer(data=request_data)
+        serializer.is_valid(raise_exception=True)
+        self.perform_create(serializer)
+
+        headers = self.get_success_headers(serializer.data)
+
+        respSerializer = WorkOrderDetailSerializer(serializer.instance)
+
+        return Response(respSerializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def get_queryset(self):
         # Only include objects where is_deleted is False
@@ -69,3 +84,13 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
         instance.save()
 
         return Response(status=status.HTTP_204_NO_CONTENT)    
+    
+    def perform_update(self, serializer):
+        instance = serializer.instance
+
+        if "status" in self.request.data and instance.status.name == "Završeni":
+            self.request.data["complete_time"] = timezone.now()
+
+        self.request.data["updated_at"] = timezone.now()
+
+        serializer.save()
