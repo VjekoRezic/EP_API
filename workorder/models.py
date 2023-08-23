@@ -36,3 +36,12 @@ class WorkOrder(models.Model):
     def __str__(self) -> str:
         return self.title
     
+    def get_status_display(self):
+        return self.status.name
+    
+    def created_by_get_full_name(self):
+        return self.created_by.__str__()
+    
+    def assigned_to_get_full_name(self):
+        return self.assigned_to.__str__()
+    
