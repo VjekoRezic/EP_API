@@ -17,9 +17,7 @@ db.sqlite3
 *.swp
 *~
 
-# Project-specific settings
-/media/
-/static/
+
 
 # Secret key
 *.secret_key

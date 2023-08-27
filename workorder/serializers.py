@@ -57,15 +57,20 @@ class WorkOrderDetailSerializer(serializers.ModelSerializer):
         fields (list): The fields to include in the serialized representation.
     """
 
+    work_center_id = serializers.IntegerField(source='work_center.id')
     work_center = serializers.CharField(source='work_center.name')
+    category_id = serializers.IntegerField(source='category.id')
     category = serializers.CharField(source='category.name')
+    created_by_id = serializers.IntegerField(source='created_by.id')
     created_by = serializers.CharField(source='created_by_get_full_name')
+    assigned_to_id = serializers.IntegerField(source='assigned_to.id')
     assigned_to = serializers.CharField(source='assigned_to_get_full_name')
+    status_id = serializers.IntegerField(source='status.id')
     status = serializers.CharField(source='get_status_display')
 
     class Meta:
         model = WorkOrder
-        fields = ['id', 'title', 'description', 'start_time', 'due_time', 'complete_time', 'work_center', 'category', 'created_by', 'assigned_to', 'status', 'created_at', 'updated_at', 'is_deleted']
+        fields = ['id', 'title', 'description', 'start_time', 'due_time', 'complete_time','work_center_id', 'work_center','category_id', 'category', 'created_by_id' ,'created_by', 'assigned_to_id', 'assigned_to','status_id', 'status', 'created_at', 'updated_at', 'is_deleted']
 
 class WorkOrderPostSerializer(serializers.ModelSerializer):
     """
