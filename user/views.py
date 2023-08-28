@@ -147,7 +147,7 @@ class UserViewSet(viewsets.ModelViewSet):
     """
 
     authentication_classes = [CustomUserAuth,]
-    permission_classes = [IsAdminUser]  # TODO: Make new permission class for more specific access control
+    permission_classes = [IsAuthenticated]  # TODO: Make new permission class for more specific access control
 
     def get_serializer_class(self):
         if self.action == 'list' or self.action == 'retrieve':

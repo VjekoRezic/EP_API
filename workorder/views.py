@@ -6,6 +6,7 @@ from .serializers import WO_StatusSerializer, WO_CategorySerializer, WorkOrderSe
 from user.authentication import CustomUserAuth
 from user.permissions import IsAdminOrReadOnly
 from django.utils import timezone
+from rest_framework.permissions import IsAuthenticated
 
 class WO_StatusViewSet(viewsets.ModelViewSet):
     """
@@ -96,7 +97,7 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
         permission_classes (list): The permission classes.
     """
     authentication_classes = (CustomUserAuth,)
-    permission_classes = [IsAdminOrReadOnly]
+    permission_classes = [IsAuthenticated]
 
     def get_serializer_class(self):
         """
