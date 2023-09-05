@@ -7,6 +7,8 @@ from user.authentication import CustomUserAuth
 from user.permissions import IsAdminOrReadOnly
 from django.utils import timezone
 from rest_framework.permissions import IsAuthenticated
+from channels.layers import get_channel_layer
+from asgiref.sync import async_to_sync
 
 class WO_StatusViewSet(viewsets.ModelViewSet):
     """
@@ -132,6 +134,14 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         respSerializer = WorkOrderDetailSerializer(serializer.instance)
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            "workorder_updates",
+            {
+                "type": "create.workorder",
+                "workorder":respSerializer.data
+            }
+        )
         return Response(respSerializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
     def get_queryset(self):
@@ -158,6 +168,16 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         instance.is_deleted = True
         instance.save()
+
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            "workorder_updates",
+            {
+                "type": "delete.workorder",
+                "workorder_id":instance.id
+            }
+        )
+
         return Response(status=status.HTTP_204_NO_CONTENT)    
     
     def perform_update(self, serializer):
@@ -175,3 +195,11 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
             self.request.data["complete_time"] = timezone.now()
         self.request.data["updated_at"] = timezone.now()
         serializer.save()
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            "workorder_updates",
+            {
+                "type": "update.workorder",
+                "workorder":serializer.data
+            }
+        )

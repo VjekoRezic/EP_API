@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_extensions',
+    'channels',
     'user',
     'department',
     'failure',
@@ -49,6 +50,15 @@ INSTALLED_APPS = [
     'workplace',
     'corsheaders'
 ]
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    },
+}
+
+ASGI_APPLICATION = 'EP.asgi.application'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -79,7 +89,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'EP.wsgi.application'
 
 
 # Database

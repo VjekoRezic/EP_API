@@ -53,7 +53,7 @@ python manage.py migrate
 #### Run the development server:
 
 ```bash
-python manage.py runserver
+daphne EP.asgi:application
 ```
 
 
