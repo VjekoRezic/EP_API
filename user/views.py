@@ -121,11 +121,10 @@ class UserLogoutView(APIView):
     Methods:
         post: Handles user logout.
     """
-
+    authentication_classes = [CustomUserAuth,]
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
-        logout(request)
         resp = Response({"message": "Logout successful"}, status=status.HTTP_200_OK)
         resp.delete_cookie("jwt")
         return resp
