@@ -195,11 +195,13 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
             self.request.data["complete_time"] = timezone.now()
         self.request.data["updated_at"] = timezone.now()
         serializer.save()
+        detailSerializer = WorkOrderDetailSerializer(instance = instance)
+
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
             "workorder_updates",
             {
                 "type": "update.workorder",
-                "workorder":serializer.data
+                "workorder":detailSerializer.data
             }
         )
