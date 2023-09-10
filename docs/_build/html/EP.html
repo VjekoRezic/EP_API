@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EP package &mdash; E poslovanje 1.0 documentation</title>
+  <title>EP package &mdash; EP 0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/documentation_options.js?v=837179f8"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -30,7 +30,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            E poslovanje
+            EP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -40,22 +40,29 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="department.html">department package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user.html">user package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workcenter.html">workcenter package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workorder.html">workorder package</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">EP package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#ep-asgi-module">EP.asgi module</a><ul>
+<li><a class="reference internal" href="#EP.asgi.application"><code class="docutils literal notranslate"><span class="pre">application</span></code></a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#ep-settings-module">EP.settings module</a></li>
+<li><a class="reference internal" href="#ep-urls-module">EP.urls module</a></li>
+<li><a class="reference internal" href="#ep-wsgi-module">EP.wsgi module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">E poslovanje</a>
+          <a href="index.html">EP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -84,6 +91,18 @@
 <p>It exposes the ASGI callable as a module-level variable named <code class="docutils literal notranslate"><span class="pre">application</span></code>.</p>
 <p>For more information on this file, see
 <a class="reference external" href="https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/">https://docs.djangoproject.com/en/4.2/howto/deployment/asgi/</a></p>
+<dl class="py data">
+<dt class="sig sig-object py" id="EP.asgi.application">
+<span class="sig-prename descclassname"><span class="pre">EP.asgi.</span></span><span class="sig-name descname"><span class="pre">application</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;channels.routing.ProtocolTypeRouter</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#EP.asgi.application" title="Link to this definition"></a></dt>
+<dd><p>ASGI Application Configuration</p>
+<p>This module configures the ASGI (Asynchronous Server Gateway Interface) application for handling both HTTP and WebSocket connections.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>http (ASGI application): The ASGI application for handling HTTP requests.
+websocket (ASGI application): The ASGI application for handling WebSocket connections.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="ep-settings-module">
 <h2>EP.settings module<a class="headerlink" href="#ep-settings-module" title="Link to this heading"></a></h2>
@@ -142,7 +161,7 @@ Function views</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+    <p>&#169; Copyright 2023, Vjekoslav Rezić.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

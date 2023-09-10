@@ -28,10 +28,26 @@ workorder.apps module
    :undoc-members:
    :show-inheritance:
 
+workorder.consumers module
+--------------------------
+
+.. automodule:: workorder.consumers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 workorder.models module
 -----------------------
 
 .. automodule:: workorder.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+workorder.routing module
+------------------------
+
+.. automodule:: workorder.routing
    :members:
    :undoc-members:
    :show-inheritance:

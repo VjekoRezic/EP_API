@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>workorder.migrations package &mdash; E poslovanje 1.0 documentation</title>
+  <title>workorder.migrations package &mdash; EP 0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,13 +13,12 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/documentation_options.js?v=837179f8"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="workorder package" href="workorder.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -31,7 +30,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            E poslovanje
+            EP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -41,43 +40,39 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="department.html">department package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user.html">user package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workcenter.html">workcenter package</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="workorder.html">workorder package</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="workorder.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">workorder.migrations package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder-migrations-0001-initial-module">workorder.migrations.0001_initial module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder-migrations-0002-alter-workorder-start-time-module">workorder.migrations.0002_alter_workorder_start_time module</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#module-contents">Module contents</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">workorder.migrations package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#workorder-migrations-0001-initial-module">workorder.migrations.0001_initial module</a><ul>
+<li><a class="reference internal" href="#workorder.migrations.0001_initial.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.migrations.0001_initial.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li><a class="reference internal" href="#workorder.migrations.0001_initial.Migration.initial"><code class="docutils literal notranslate"><span class="pre">Migration.initial</span></code></a></li>
+<li><a class="reference internal" href="#workorder.migrations.0001_initial.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="workorder.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workorder.html#workorder-admin-module">workorder.admin module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workorder.html#workorder-apps-module">workorder.apps module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workorder.html#workorder-models-module">workorder.models module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workorder.html#workorder-serializers-module">workorder.serializers module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workorder.html#workorder-tests-module">workorder.tests module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workorder.html#workorder-urls-module">workorder.urls module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workorder.html#workorder-views-module">workorder.views module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workorder.html#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#workorder-migrations-0002-alter-workorder-start-time-module">workorder.migrations.0002_alter_workorder_start_time module</a><ul>
+<li><a class="reference internal" href="#workorder.migrations.0002_alter_workorder_start_time.Migration"><code class="docutils literal notranslate"><span class="pre">Migration</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.migrations.0002_alter_workorder_start_time.Migration.dependencies"><code class="docutils literal notranslate"><span class="pre">Migration.dependencies</span></code></a></li>
+<li><a class="reference internal" href="#workorder.migrations.0002_alter_workorder_start_time.Migration.operations"><code class="docutils literal notranslate"><span class="pre">Migration.operations</span></code></a></li>
 </ul>
 </li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">E poslovanje</a>
+          <a href="index.html">EP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -85,7 +80,6 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="workorder.html">workorder package</a></li>
       <li class="breadcrumb-item active">workorder.migrations package</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/workorder.migrations.rst.txt" rel="nofollow"> View page source</a>
@@ -152,14 +146,12 @@
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="workorder.html" class="btn btn-neutral float-left" title="workorder package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+    <p>&#169; Copyright 2023, Vjekoslav Rezić.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

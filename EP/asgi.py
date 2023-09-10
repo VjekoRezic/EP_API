@@ -25,3 +25,13 @@ application = ProtocolTypeRouter({
         )
     ),
 })
+
+"""
+ASGI Application Configuration
+
+This module configures the ASGI (Asynchronous Server Gateway Interface) application for handling both HTTP and WebSocket connections.
+
+Attributes:
+    http (ASGI application): The ASGI application for handling HTTP requests.
+    websocket (ASGI application): The ASGI application for handling WebSocket connections.
+"""

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>workorder.serializers &mdash; E poslovanje 1.0 documentation</title>
+  <title>workorder.serializers &mdash; EP 0.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,7 +12,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/documentation_options.js?v=837179f8"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -29,7 +29,7 @@
           
           
           <a href="../../index.html" class="icon icon-home">
-            E poslovanje
+            EP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -39,22 +39,15 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../department.html">department package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../failure.html">failure package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../user.html">user package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../workcenter.html">workcenter package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../workorder.html">workorder package</a></li>
-</ul>
-
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">E poslovanje</a>
+          <a href="../../index.html">EP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -152,17 +145,22 @@
 <span class="sd">        fields (list): The fields to include in the serialized representation.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
+    <span class="n">work_center_id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;work_center.id&#39;</span><span class="p">)</span>
     <span class="n">work_center</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;work_center.name&#39;</span><span class="p">)</span>
+    <span class="n">category_id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;category.id&#39;</span><span class="p">)</span>
     <span class="n">category</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;category.name&#39;</span><span class="p">)</span>
+    <span class="n">created_by_id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;created_by.id&#39;</span><span class="p">)</span>
     <span class="n">created_by</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;created_by_get_full_name&#39;</span><span class="p">)</span>
+    <span class="n">assigned_to_id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;assigned_to.id&#39;</span><span class="p">)</span>
     <span class="n">assigned_to</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;assigned_to_get_full_name&#39;</span><span class="p">)</span>
+    <span class="n">status_id</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;status.id&#39;</span><span class="p">)</span>
     <span class="n">status</span> <span class="o">=</span> <span class="n">serializers</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s1">&#39;get_status_display&#39;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="WorkOrderDetailSerializer.Meta">
 <a class="viewcode-back" href="../../workorder.html#workorder.serializers.WorkOrderDetailSerializer.Meta">[docs]</a>
     <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
         <span class="n">model</span> <span class="o">=</span> <span class="n">WorkOrder</span>
-        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;start_time&#39;</span><span class="p">,</span> <span class="s1">&#39;due_time&#39;</span><span class="p">,</span> <span class="s1">&#39;complete_time&#39;</span><span class="p">,</span> <span class="s1">&#39;work_center&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;created_by&#39;</span><span class="p">,</span> <span class="s1">&#39;assigned_to&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s1">&#39;is_deleted&#39;</span><span class="p">]</span></div>
+        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;start_time&#39;</span><span class="p">,</span> <span class="s1">&#39;due_time&#39;</span><span class="p">,</span> <span class="s1">&#39;complete_time&#39;</span><span class="p">,</span><span class="s1">&#39;work_center_id&#39;</span><span class="p">,</span> <span class="s1">&#39;work_center&#39;</span><span class="p">,</span><span class="s1">&#39;category_id&#39;</span><span class="p">,</span> <span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;created_by_id&#39;</span> <span class="p">,</span><span class="s1">&#39;created_by&#39;</span><span class="p">,</span> <span class="s1">&#39;assigned_to_id&#39;</span><span class="p">,</span> <span class="s1">&#39;assigned_to&#39;</span><span class="p">,</span><span class="s1">&#39;status_id&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s1">&#39;is_deleted&#39;</span><span class="p">]</span></div>
 </div>
 
 
@@ -260,7 +258,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+    <p>&#169; Copyright 2023, Vjekoslav Rezić.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

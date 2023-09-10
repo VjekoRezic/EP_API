@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>department package &mdash; E poslovanje 1.0 documentation</title>
+  <title>department package &mdash; EP 0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,14 +13,12 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/documentation_options.js?v=837179f8"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="department.migrations package" href="department.migrations.html" />
-    <link rel="prev" title="Welcome to E poslovanje’s documentation!" href="index.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +30,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            E poslovanje
+            EP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -42,88 +40,89 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">department package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="department.migrations.html">department.migrations package</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#department-admin-module">department.admin module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#department-apps-module">department.apps module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#department.apps.DepartmentConfig"><code class="docutils literal notranslate"><span class="pre">DepartmentConfig</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#department.apps.DepartmentConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">DepartmentConfig.default_auto_field</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.apps.DepartmentConfig.name"><code class="docutils literal notranslate"><span class="pre">DepartmentConfig.name</span></code></a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">department package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#department-admin-module">department.admin module</a></li>
+<li><a class="reference internal" href="#department-apps-module">department.apps module</a><ul>
+<li><a class="reference internal" href="#department.apps.DepartmentConfig"><code class="docutils literal notranslate"><span class="pre">DepartmentConfig</span></code></a><ul>
+<li><a class="reference internal" href="#department.apps.DepartmentConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">DepartmentConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#department.apps.DepartmentConfig.name"><code class="docutils literal notranslate"><span class="pre">DepartmentConfig.name</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#department-models-module">department.models module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#department.models.Department"><code class="docutils literal notranslate"><span class="pre">Department</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Department.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Department.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.created_at"><code class="docutils literal notranslate"><span class="pre">Department.created_at</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.description"><code class="docutils literal notranslate"><span class="pre">Department.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Department.get_next_by_created_at()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Department.get_previous_by_created_at()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.id"><code class="docutils literal notranslate"><span class="pre">Department.id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.is_deleted"><code class="docutils literal notranslate"><span class="pre">Department.is_deleted</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.manager"><code class="docutils literal notranslate"><span class="pre">Department.manager</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.manager_id"><code class="docutils literal notranslate"><span class="pre">Department.manager_id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.name"><code class="docutils literal notranslate"><span class="pre">Department.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.objects"><code class="docutils literal notranslate"><span class="pre">Department.objects</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.updated_at"><code class="docutils literal notranslate"><span class="pre">Department.updated_at</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.models.Department.workcenter_set"><code class="docutils literal notranslate"><span class="pre">Department.workcenter_set</span></code></a></li>
+<li><a class="reference internal" href="#department-models-module">department.models module</a><ul>
+<li><a class="reference internal" href="#department.models.Department"><code class="docutils literal notranslate"><span class="pre">Department</span></code></a><ul>
+<li><a class="reference internal" href="#department.models.Department.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Department.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Department.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.created_at"><code class="docutils literal notranslate"><span class="pre">Department.created_at</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.description"><code class="docutils literal notranslate"><span class="pre">Department.description</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">Department.get_next_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">Department.get_previous_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.id"><code class="docutils literal notranslate"><span class="pre">Department.id</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.is_deleted"><code class="docutils literal notranslate"><span class="pre">Department.is_deleted</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.manager"><code class="docutils literal notranslate"><span class="pre">Department.manager</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.manager_id"><code class="docutils literal notranslate"><span class="pre">Department.manager_id</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.name"><code class="docutils literal notranslate"><span class="pre">Department.name</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.objects"><code class="docutils literal notranslate"><span class="pre">Department.objects</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.updated_at"><code class="docutils literal notranslate"><span class="pre">Department.updated_at</span></code></a></li>
+<li><a class="reference internal" href="#department.models.Department.workcenter_set"><code class="docutils literal notranslate"><span class="pre">Department.workcenter_set</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#department-serializers-module">department.serializers module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#department.serializers.DepartmentDetailSerializer"><code class="docutils literal notranslate"><span class="pre">DepartmentDetailSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#department.serializers.DepartmentDetailSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">DepartmentDetailSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#department.serializers.DepartmentSerializer"><code class="docutils literal notranslate"><span class="pre">DepartmentSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#department.serializers.DepartmentSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">DepartmentSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#department-tests-module">department.tests module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#department-urls-module">department.urls module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#department-views-module">department.views module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#department.views.DepartmentViewSet"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.authentication_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.basename"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.description"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.destroy()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.detail"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.get_queryset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.get_serializer_class()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.name"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#department.views.DepartmentViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.suffix</span></code></a></li>
+<li><a class="reference internal" href="#department-serializers-module">department.serializers module</a><ul>
+<li><a class="reference internal" href="#department.serializers.DepartmentDetailSerializer"><code class="docutils literal notranslate"><span class="pre">DepartmentDetailSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#department.serializers.DepartmentDetailSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">DepartmentDetailSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#department.serializers.DepartmentDetailSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">DepartmentDetailSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#department.serializers.DepartmentDetailSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">DepartmentDetailSerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#department.serializers.DepartmentSerializer"><code class="docutils literal notranslate"><span class="pre">DepartmentSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#department.serializers.DepartmentSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">DepartmentSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#department.serializers.DepartmentSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">DepartmentSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#department.serializers.DepartmentSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">DepartmentSerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user.html">user package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workcenter.html">workcenter package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workorder.html">workorder package</a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#department-tests-module">department.tests module</a></li>
+<li><a class="reference internal" href="#department-urls-module">department.urls module</a></li>
+<li><a class="reference internal" href="#department-views-module">department.views module</a><ul>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet</span></code></a><ul>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.authentication_classes</span></code></a></li>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.basename"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.basename</span></code></a></li>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.description"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.description</span></code></a></li>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.destroy()</span></code></a></li>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.detail"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.detail</span></code></a></li>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.get_queryset()</span></code></a></li>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.get_serializer_class()</span></code></a></li>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.name"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.name</span></code></a></li>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#department.views.DepartmentViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">DepartmentViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">E poslovanje</a>
+          <a href="index.html">EP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -492,15 +491,12 @@ destroy: Custom logic to mark a Department object as deleted.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to E poslovanje’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="department.migrations.html" class="btn btn-neutral float-right" title="department.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+    <p>&#169; Copyright 2023, Vjekoslav Rezić.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

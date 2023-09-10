@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>workplace package &mdash; E poslovanje 1.0 documentation</title>
+  <title>workplace package &mdash; EP 0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,7 +13,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/documentation_options.js?v=837179f8"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -30,7 +30,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            E poslovanje
+            EP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -40,22 +40,77 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="department.html">department package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user.html">user package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workcenter.html">workcenter package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workorder.html">workorder package</a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">workplace package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#workplace-admin-module">workplace.admin module</a></li>
+<li><a class="reference internal" href="#workplace-apps-module">workplace.apps module</a><ul>
+<li><a class="reference internal" href="#workplace.apps.WorkplaceConfig"><code class="docutils literal notranslate"><span class="pre">WorkplaceConfig</span></code></a><ul>
+<li><a class="reference internal" href="#workplace.apps.WorkplaceConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">WorkplaceConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#workplace.apps.WorkplaceConfig.name"><code class="docutils literal notranslate"><span class="pre">WorkplaceConfig.name</span></code></a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workplace-models-module">workplace.models module</a><ul>
+<li><a class="reference internal" href="#workplace.models.Workplace"><code class="docutils literal notranslate"><span class="pre">Workplace</span></code></a><ul>
+<li><a class="reference internal" href="#workplace.models.Workplace.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Workplace.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#workplace.models.Workplace.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Workplace.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#workplace.models.Workplace.code"><code class="docutils literal notranslate"><span class="pre">Workplace.code</span></code></a></li>
+<li><a class="reference internal" href="#workplace.models.Workplace.id"><code class="docutils literal notranslate"><span class="pre">Workplace.id</span></code></a></li>
+<li><a class="reference internal" href="#workplace.models.Workplace.is_deleted"><code class="docutils literal notranslate"><span class="pre">Workplace.is_deleted</span></code></a></li>
+<li><a class="reference internal" href="#workplace.models.Workplace.name"><code class="docutils literal notranslate"><span class="pre">Workplace.name</span></code></a></li>
+<li><a class="reference internal" href="#workplace.models.Workplace.objects"><code class="docutils literal notranslate"><span class="pre">Workplace.objects</span></code></a></li>
+<li><a class="reference internal" href="#workplace.models.Workplace.points"><code class="docutils literal notranslate"><span class="pre">Workplace.points</span></code></a></li>
+<li><a class="reference internal" href="#workplace.models.Workplace.user_set"><code class="docutils literal notranslate"><span class="pre">Workplace.user_set</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workplace-serializers-module">workplace.serializers module</a><ul>
+<li><a class="reference internal" href="#workplace.serializers.WorkplaceSerializer"><code class="docutils literal notranslate"><span class="pre">WorkplaceSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workplace.serializers.WorkplaceSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkplaceSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workplace.serializers.WorkplaceSerializer.Meta.exclude"><code class="docutils literal notranslate"><span class="pre">WorkplaceSerializer.Meta.exclude</span></code></a></li>
+<li><a class="reference internal" href="#workplace.serializers.WorkplaceSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WorkplaceSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workplace-tests-module">workplace.tests module</a></li>
+<li><a class="reference internal" href="#workplace-urls-module">workplace.urls module</a></li>
+<li><a class="reference internal" href="#workplace-views-module">workplace.views module</a><ul>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet</span></code></a><ul>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.authentication_classes</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.basename</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.description"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.description</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.destroy()</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.detail</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.get_queryset()</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.name"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.name</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.queryset</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.serializer_class</span></code></a></li>
+<li><a class="reference internal" href="#workplace.views.WorkplaceViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WorkplaceViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">E poslovanje</a>
+          <a href="index.html">EP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -359,7 +414,7 @@ destroy: Custom logic to mark a Workplace object as deleted.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+    <p>&#169; Copyright 2023, Vjekoslav Rezić.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

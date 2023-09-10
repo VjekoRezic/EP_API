@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>workcenter package &mdash; E poslovanje 1.0 documentation</title>
+  <title>workcenter package &mdash; EP 0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,14 +13,12 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/documentation_options.js?v=837179f8"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="workcenter.migrations package" href="workcenter.migrations.html" />
-    <link rel="prev" title="user.migrations package" href="user.migrations.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +30,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            E poslovanje
+            EP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -42,91 +40,96 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="department.html">department package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user.html">user package</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">workcenter package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="workcenter.migrations.html">workcenter.migrations package</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#workcenter-admin-module">workcenter.admin module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#workcenter-apps-module">workcenter.apps module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#workcenter.apps.WorkcenterConfig"><code class="docutils literal notranslate"><span class="pre">WorkcenterConfig</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.apps.WorkcenterConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">WorkcenterConfig.default_auto_field</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.apps.WorkcenterConfig.name"><code class="docutils literal notranslate"><span class="pre">WorkcenterConfig.name</span></code></a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">workcenter package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#workcenter-admin-module">workcenter.admin module</a></li>
+<li><a class="reference internal" href="#workcenter-apps-module">workcenter.apps module</a><ul>
+<li><a class="reference internal" href="#workcenter.apps.WorkcenterConfig"><code class="docutils literal notranslate"><span class="pre">WorkcenterConfig</span></code></a><ul>
+<li><a class="reference internal" href="#workcenter.apps.WorkcenterConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">WorkcenterConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.apps.WorkcenterConfig.name"><code class="docutils literal notranslate"><span class="pre">WorkcenterConfig.name</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#workcenter-models-module">workcenter.models module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#workcenter.models.WorkCenter"><code class="docutils literal notranslate"><span class="pre">WorkCenter</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WorkCenter.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WorkCenter.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.department"><code class="docutils literal notranslate"><span class="pre">WorkCenter.department</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.department_id"><code class="docutils literal notranslate"><span class="pre">WorkCenter.department_id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.description"><code class="docutils literal notranslate"><span class="pre">WorkCenter.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.failure_set"><code class="docutils literal notranslate"><span class="pre">WorkCenter.failure_set</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.id"><code class="docutils literal notranslate"><span class="pre">WorkCenter.id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.is_deleted"><code class="docutils literal notranslate"><span class="pre">WorkCenter.is_deleted</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.name"><code class="docutils literal notranslate"><span class="pre">WorkCenter.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.objects"><code class="docutils literal notranslate"><span class="pre">WorkCenter.objects</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.user_set"><code class="docutils literal notranslate"><span class="pre">WorkCenter.user_set</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.models.WorkCenter.workorder_set"><code class="docutils literal notranslate"><span class="pre">WorkCenter.workorder_set</span></code></a></li>
+<li><a class="reference internal" href="#workcenter-models-module">workcenter.models module</a><ul>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter"><code class="docutils literal notranslate"><span class="pre">WorkCenter</span></code></a><ul>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WorkCenter.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WorkCenter.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.department"><code class="docutils literal notranslate"><span class="pre">WorkCenter.department</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.department_id"><code class="docutils literal notranslate"><span class="pre">WorkCenter.department_id</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.description"><code class="docutils literal notranslate"><span class="pre">WorkCenter.description</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.failure_set"><code class="docutils literal notranslate"><span class="pre">WorkCenter.failure_set</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.id"><code class="docutils literal notranslate"><span class="pre">WorkCenter.id</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.is_deleted"><code class="docutils literal notranslate"><span class="pre">WorkCenter.is_deleted</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.name"><code class="docutils literal notranslate"><span class="pre">WorkCenter.name</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.objects"><code class="docutils literal notranslate"><span class="pre">WorkCenter.objects</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.user_set"><code class="docutils literal notranslate"><span class="pre">WorkCenter.user_set</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.models.WorkCenter.workorder_set"><code class="docutils literal notranslate"><span class="pre">WorkCenter.workorder_set</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#workcenter-serializers-module">workcenter.serializers module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#workcenter.serializers.WorkCenterDetailSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterDetailSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.serializers.WorkCenterDetailSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterDetailSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#workcenter.serializers.WorkCenterSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.serializers.WorkCenterSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#workcenter.serializers.WorkCenterSimpleSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.serializers.WorkCenterSimpleSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta</span></code></a></li>
+<li><a class="reference internal" href="#workcenter-serializers-module">workcenter.serializers module</a><ul>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterDetailSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterDetailSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterDetailSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterDetailSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterDetailSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WorkCenterDetailSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterDetailSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WorkCenterDetailSerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#workcenter-tests-module">workcenter.tests module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#workcenter-urls-module">workcenter.urls module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#workcenter-views-module">workcenter.views module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.authentication_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.description"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.destroy()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.get_queryset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.get_serializer_class()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.name"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.queryset</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.suffix</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WorkCenterSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WorkCenterSerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterSimpleSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterSimpleSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterSimpleSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.serializers.WorkCenterSimpleSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="workorder.html">workorder package</a></li>
 </ul>
-
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workcenter-tests-module">workcenter.tests module</a></li>
+<li><a class="reference internal" href="#workcenter-urls-module">workcenter.urls module</a></li>
+<li><a class="reference internal" href="#workcenter-views-module">workcenter.views module</a><ul>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet</span></code></a><ul>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.authentication_classes</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.basename</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.description"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.description</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.destroy()</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.detail</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.get_queryset()</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.get_serializer_class()</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.name"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.name</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.queryset</span></code></a></li>
+<li><a class="reference internal" href="#workcenter.views.WorkCenterViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WorkCenterViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">E poslovanje</a>
+          <a href="index.html">EP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -495,7 +498,7 @@ destroy: Custom logic to mark a WorkCenter object as deleted.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="workcenter.views.WorkCenterViewSet.queryset">
-<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.queryset" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[&lt;WorkCenter:</span> <span class="pre">dasdasd&gt;]&gt;</span></em><a class="headerlink" href="#workcenter.views.WorkCenterViewSet.queryset" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -514,15 +517,12 @@ destroy: Custom logic to mark a WorkCenter object as deleted.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="user.migrations.html" class="btn btn-neutral float-left" title="user.migrations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="workcenter.migrations.html" class="btn btn-neutral float-right" title="workcenter.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+    <p>&#169; Copyright 2023, Vjekoslav Rezić.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

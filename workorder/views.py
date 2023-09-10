@@ -116,7 +116,7 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """
-        Create a new WorkOrder instance.
+        Create a new WorkOrder instance and send a WebSocket message for the creation.
 
         Args:
             request: The request object.
@@ -134,12 +134,14 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
         self.perform_create(serializer)
         headers = self.get_success_headers(serializer.data)
         respSerializer = WorkOrderDetailSerializer(serializer.instance)
+
+        # Send a WebSocket message for creating a work order
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
             "workorder_updates",
             {
                 "type": "create.workorder",
-                "workorder":respSerializer.data
+                "workorder": respSerializer.data
             }
         )
         return Response(respSerializer.data, status=status.HTTP_201_CREATED, headers=headers)
@@ -155,7 +157,7 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         """
-        Custom destroy behavior for WorkOrder instances.
+        Custom destroy behavior for WorkOrder instances and send a WebSocket message for the deletion.
 
         Args:
             request: The request object.
@@ -169,20 +171,21 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
         instance.is_deleted = True
         instance.save()
 
+        # Send a WebSocket message for deleting a work order
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
             "workorder_updates",
             {
                 "type": "delete.workorder",
-                "workorder_id":instance.id
+                "workorder_id": instance.id
             }
         )
 
-        return Response(status=status.HTTP_204_NO_CONTENT)    
-    
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
     def perform_update(self, serializer):
         """
-        Perform custom update behavior for WorkOrder instances.
+        Perform custom update behavior for WorkOrder instances and send a WebSocket message for the update.
 
         Args:
             serializer: The serializer instance.
@@ -195,13 +198,14 @@ class WorkOrderViewSet(viewsets.ModelViewSet):
             self.request.data["complete_time"] = timezone.now()
         self.request.data["updated_at"] = timezone.now()
         serializer.save()
-        detailSerializer = WorkOrderDetailSerializer(instance = instance)
+        detailSerializer = WorkOrderDetailSerializer(instance=instance)
 
+        # Send a WebSocket message for updating a work order
         channel_layer = get_channel_layer()
         async_to_sync(channel_layer.group_send)(
             "workorder_updates",
             {
                 "type": "update.workorder",
-                "workorder":detailSerializer.data
+                "workorder": detailSerializer.data
             }
         )

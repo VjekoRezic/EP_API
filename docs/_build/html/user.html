@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>user package &mdash; E poslovanje 1.0 documentation</title>
+  <title>user package &mdash; EP 0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,14 +13,12 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/documentation_options.js?v=837179f8"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="user.migrations package" href="user.migrations.html" />
-    <link rel="prev" title="failure.migrations package" href="failure.migrations.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +30,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            E poslovanje
+            EP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -42,170 +40,186 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="department.html">department package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">user package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user.migrations.html">user.migrations package</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user-admin-module">user.admin module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user-apps-module">user.apps module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#user.apps.UserConfig"><code class="docutils literal notranslate"><span class="pre">UserConfig</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.apps.UserConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">UserConfig.default_auto_field</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.apps.UserConfig.name"><code class="docutils literal notranslate"><span class="pre">UserConfig.name</span></code></a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">user package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#user-admin-module">user.admin module</a></li>
+<li><a class="reference internal" href="#user-apps-module">user.apps module</a><ul>
+<li><a class="reference internal" href="#user.apps.UserConfig"><code class="docutils literal notranslate"><span class="pre">UserConfig</span></code></a><ul>
+<li><a class="reference internal" href="#user.apps.UserConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">UserConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#user.apps.UserConfig.name"><code class="docutils literal notranslate"><span class="pre">UserConfig.name</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#user-authentication-module">user.authentication module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#user.authentication.CustomUserAuth"><code class="docutils literal notranslate"><span class="pre">CustomUserAuth</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.authentication.CustomUserAuth.authenticate"><code class="docutils literal notranslate"><span class="pre">CustomUserAuth.authenticate()</span></code></a></li>
+<li><a class="reference internal" href="#user-authentication-module">user.authentication module</a><ul>
+<li><a class="reference internal" href="#user.authentication.CustomUserAuth"><code class="docutils literal notranslate"><span class="pre">CustomUserAuth</span></code></a><ul>
+<li><a class="reference internal" href="#user.authentication.CustomUserAuth.authenticate"><code class="docutils literal notranslate"><span class="pre">CustomUserAuth.authenticate()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#user-models-module">user.models module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#user.models.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">User.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">User.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.REQUIRED_FIELDS"><code class="docutils literal notranslate"><span class="pre">User.REQUIRED_FIELDS</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.USERNAME_FIELD"><code class="docutils literal notranslate"><span class="pre">User.USERNAME_FIELD</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.assignee"><code class="docutils literal notranslate"><span class="pre">User.assignee</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.auth_token"><code class="docutils literal notranslate"><span class="pre">User.auth_token</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.city"><code class="docutils literal notranslate"><span class="pre">User.city</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.creator"><code class="docutils literal notranslate"><span class="pre">User.creator</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.date_joined"><code class="docutils literal notranslate"><span class="pre">User.date_joined</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.date_of_birth"><code class="docutils literal notranslate"><span class="pre">User.date_of_birth</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.department_set"><code class="docutils literal notranslate"><span class="pre">User.department_set</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.email"><code class="docutils literal notranslate"><span class="pre">User.email</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.father_name"><code class="docutils literal notranslate"><span class="pre">User.father_name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.first_name"><code class="docutils literal notranslate"><span class="pre">User.first_name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.get_next_by_date_joined"><code class="docutils literal notranslate"><span class="pre">User.get_next_by_date_joined()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.get_next_by_date_of_birth"><code class="docutils literal notranslate"><span class="pre">User.get_next_by_date_of_birth()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.get_previous_by_date_joined"><code class="docutils literal notranslate"><span class="pre">User.get_previous_by_date_joined()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.get_previous_by_date_of_birth"><code class="docutils literal notranslate"><span class="pre">User.get_previous_by_date_of_birth()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.groups"><code class="docutils literal notranslate"><span class="pre">User.groups</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.id"><code class="docutils literal notranslate"><span class="pre">User.id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.is_active"><code class="docutils literal notranslate"><span class="pre">User.is_active</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.is_deleted"><code class="docutils literal notranslate"><span class="pre">User.is_deleted</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.is_staff"><code class="docutils literal notranslate"><span class="pre">User.is_staff</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.is_superuser"><code class="docutils literal notranslate"><span class="pre">User.is_superuser</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.job_title"><code class="docutils literal notranslate"><span class="pre">User.job_title</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.last_login"><code class="docutils literal notranslate"><span class="pre">User.last_login</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.last_name"><code class="docutils literal notranslate"><span class="pre">User.last_name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.logentry_set"><code class="docutils literal notranslate"><span class="pre">User.logentry_set</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.objects"><code class="docutils literal notranslate"><span class="pre">User.objects</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.password"><code class="docutils literal notranslate"><span class="pre">User.password</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.reporter"><code class="docutils literal notranslate"><span class="pre">User.reporter</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.rfid_uid"><code class="docutils literal notranslate"><span class="pre">User.rfid_uid</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.user_permissions"><code class="docutils literal notranslate"><span class="pre">User.user_permissions</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.username"><code class="docutils literal notranslate"><span class="pre">User.username</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.workcenter"><code class="docutils literal notranslate"><span class="pre">User.workcenter</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.workcenter_id"><code class="docutils literal notranslate"><span class="pre">User.workcenter_id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.workplace"><code class="docutils literal notranslate"><span class="pre">User.workplace</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.User.workplace_id"><code class="docutils literal notranslate"><span class="pre">User.workplace_id</span></code></a></li>
+<li><a class="reference internal" href="#user-models-module">user.models module</a><ul>
+<li><a class="reference internal" href="#user.models.User"><code class="docutils literal notranslate"><span class="pre">User</span></code></a><ul>
+<li><a class="reference internal" href="#user.models.User.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">User.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">User.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.REQUIRED_FIELDS"><code class="docutils literal notranslate"><span class="pre">User.REQUIRED_FIELDS</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.USERNAME_FIELD"><code class="docutils literal notranslate"><span class="pre">User.USERNAME_FIELD</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.assignee"><code class="docutils literal notranslate"><span class="pre">User.assignee</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.auth_token"><code class="docutils literal notranslate"><span class="pre">User.auth_token</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.city"><code class="docutils literal notranslate"><span class="pre">User.city</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.creator"><code class="docutils literal notranslate"><span class="pre">User.creator</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.date_joined"><code class="docutils literal notranslate"><span class="pre">User.date_joined</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.date_of_birth"><code class="docutils literal notranslate"><span class="pre">User.date_of_birth</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.department_set"><code class="docutils literal notranslate"><span class="pre">User.department_set</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.email"><code class="docutils literal notranslate"><span class="pre">User.email</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.father_name"><code class="docutils literal notranslate"><span class="pre">User.father_name</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.first_name"><code class="docutils literal notranslate"><span class="pre">User.first_name</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.get_next_by_date_joined"><code class="docutils literal notranslate"><span class="pre">User.get_next_by_date_joined()</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.get_next_by_date_of_birth"><code class="docutils literal notranslate"><span class="pre">User.get_next_by_date_of_birth()</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.get_previous_by_date_joined"><code class="docutils literal notranslate"><span class="pre">User.get_previous_by_date_joined()</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.get_previous_by_date_of_birth"><code class="docutils literal notranslate"><span class="pre">User.get_previous_by_date_of_birth()</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.groups"><code class="docutils literal notranslate"><span class="pre">User.groups</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.id"><code class="docutils literal notranslate"><span class="pre">User.id</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.is_active"><code class="docutils literal notranslate"><span class="pre">User.is_active</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.is_deleted"><code class="docutils literal notranslate"><span class="pre">User.is_deleted</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.is_staff"><code class="docutils literal notranslate"><span class="pre">User.is_staff</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.is_superuser"><code class="docutils literal notranslate"><span class="pre">User.is_superuser</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.job_title"><code class="docutils literal notranslate"><span class="pre">User.job_title</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.last_login"><code class="docutils literal notranslate"><span class="pre">User.last_login</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.last_name"><code class="docutils literal notranslate"><span class="pre">User.last_name</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.logentry_set"><code class="docutils literal notranslate"><span class="pre">User.logentry_set</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.objects"><code class="docutils literal notranslate"><span class="pre">User.objects</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.password"><code class="docutils literal notranslate"><span class="pre">User.password</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.reporter"><code class="docutils literal notranslate"><span class="pre">User.reporter</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.rfid_uid"><code class="docutils literal notranslate"><span class="pre">User.rfid_uid</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.user_permissions"><code class="docutils literal notranslate"><span class="pre">User.user_permissions</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.username"><code class="docutils literal notranslate"><span class="pre">User.username</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.workcenter"><code class="docutils literal notranslate"><span class="pre">User.workcenter</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.workcenter_id"><code class="docutils literal notranslate"><span class="pre">User.workcenter_id</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.workplace"><code class="docutils literal notranslate"><span class="pre">User.workplace</span></code></a></li>
+<li><a class="reference internal" href="#user.models.User.workplace_id"><code class="docutils literal notranslate"><span class="pre">User.workplace_id</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#user.models.UserManager"><code class="docutils literal notranslate"><span class="pre">UserManager</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.UserManager.create_superuser"><code class="docutils literal notranslate"><span class="pre">UserManager.create_superuser()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.models.UserManager.create_user"><code class="docutils literal notranslate"><span class="pre">UserManager.create_user()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#user-permissions-module">user.permissions module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#user.permissions.IsAdminOrReadOnly"><code class="docutils literal notranslate"><span class="pre">IsAdminOrReadOnly</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.permissions.IsAdminOrReadOnly.has_permission"><code class="docutils literal notranslate"><span class="pre">IsAdminOrReadOnly.has_permission()</span></code></a></li>
+<li><a class="reference internal" href="#user.models.UserManager"><code class="docutils literal notranslate"><span class="pre">UserManager</span></code></a><ul>
+<li><a class="reference internal" href="#user.models.UserManager.create_superuser"><code class="docutils literal notranslate"><span class="pre">UserManager.create_superuser()</span></code></a></li>
+<li><a class="reference internal" href="#user.models.UserManager.create_user"><code class="docutils literal notranslate"><span class="pre">UserManager.create_user()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#user-serializers-module">user.serializers module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserGetSerializer"><code class="docutils literal notranslate"><span class="pre">UserGetSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserGetSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserGetSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserLoginSerializer"><code class="docutils literal notranslate"><span class="pre">UserLoginSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserRegistrationSerializer"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserRegistrationSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer.Meta</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserRegistrationSerializer.create"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer.create()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserRfidLoginSerializer"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginSerializer</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserSerializer"><code class="docutils literal notranslate"><span class="pre">UserSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#user.serializers.UserSimpleSerializer"><code class="docutils literal notranslate"><span class="pre">UserSimpleSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.serializers.UserSimpleSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserSimpleSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#user.serializers.WorkCenterSimpleSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.serializers.WorkCenterSimpleSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta</span></code></a></li>
+<li><a class="reference internal" href="#user-permissions-module">user.permissions module</a><ul>
+<li><a class="reference internal" href="#user.permissions.IsAdminOrReadOnly"><code class="docutils literal notranslate"><span class="pre">IsAdminOrReadOnly</span></code></a><ul>
+<li><a class="reference internal" href="#user.permissions.IsAdminOrReadOnly.has_permission"><code class="docutils literal notranslate"><span class="pre">IsAdminOrReadOnly.has_permission()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#user-tests-module">user.tests module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user-urls-module">user.urls module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#user-views-module">user.views module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#user.views.UserLoginView"><code class="docutils literal notranslate"><span class="pre">UserLoginView</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLoginView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserLoginView.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLoginView.post"><code class="docutils literal notranslate"><span class="pre">UserLoginView.post()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLoginView.serializer_class"><code class="docutils literal notranslate"><span class="pre">UserLoginView.serializer_class</span></code></a></li>
+<li><a class="reference internal" href="#user-serializers-module">user.serializers module</a><ul>
+<li><a class="reference internal" href="#user.serializers.UserGetSerializer"><code class="docutils literal notranslate"><span class="pre">UserGetSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.UserGetSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserGetSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.UserGetSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">UserGetSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserGetSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">UserGetSerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#user.views.UserLogoutView"><code class="docutils literal notranslate"><span class="pre">UserLogoutView</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLogoutView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserLogoutView.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserLogoutView.post"><code class="docutils literal notranslate"><span class="pre">UserLogoutView.post()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#user.views.UserRegistrationView"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRegistrationView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRegistrationView.post"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView.post()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRegistrationView.serializer_class"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView.serializer_class</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserLoginSerializer"><code class="docutils literal notranslate"><span class="pre">UserLoginSerializer</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserRegistrationSerializer"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.UserRegistrationSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.UserRegistrationSerializer.Meta.extra_kwargs"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer.Meta.extra_kwargs</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserRegistrationSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserRegistrationSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#user.views.UserRfidLoginView"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRfidLoginView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRfidLoginView.post"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView.post()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserRfidLoginView.serializer_class"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView.serializer_class</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserRegistrationSerializer.create"><code class="docutils literal notranslate"><span class="pre">UserRegistrationSerializer.create()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#user.views.UserViewSet"><code class="docutils literal notranslate"><span class="pre">UserViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">UserViewSet.authentication_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.basename"><code class="docutils literal notranslate"><span class="pre">UserViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.description"><code class="docutils literal notranslate"><span class="pre">UserViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.detail"><code class="docutils literal notranslate"><span class="pre">UserViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">UserViewSet.get_queryset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">UserViewSet.get_serializer_class()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.name"><code class="docutils literal notranslate"><span class="pre">UserViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.perform_update"><code class="docutils literal notranslate"><span class="pre">UserViewSet.perform_update()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserViewSet.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#user.views.UserViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">UserViewSet.suffix</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserRfidLoginSerializer"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginSerializer</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserSerializer"><code class="docutils literal notranslate"><span class="pre">UserSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.UserSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.UserSerializer.Meta.extra_kwargs"><code class="docutils literal notranslate"><span class="pre">UserSerializer.Meta.extra_kwargs</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">UserSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">UserSerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#user.views.create_token"><code class="docutils literal notranslate"><span class="pre">create_token()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#user.serializers.UserSimpleSerializer"><code class="docutils literal notranslate"><span class="pre">UserSimpleSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.UserSimpleSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">UserSimpleSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.UserSimpleSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">UserSimpleSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.UserSimpleSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">UserSimpleSerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="workcenter.html">workcenter package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workorder.html">workorder package</a></li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#user.serializers.WorkCenterSimpleSerializer"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.WorkCenterSimpleSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#user.serializers.WorkCenterSimpleSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#user.serializers.WorkCenterSimpleSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WorkCenterSimpleSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user-tests-module">user.tests module</a></li>
+<li><a class="reference internal" href="#user-urls-module">user.urls module</a></li>
+<li><a class="reference internal" href="#user-views-module">user.views module</a><ul>
+<li><a class="reference internal" href="#user.views.UserLoginView"><code class="docutils literal notranslate"><span class="pre">UserLoginView</span></code></a><ul>
+<li><a class="reference internal" href="#user.views.UserLoginView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserLoginView.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserLoginView.post"><code class="docutils literal notranslate"><span class="pre">UserLoginView.post()</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserLoginView.serializer_class"><code class="docutils literal notranslate"><span class="pre">UserLoginView.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user.views.UserLogoutView"><code class="docutils literal notranslate"><span class="pre">UserLogoutView</span></code></a><ul>
+<li><a class="reference internal" href="#user.views.UserLogoutView.authentication_classes"><code class="docutils literal notranslate"><span class="pre">UserLogoutView.authentication_classes</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserLogoutView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserLogoutView.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserLogoutView.post"><code class="docutils literal notranslate"><span class="pre">UserLogoutView.post()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user.views.UserRegistrationView"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView</span></code></a><ul>
+<li><a class="reference internal" href="#user.views.UserRegistrationView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserRegistrationView.post"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView.post()</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserRegistrationView.serializer_class"><code class="docutils literal notranslate"><span class="pre">UserRegistrationView.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user.views.UserRfidLoginView"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView</span></code></a><ul>
+<li><a class="reference internal" href="#user.views.UserRfidLoginView.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserRfidLoginView.post"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView.post()</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserRfidLoginView.serializer_class"><code class="docutils literal notranslate"><span class="pre">UserRfidLoginView.serializer_class</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user.views.UserViewSet"><code class="docutils literal notranslate"><span class="pre">UserViewSet</span></code></a><ul>
+<li><a class="reference internal" href="#user.views.UserViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">UserViewSet.authentication_classes</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserViewSet.basename"><code class="docutils literal notranslate"><span class="pre">UserViewSet.basename</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserViewSet.description"><code class="docutils literal notranslate"><span class="pre">UserViewSet.description</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserViewSet.detail"><code class="docutils literal notranslate"><span class="pre">UserViewSet.detail</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">UserViewSet.get_queryset()</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">UserViewSet.get_serializer_class()</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserViewSet.name"><code class="docutils literal notranslate"><span class="pre">UserViewSet.name</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserViewSet.perform_update"><code class="docutils literal notranslate"><span class="pre">UserViewSet.perform_update()</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">UserViewSet.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#user.views.UserViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">UserViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#user.views.create_token"><code class="docutils literal notranslate"><span class="pre">create_token()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">E poslovanje</a>
+          <a href="index.html">EP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -1007,6 +1021,11 @@ to write an explicit <cite>.create()</cite> method.</p>
 </dd>
 </dl>
 <dl class="py attribute">
+<dt class="sig sig-object py" id="user.views.UserLogoutView.authentication_classes">
+<span class="sig-name descname"><span class="pre">authentication_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user.authentication.CustomUserAuth'&gt;]</span></em><a class="headerlink" href="#user.views.UserLogoutView.authentication_classes" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt class="sig sig-object py" id="user.views.UserLogoutView.permission_classes">
 <span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.IsAuthenticated'&gt;]</span></em><a class="headerlink" href="#user.views.UserLogoutView.permission_classes" title="Link to this definition"></a></dt>
 <dd></dd></dl>
@@ -1145,7 +1164,7 @@ serializations depending on the incoming request.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="user.views.UserViewSet.permission_classes">
-<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.IsAdminUser'&gt;]</span></em><a class="headerlink" href="#user.views.UserViewSet.permission_classes" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.IsAuthenticated'&gt;]</span></em><a class="headerlink" href="#user.views.UserViewSet.permission_classes" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1176,15 +1195,12 @@ serializations depending on the incoming request.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="failure.migrations.html" class="btn btn-neutral float-left" title="failure.migrations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="user.migrations.html" class="btn btn-neutral float-right" title="user.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+    <p>&#169; Copyright 2023, Vjekoslav Rezić.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

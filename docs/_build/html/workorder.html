@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>workorder package &mdash; E poslovanje 1.0 documentation</title>
+  <title>workorder package &mdash; EP 0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -13,14 +13,12 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/documentation_options.js?v=837179f8"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="workorder.migrations package" href="workorder.migrations.html" />
-    <link rel="prev" title="workcenter.migrations package" href="workcenter.migrations.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -32,7 +30,7 @@
           
           
           <a href="index.html" class="icon icon-home">
-            E poslovanje
+            EP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -42,169 +40,199 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="department.html">department package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="failure.html">failure package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user.html">user package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="workcenter.html">workcenter package</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">workorder package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="workorder.migrations.html">workorder.migrations package</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#workorder-admin-module">workorder.admin module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#workorder-apps-module">workorder.apps module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.apps.WorkorderConfig"><code class="docutils literal notranslate"><span class="pre">WorkorderConfig</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.apps.WorkorderConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">WorkorderConfig.default_auto_field</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.apps.WorkorderConfig.name"><code class="docutils literal notranslate"><span class="pre">WorkorderConfig.name</span></code></a></li>
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">workorder package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#workorder-admin-module">workorder.admin module</a></li>
+<li><a class="reference internal" href="#workorder-apps-module">workorder.apps module</a><ul>
+<li><a class="reference internal" href="#workorder.apps.WorkorderConfig"><code class="docutils literal notranslate"><span class="pre">WorkorderConfig</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.apps.WorkorderConfig.default_auto_field"><code class="docutils literal notranslate"><span class="pre">WorkorderConfig.default_auto_field</span></code></a></li>
+<li><a class="reference internal" href="#workorder.apps.WorkorderConfig.name"><code class="docutils literal notranslate"><span class="pre">WorkorderConfig.name</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#workorder-models-module">workorder.models module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.models.WO_Category"><code class="docutils literal notranslate"><span class="pre">WO_Category</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WO_Category.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WO_Category.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.id"><code class="docutils literal notranslate"><span class="pre">WO_Category.id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.is_deleted"><code class="docutils literal notranslate"><span class="pre">WO_Category.is_deleted</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.name"><code class="docutils literal notranslate"><span class="pre">WO_Category.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.objects"><code class="docutils literal notranslate"><span class="pre">WO_Category.objects</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Category.workorder_set"><code class="docutils literal notranslate"><span class="pre">WO_Category.workorder_set</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.models.WO_Status"><code class="docutils literal notranslate"><span class="pre">WO_Status</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WO_Status.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WO_Status.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.id"><code class="docutils literal notranslate"><span class="pre">WO_Status.id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.is_deleted"><code class="docutils literal notranslate"><span class="pre">WO_Status.is_deleted</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.name"><code class="docutils literal notranslate"><span class="pre">WO_Status.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.objects"><code class="docutils literal notranslate"><span class="pre">WO_Status.objects</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WO_Status.workorder_set"><code class="docutils literal notranslate"><span class="pre">WO_Status.workorder_set</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.models.WorkOrder"><code class="docutils literal notranslate"><span class="pre">WorkOrder</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WorkOrder.DoesNotExist</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WorkOrder.MultipleObjectsReturned</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.assigned_to"><code class="docutils literal notranslate"><span class="pre">WorkOrder.assigned_to</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.assigned_to_get_full_name"><code class="docutils literal notranslate"><span class="pre">WorkOrder.assigned_to_get_full_name()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.assigned_to_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.assigned_to_id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.category"><code class="docutils literal notranslate"><span class="pre">WorkOrder.category</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.category_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.category_id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.complete_time"><code class="docutils literal notranslate"><span class="pre">WorkOrder.complete_time</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.created_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_at</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.created_by"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_by</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.created_by_get_full_name"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_by_get_full_name()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.created_by_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_by_id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.description"><code class="docutils literal notranslate"><span class="pre">WorkOrder.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.due_time"><code class="docutils literal notranslate"><span class="pre">WorkOrder.due_time</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.failure_set"><code class="docutils literal notranslate"><span class="pre">WorkOrder.failure_set</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.get_next_by_created_at()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.get_previous_by_created_at()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.get_status_display"><code class="docutils literal notranslate"><span class="pre">WorkOrder.get_status_display()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.is_deleted"><code class="docutils literal notranslate"><span class="pre">WorkOrder.is_deleted</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.objects"><code class="docutils literal notranslate"><span class="pre">WorkOrder.objects</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.start_time"><code class="docutils literal notranslate"><span class="pre">WorkOrder.start_time</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.status"><code class="docutils literal notranslate"><span class="pre">WorkOrder.status</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.status_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.status_id</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.title"><code class="docutils literal notranslate"><span class="pre">WorkOrder.title</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.updated_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.updated_at</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.work_center"><code class="docutils literal notranslate"><span class="pre">WorkOrder.work_center</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.models.WorkOrder.work_center_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.work_center_id</span></code></a></li>
+<li><a class="reference internal" href="#workorder-consumers-module">workorder.consumers module</a><ul>
+<li><a class="reference internal" href="#workorder.consumers.WorkOrderConsumer"><code class="docutils literal notranslate"><span class="pre">WorkOrderConsumer</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.consumers.WorkOrderConsumer.connect"><code class="docutils literal notranslate"><span class="pre">WorkOrderConsumer.connect()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.consumers.WorkOrderConsumer.create_workorder"><code class="docutils literal notranslate"><span class="pre">WorkOrderConsumer.create_workorder()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.consumers.WorkOrderConsumer.delete_workorder"><code class="docutils literal notranslate"><span class="pre">WorkOrderConsumer.delete_workorder()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.consumers.WorkOrderConsumer.disconnect"><code class="docutils literal notranslate"><span class="pre">WorkOrderConsumer.disconnect()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.consumers.WorkOrderConsumer.update_workorder"><code class="docutils literal notranslate"><span class="pre">WorkOrderConsumer.update_workorder()</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#workorder-serializers-module">workorder.serializers module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer.Meta</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer.update"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer.update()</span></code></a></li>
+<li><a class="reference internal" href="#workorder-models-module">workorder.models module</a><ul>
+<li><a class="reference internal" href="#workorder.models.WO_Category"><code class="docutils literal notranslate"><span class="pre">WO_Category</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.models.WO_Category.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WO_Category.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Category.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WO_Category.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Category.id"><code class="docutils literal notranslate"><span class="pre">WO_Category.id</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Category.is_deleted"><code class="docutils literal notranslate"><span class="pre">WO_Category.is_deleted</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Category.name"><code class="docutils literal notranslate"><span class="pre">WO_Category.name</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Category.objects"><code class="docutils literal notranslate"><span class="pre">WO_Category.objects</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Category.workorder_set"><code class="docutils literal notranslate"><span class="pre">WO_Category.workorder_set</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WO_CategorySerializer"><code class="docutils literal notranslate"><span class="pre">WO_CategorySerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WO_CategorySerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WO_CategorySerializer.Meta</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Status"><code class="docutils literal notranslate"><span class="pre">WO_Status</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.models.WO_Status.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WO_Status.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Status.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WO_Status.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Status.id"><code class="docutils literal notranslate"><span class="pre">WO_Status.id</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Status.is_deleted"><code class="docutils literal notranslate"><span class="pre">WO_Status.is_deleted</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Status.name"><code class="docutils literal notranslate"><span class="pre">WO_Status.name</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Status.objects"><code class="docutils literal notranslate"><span class="pre">WO_Status.objects</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WO_Status.workorder_set"><code class="docutils literal notranslate"><span class="pre">WO_Status.workorder_set</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WO_StatusSerializer"><code class="docutils literal notranslate"><span class="pre">WO_StatusSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WO_StatusSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WO_StatusSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WorkOrderDetailSerializer"><code class="docutils literal notranslate"><span class="pre">WorkOrderDetailSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WorkOrderDetailSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkOrderDetailSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer.Meta</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer.create"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer.create()</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.serializers.WorkOrderSerializer"><code class="docutils literal notranslate"><span class="pre">WorkOrderSerializer</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.serializers.WorkOrderSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkOrderSerializer.Meta</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#workorder-tests-module">workorder.tests module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#workorder-urls-module">workorder.urls module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#workorder-views-module">workorder.views module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.authentication_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.description"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.destroy()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.get_queryset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.name"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.queryset</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.serializer_class</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.suffix</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.views.WO_StatusViewSet"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.authentication_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.description"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.destroy()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.get_queryset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.name"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.serializer_class</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WO_StatusViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.suffix</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#workorder.views.WorkOrderViewSet"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.authentication_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.basename</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.create"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.create()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.description"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.description</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.destroy()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.detail</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.get_queryset()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.get_serializer_class()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.name"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.name</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.perform_update"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.perform_update()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.permission_classes</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#workorder.views.WorkOrderViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.suffix</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder"><code class="docutils literal notranslate"><span class="pre">WorkOrder</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">WorkOrder.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">WorkOrder.MultipleObjectsReturned</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.assigned_to"><code class="docutils literal notranslate"><span class="pre">WorkOrder.assigned_to</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.assigned_to_get_full_name"><code class="docutils literal notranslate"><span class="pre">WorkOrder.assigned_to_get_full_name()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.assigned_to_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.assigned_to_id</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.category"><code class="docutils literal notranslate"><span class="pre">WorkOrder.category</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.category_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.category_id</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.complete_time"><code class="docutils literal notranslate"><span class="pre">WorkOrder.complete_time</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.created_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_at</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.created_by"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_by</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.created_by_get_full_name"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_by_get_full_name()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.created_by_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.created_by_id</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.description"><code class="docutils literal notranslate"><span class="pre">WorkOrder.description</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.due_time"><code class="docutils literal notranslate"><span class="pre">WorkOrder.due_time</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.failure_set"><code class="docutils literal notranslate"><span class="pre">WorkOrder.failure_set</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.get_next_by_created_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.get_next_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.get_previous_by_created_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.get_previous_by_created_at()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.get_status_display"><code class="docutils literal notranslate"><span class="pre">WorkOrder.get_status_display()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.id</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.is_deleted"><code class="docutils literal notranslate"><span class="pre">WorkOrder.is_deleted</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.objects"><code class="docutils literal notranslate"><span class="pre">WorkOrder.objects</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.start_time"><code class="docutils literal notranslate"><span class="pre">WorkOrder.start_time</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.status"><code class="docutils literal notranslate"><span class="pre">WorkOrder.status</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.status_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.status_id</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.title"><code class="docutils literal notranslate"><span class="pre">WorkOrder.title</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.updated_at"><code class="docutils literal notranslate"><span class="pre">WorkOrder.updated_at</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.work_center"><code class="docutils literal notranslate"><span class="pre">WorkOrder.work_center</span></code></a></li>
+<li><a class="reference internal" href="#workorder.models.WorkOrder.work_center_id"><code class="docutils literal notranslate"><span class="pre">WorkOrder.work_center_id</span></code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-contents">Module contents</a></li>
+<li><a class="reference internal" href="#workorder-routing-module">workorder.routing module</a></li>
+<li><a class="reference internal" href="#workorder-serializers-module">workorder.serializers module</a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workorder.serializers.WOUpdateSerializer.update"><code class="docutils literal notranslate"><span class="pre">WOUpdateSerializer.update()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workorder.serializers.WO_CategorySerializer"><code class="docutils literal notranslate"><span class="pre">WO_CategorySerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WO_CategorySerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WO_CategorySerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WO_CategorySerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WO_CategorySerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#workorder.serializers.WO_CategorySerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WO_CategorySerializer.Meta.model</span></code></a></li>
 </ul>
 </li>
 </ul>
-
+</li>
+<li><a class="reference internal" href="#workorder.serializers.WO_StatusSerializer"><code class="docutils literal notranslate"><span class="pre">WO_StatusSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WO_StatusSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WO_StatusSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WO_StatusSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WO_StatusSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#workorder.serializers.WO_StatusSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WO_StatusSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderDetailSerializer"><code class="docutils literal notranslate"><span class="pre">WorkOrderDetailSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderDetailSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkOrderDetailSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderDetailSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WorkOrderDetailSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderDetailSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WorkOrderDetailSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer.Meta.model</span></code></a></li>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer.Meta.read_only_fields"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer.Meta.read_only_fields</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderPostSerializer.create"><code class="docutils literal notranslate"><span class="pre">WorkOrderPostSerializer.create()</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderSerializer"><code class="docutils literal notranslate"><span class="pre">WorkOrderSerializer</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderSerializer.Meta"><code class="docutils literal notranslate"><span class="pre">WorkOrderSerializer.Meta</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderSerializer.Meta.fields"><code class="docutils literal notranslate"><span class="pre">WorkOrderSerializer.Meta.fields</span></code></a></li>
+<li><a class="reference internal" href="#workorder.serializers.WorkOrderSerializer.Meta.model"><code class="docutils literal notranslate"><span class="pre">WorkOrderSerializer.Meta.model</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workorder-tests-module">workorder.tests module</a></li>
+<li><a class="reference internal" href="#workorder-urls-module">workorder.urls module</a></li>
+<li><a class="reference internal" href="#workorder-views-module">workorder.views module</a><ul>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.authentication_classes</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.basename</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.description"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.description</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.destroy()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.detail</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.get_queryset()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.name"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.name</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.queryset"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.queryset</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.serializer_class</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_CategoryViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WO_CategoryViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.authentication_classes</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.basename</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.description"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.description</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.destroy()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.detail</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.get_queryset()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.name"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.name</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.serializer_class"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.serializer_class</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WO_StatusViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WO_StatusViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet</span></code></a><ul>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.authentication_classes"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.authentication_classes</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.basename"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.basename</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.create"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.create()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.description"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.description</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.destroy"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.destroy()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.detail"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.detail</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.get_queryset"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.get_queryset()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.get_serializer_class"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.get_serializer_class()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.name"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.name</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.perform_update"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.perform_update()</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.permission_classes"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.permission_classes</span></code></a></li>
+<li><a class="reference internal" href="#workorder.views.WorkOrderViewSet.suffix"><code class="docutils literal notranslate"><span class="pre">WorkOrderViewSet.suffix</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">E poslovanje</a>
+          <a href="index.html">EP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -274,6 +302,72 @@
 <dt class="sig sig-object py" id="workorder.apps.WorkorderConfig.name">
 <span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'workorder'</span></em><a class="headerlink" href="#workorder.apps.WorkorderConfig.name" title="Link to this definition"></a></dt>
 <dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="workorder-consumers-module">
+<h2>workorder.consumers module<a class="headerlink" href="#workorder-consumers-module" title="Link to this heading"></a></h2>
+<dl class="py class" id="module-workorder.consumers">
+<dt class="sig sig-object py" id="workorder.consumers.WorkOrderConsumer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">workorder.consumers.</span></span><span class="sig-name descname"><span class="pre">WorkOrderConsumer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/consumers.html#WorkOrderConsumer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.consumers.WorkOrderConsumer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">AsyncWebsocketConsumer</span></code></p>
+<p>WebSocket consumer for handling work order updates.</p>
+<p>This consumer handles WebSocket connections related to work order updates. It allows clients to connect and receive real-time updates for work orders.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>channel_name (str): The unique name of the WebSocket channel.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.consumers.WorkOrderConsumer.connect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/consumers.html#WorkOrderConsumer.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.consumers.WorkOrderConsumer.connect" title="Link to this definition"></a></dt>
+<dd><p>Handle WebSocket connection.</p>
+<p>This method is called when a WebSocket client establishes a connection. It adds the consumer to the “workorder_updates” group and accepts the connection.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.consumers.WorkOrderConsumer.create_workorder">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_workorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/consumers.html#WorkOrderConsumer.create_workorder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.consumers.WorkOrderConsumer.create_workorder" title="Link to this definition"></a></dt>
+<dd><p>Send a create message for a work order.</p>
+<p>This method is called when a new work order is created. It sends a WebSocket message with the newly created work order data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>event (dict): The event data containing the newly created work order information.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.consumers.WorkOrderConsumer.delete_workorder">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_workorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/consumers.html#WorkOrderConsumer.delete_workorder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.consumers.WorkOrderConsumer.delete_workorder" title="Link to this definition"></a></dt>
+<dd><p>Send a delete message for a work order.</p>
+<p>This method is called when a work order is deleted. It sends a WebSocket message with the ID of the deleted work order.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>event (dict): The event data containing the ID of the deleted work order.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.consumers.WorkOrderConsumer.disconnect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">close_code</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/consumers.html#WorkOrderConsumer.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.consumers.WorkOrderConsumer.disconnect" title="Link to this definition"></a></dt>
+<dd><p>Handle WebSocket disconnection.</p>
+<p>This method is called when a WebSocket connection is closed. It does not perform any specific action on disconnection.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>close_code: The code indicating the reason for disconnection.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="workorder.consumers.WorkOrderConsumer.update_workorder">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update_workorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/consumers.html#WorkOrderConsumer.update_workorder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.consumers.WorkOrderConsumer.update_workorder" title="Link to this definition"></a></dt>
+<dd><p>Send an update message for a work order.</p>
+<p>This method is called when a work order update event is received. It sends a WebSocket message with the updated work order data.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>event (dict): The event data containing the updated work order information.</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -668,6 +762,11 @@ one-to-one (via ForwardOneToOneDescriptor subclass) relation.</p>
 </dd></dl>
 
 </section>
+<section id="workorder-routing-module">
+<h2>workorder.routing module<a class="headerlink" href="#workorder-routing-module" title="Link to this heading"></a></h2>
+<p id="module-workorder.routing">WebSocket Routing Configuration</p>
+<p>This module configures WebSocket routing for Django Channels. It defines the WebSocket URL patterns and middleware stack for handling WebSocket connections.</p>
+</section>
 <section id="workorder-serializers-module">
 <h2>workorder.serializers module<a class="headerlink" href="#workorder-serializers-module" title="Link to this heading"></a></h2>
 <dl class="py class" id="module-workorder.serializers">
@@ -791,7 +890,7 @@ fields (list): The fields to include in the serialized representation.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="workorder.serializers.WorkOrderDetailSerializer.Meta.fields">
-<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'title',</span> <span class="pre">'description',</span> <span class="pre">'start_time',</span> <span class="pre">'due_time',</span> <span class="pre">'complete_time',</span> <span class="pre">'work_center',</span> <span class="pre">'category',</span> <span class="pre">'created_by',</span> <span class="pre">'assigned_to',</span> <span class="pre">'status',</span> <span class="pre">'created_at',</span> <span class="pre">'updated_at',</span> <span class="pre">'is_deleted']</span></em><a class="headerlink" href="#workorder.serializers.WorkOrderDetailSerializer.Meta.fields" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['id',</span> <span class="pre">'title',</span> <span class="pre">'description',</span> <span class="pre">'start_time',</span> <span class="pre">'due_time',</span> <span class="pre">'complete_time',</span> <span class="pre">'work_center_id',</span> <span class="pre">'work_center',</span> <span class="pre">'category_id',</span> <span class="pre">'category',</span> <span class="pre">'created_by_id',</span> <span class="pre">'created_by',</span> <span class="pre">'assigned_to_id',</span> <span class="pre">'assigned_to',</span> <span class="pre">'status_id',</span> <span class="pre">'status',</span> <span class="pre">'created_at',</span> <span class="pre">'updated_at',</span> <span class="pre">'is_deleted']</span></em><a class="headerlink" href="#workorder.serializers.WorkOrderDetailSerializer.Meta.fields" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -957,7 +1056,7 @@ serializer_class (WO_CategorySerializer): The serializer class.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="workorder.views.WO_CategoryViewSet.queryset">
-<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[]&gt;</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.queryset" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">queryset</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;QuerySet</span> <span class="pre">[&lt;WO_Category:</span> <span class="pre">asdsad&gt;]&gt;</span></em><a class="headerlink" href="#workorder.views.WO_CategoryViewSet.queryset" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1074,7 +1173,7 @@ permission_classes (list): The permission classes.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.create">
 <span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WorkOrderViewSet.create"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WorkOrderViewSet.create" title="Link to this definition"></a></dt>
-<dd><p>Create a new WorkOrder instance.</p>
+<dd><p>Create a new WorkOrder instance and send a WebSocket message for the creation.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>request: The request object.
 <a href="#id9"><span class="problematic" id="id10">*</span></a>args: Additional arguments.
@@ -1093,7 +1192,7 @@ permission_classes (list): The permission classes.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.destroy">
 <span class="sig-name descname"><span class="pre">destroy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WorkOrderViewSet.destroy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WorkOrderViewSet.destroy" title="Link to this definition"></a></dt>
-<dd><p>Custom destroy behavior for WorkOrder instances.</p>
+<dd><p>Custom destroy behavior for WorkOrder instances and send a WebSocket message for the deletion.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>request: The request object.
 <a href="#id13"><span class="problematic" id="id14">*</span></a>args: Additional arguments.
@@ -1137,7 +1236,7 @@ permission_classes (list): The permission classes.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.perform_update">
 <span class="sig-name descname"><span class="pre">perform_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serializer</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/workorder/views.html#WorkOrderViewSet.perform_update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#workorder.views.WorkOrderViewSet.perform_update" title="Link to this definition"></a></dt>
-<dd><p>Perform custom update behavior for WorkOrder instances.</p>
+<dd><p>Perform custom update behavior for WorkOrder instances and send a WebSocket message for the update.</p>
 <dl class="simple">
 <dt>Args:</dt><dd><p>serializer: The serializer instance.</p>
 </dd>
@@ -1148,7 +1247,7 @@ permission_classes (list): The permission classes.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="workorder.views.WorkOrderViewSet.permission_classes">
-<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'user.permissions.IsAdminOrReadOnly'&gt;]</span></em><a class="headerlink" href="#workorder.views.WorkOrderViewSet.permission_classes" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">permission_classes</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;class</span> <span class="pre">'rest_framework.permissions.IsAuthenticated'&gt;]</span></em><a class="headerlink" href="#workorder.views.WorkOrderViewSet.permission_classes" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -1167,15 +1266,12 @@ permission_classes (list): The permission classes.</p>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="workcenter.migrations.html" class="btn btn-neutral float-left" title="workcenter.migrations package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="workorder.migrations.html" class="btn btn-neutral float-right" title="workorder.migrations package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+    <p>&#169; Copyright 2023, Vjekoslav Rezić.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

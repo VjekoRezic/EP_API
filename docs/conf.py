@@ -11,15 +11,15 @@ import sys
 
 sys.path.insert(0, os.path.abspath('..'))
 
-project = 'E poslovanje'
-copyright = '2023, Ante i Vjekoslav'
-author = 'Ante i Vjekoslav'
-release = '1.0'
+project = 'EP'
+copyright = '2023, Vjekoslav Rezić'
+author = 'Vjekoslav Rezić'
+release = '0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ["sphinx.ext.todo", "sphinx.ext.viewcode", "sphinx.ext.autodoc"]
+extensions = ["sphinx.ext.autodoc",  "sphinx.ext.viewcode", "sphinx.ext.todo"]
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']

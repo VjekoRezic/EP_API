@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>workorder.views &mdash; E poslovanje 1.0 documentation</title>
+  <title>workorder.views &mdash; EP 0.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -12,7 +12,7 @@
   
         <script src="../../_static/jquery.js?v=5d32c60e"></script>
         <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/documentation_options.js?v=837179f8"></script>
         <script src="../../_static/doctools.js?v=888ff710"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -29,7 +29,7 @@
           
           
           <a href="../../index.html" class="icon icon-home">
-            E poslovanje
+            EP
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -39,22 +39,15 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../department.html">department package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../failure.html">failure package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../user.html">user package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../workcenter.html">workcenter package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../workorder.html">workorder package</a></li>
-</ul>
-
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
         </div>
       </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">E poslovanje</a>
+          <a href="../../index.html">EP</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -81,6 +74,9 @@
 <span class="kn">from</span> <span class="nn">user.authentication</span> <span class="kn">import</span> <span class="n">CustomUserAuth</span>
 <span class="kn">from</span> <span class="nn">user.permissions</span> <span class="kn">import</span> <span class="n">IsAdminOrReadOnly</span>
 <span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">rest_framework.permissions</span> <span class="kn">import</span> <span class="n">IsAuthenticated</span>
+<span class="kn">from</span> <span class="nn">channels.layers</span> <span class="kn">import</span> <span class="n">get_channel_layer</span>
+<span class="kn">from</span> <span class="nn">asgiref.sync</span> <span class="kn">import</span> <span class="n">async_to_sync</span>
 
 <div class="viewcode-block" id="WO_StatusViewSet">
 <a class="viewcode-back" href="../../workorder.html#workorder.views.WO_StatusViewSet">[docs]</a>
@@ -191,7 +187,7 @@
 <span class="sd">        permission_classes (list): The permission classes.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">authentication_classes</span> <span class="o">=</span> <span class="p">(</span><span class="n">CustomUserAuth</span><span class="p">,)</span>
-    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsAdminOrReadOnly</span><span class="p">]</span>
+    <span class="n">permission_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">IsAuthenticated</span><span class="p">]</span>
 
 <div class="viewcode-block" id="WorkOrderViewSet.get_serializer_class">
 <a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet.get_serializer_class">[docs]</a>
@@ -213,7 +209,7 @@
 <a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet.create">[docs]</a>
     <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Create a new WorkOrder instance.</span>
+<span class="sd">        Create a new WorkOrder instance and send a WebSocket message for the creation.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            request: The request object.</span>
@@ -231,6 +227,16 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">perform_create</span><span class="p">(</span><span class="n">serializer</span><span class="p">)</span>
         <span class="n">headers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_success_headers</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
         <span class="n">respSerializer</span> <span class="o">=</span> <span class="n">WorkOrderDetailSerializer</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">instance</span><span class="p">)</span>
+
+        <span class="c1"># Send a WebSocket message for creating a work order</span>
+        <span class="n">channel_layer</span> <span class="o">=</span> <span class="n">get_channel_layer</span><span class="p">()</span>
+        <span class="n">async_to_sync</span><span class="p">(</span><span class="n">channel_layer</span><span class="o">.</span><span class="n">group_send</span><span class="p">)(</span>
+            <span class="s2">&quot;workorder_updates&quot;</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;create.workorder&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workorder&quot;</span><span class="p">:</span> <span class="n">respSerializer</span><span class="o">.</span><span class="n">data</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
         <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">respSerializer</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_201_CREATED</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span></div>
 
 
@@ -250,7 +256,7 @@
 <a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet.destroy">[docs]</a>
     <span class="k">def</span> <span class="nf">destroy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Custom destroy behavior for WorkOrder instances.</span>
+<span class="sd">        Custom destroy behavior for WorkOrder instances and send a WebSocket message for the deletion.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            request: The request object.</span>
@@ -263,14 +269,25 @@
         <span class="n">instance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">()</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">is_deleted</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">instance</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_204_NO_CONTENT</span><span class="p">)</span>    </div>
 
-    
+        <span class="c1"># Send a WebSocket message for deleting a work order</span>
+        <span class="n">channel_layer</span> <span class="o">=</span> <span class="n">get_channel_layer</span><span class="p">()</span>
+        <span class="n">async_to_sync</span><span class="p">(</span><span class="n">channel_layer</span><span class="o">.</span><span class="n">group_send</span><span class="p">)(</span>
+            <span class="s2">&quot;workorder_updates&quot;</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;delete.workorder&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workorder_id&quot;</span><span class="p">:</span> <span class="n">instance</span><span class="o">.</span><span class="n">id</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_204_NO_CONTENT</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="WorkOrderViewSet.perform_update">
 <a class="viewcode-back" href="../../workorder.html#workorder.views.WorkOrderViewSet.perform_update">[docs]</a>
     <span class="k">def</span> <span class="nf">perform_update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">serializer</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Perform custom update behavior for WorkOrder instances.</span>
+<span class="sd">        Perform custom update behavior for WorkOrder instances and send a WebSocket message for the update.</span>
 
 <span class="sd">        Args:</span>
 <span class="sd">            serializer: The serializer instance.</span>
@@ -282,7 +299,18 @@
         <span class="k">if</span> <span class="s2">&quot;status&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">data</span> <span class="ow">and</span> <span class="n">instance</span><span class="o">.</span><span class="n">status</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;Završeni&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;complete_time&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;updated_at&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
-        <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></div>
+        <span class="n">serializer</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+        <span class="n">detailSerializer</span> <span class="o">=</span> <span class="n">WorkOrderDetailSerializer</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">instance</span><span class="p">)</span>
+
+        <span class="c1"># Send a WebSocket message for updating a work order</span>
+        <span class="n">channel_layer</span> <span class="o">=</span> <span class="n">get_channel_layer</span><span class="p">()</span>
+        <span class="n">async_to_sync</span><span class="p">(</span><span class="n">channel_layer</span><span class="o">.</span><span class="n">group_send</span><span class="p">)(</span>
+            <span class="s2">&quot;workorder_updates&quot;</span><span class="p">,</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;update.workorder&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;workorder&quot;</span><span class="p">:</span> <span class="n">detailSerializer</span><span class="o">.</span><span class="n">data</span>
+            <span class="p">}</span>
+        <span class="p">)</span></div>
 </div>
 
 </pre></div>
@@ -294,7 +322,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Ante i Vjekoslav.</p>
+    <p>&#169; Copyright 2023, Vjekoslav Rezić.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
